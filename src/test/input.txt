@@ -1,0 +1,470 @@
+FEATURE_NAME	ALIASES	DESCRIPTION	NAME_DESCRIPTION	CHROMOSOME	GENETIC_POSITION	NOTES	LITERATURE (PMIDs)
+ACD1																									
+ACR1		Involved in sensitivity to aculeacin A					1839761																		
+ACR2		Involved in sensitivity to aculeacin A				ACR2 is both an alias for YPR200C/ARR2 (an arsenate resistance gene) and the standard name for ACR2, an unmapped gene involved in aculeacin A sensitivity.	1839761 | 8322514 |9169866																		
+ACR3		Involved in sensitivity to aculeacin A				ACR3 is both an alias for YPR201W/ARR3 (an arsenite transporter) and the standard name for ACR3, an unmapped gene involved in aculeacin A sensitivity.	1839761 | 24798644 | 9169866																		
+ACR4		Involved in sensitivity to aculeacin A				Edition 14: ACR4 has not been genetically or physically mapped	1839761 | 9169866																		
+ADD1		Mutant deficient for degradation of alpha 1-proteinase inhibitorZ (A1PiZ)	A1PiZ Degradation Deficient				8978025																		
+ADE15		Mutant has dominant adenine autotrophy and reduced formyltetrahydrofolate synthetase levels	ADEnine requiring	chrVII	171		4147243 | 4147244 | 22905177																		
+AMC1	CHL6	Controls segregation of artificial minichromosomes during mitosis				Edition 11: amc1 is allelic to chl6	2663183 | 3054502 | 8442383 | 8243998 | 1413997																		
+ANC4		Actin non-complementing mutant					8243992 | 8243993 | 7579704 | 17167106 | 9153752																		
+ANI1		UV mutant conferring cryptopleurine, cycloheximide, and anisomycin resistance	ANIsomycin resistant	chrXV	46		3294103 | 10465783																		
+APR2				chrXIV	-88.5		16547104																		
+ARG84		Promoter mutation for ARG4 and ARG5, the acetylglutamate kinase and N-acetyl-gamma-glutamyl-phosphate reductase involved in arginine biosynthesis	ARGinine requiring	chrV	55		6251229 | 2995780 | 1413997 | 1535703 | 2678811																		
+ASC2		CYP1 absence of growth supressor					9504906																		
+ATA1		Sporulation-specific gene characterized by ATA sequences					2678811																		
+ATI5		Acaciae toxin insensitive																							
+AUT6		Defective in autophagocytosis				The AUT6 locus, identified genetically in Harding et al. 1996 was mislabelled for a period of time in SGD as AUT8. This data entry error was corrected on 7/26/2001. The actual aut8 mutation was identified separately in a different screen from that which is described in Harding et al., and is allelic to the APG2/YNL242W locus.	10511544 | 8663607																		
+AXE1		Mutant resistant to high concentrations of axenomycin; also resistant to cycloheximide, sparsomycin and amycetin, all known inhibitors of the large subunit of the ribosome; most probably one of the proteins of the large ribosomal subunit	AXEnomycin	chrVII	-4		6762918 | 24189724 | 2678811																		
+BEL3		Mutant shows enhanced repressible phosphatase (rAPase) activity via disruption of transcriptional activator Gcn4p	Basal Expression Level				7616963 | 9671481																		
+BEL4		Mutant shows enhanced repressible phosphatase (rAPase) activity via disruption of transcriptional activator Gcn4p	Basal Expression Level				7616963																		
+BEL5		Mutant shows enhanced repressible phosphatase (rAPase) activity via disruption of transcriptional activator Gcn4p	Basal Expression Level				7616963 | 9671481																		
+BEL6		Mutant shows enhanced repressible phosphatase (rAPase) activity via disruption of transcriptional activator Gcn4p	Basal Expression Level				7616963 | 9671481																		
+BEL7		Mutant shows enhanced repressible phosphatase (rAPase) activity via disruption of transcriptional activator Gcn4p	Basal Expression Level				7616963 | 9671481																		
+BLM1		Required for resistance to bleomycin; ionizing radiation and oxidative damage by hydrogen peroxide; mutants display slow growth and abnormal morphology; homozygous mutant has reduced spore viability; bleomycin resistance suppressed by MSH4	BLeoMycin resistance				1710619 | 6166602 | 8574150 | 9449533																		
+BLM5		Required for resistance to bleomycin; ionizing radiation and oxidative damage by hydrogen peroxide, required for sporulation					1710619 | 12398929 | 14682384 | 14682386																		
+BLS2		Recessive blasticidin-S resistance mutant	BLasticidin-S resistant	chrXI	74		3916720 | 2678811																		
+BRR4		Cold-sensitive (cs) mutant for diminished pre-mRNA splicing 	Bad Response to Refrigeration				8722763																		
+BST3		Negatively regulated COPII vesicle formation					8862519 | 15075228 | 12475940																		
+CAG1		Alpha-specific gene involved in regulating sex agglutinin synthesis		chrIII	30		3881403																		
+CCB1		Cross-complementation of budding defect		chrXV	108																				
+CDC22	DNA1	Cell division cycle mutant blocked at 36 degree C, arresting at bud formation	Cell Division Cycle			DNA1 has been used to refer to both CDC22 and DNA1/MAK1-3.	2407608 | 6761543 | 8150258 | 17248617																		
+CDC29		Cell division cycle blocked at 36 degree C	Cell Division Cycle	chrIX	-23	Edition 10: cdc29 has been shown to be distal to his6 by mitotic recombination analyses	17248617 | 2678811																		
+CDC61		Cell division cycle mutant blocked at 36 degree C with a G1 phase arrest	Cell Division Cycle				24185994 | 2407608																		
+CDC62		Cell division cycle blocked at 36 degree C		chrVII	57	Edition 10: cdc62 data in 1985 mapping review; new reference	2690082 | 24185994 | 2678811																		
+CDC67		Regulator of the cell cycle at Start		chrXVI	58		2407608 | 1547497																		
+CDC77	NDC2	Cell division cycle blocked at 36 degree C		chrIV	-5	CDC77 was mapped by Mortimer et al. 1989 on chromosome IV. Details of NDC2/CDC77 was published by Villadsen IS, Yeast (conference issue) 4:98 (1988); abstract #B28.	2678811 | 1413997																		
+CDL1		Recessive lethal allele resulting in cell death in the absence of CHC1, encoding the clathrin heavy chain 	Clathrin-Deficient Lethality				2072897																		
+CEM11			Condensing Enzyme with Mitochondrial function																						
+CHL2		Involved in controlling mitotic transmission of yeast chromosomes	CHromosome Loss			Edition 10: chl2 is located on the right arm by 2 micron mapping	3054502 | 3064490 | 8442383 | 2678811																		
+CHL5		Involved in controlling mitotic transmission of yeast chromosomes	CHromosome Loss				3054502 | 3064490 | 8442383																		
+CHL8	AMC3 | CTF12	Identified as a chromosome transmission fidelity mutant; has a high rate of chromosome loss				Edition 11: AMC3 has been renamed chl8 | Edition 11: ctf12, amc3 and chl8 are allelic	2407610 | 2663183 | 8442383 | 1413997																		
+CHL9	AMC4	Gene of unknown function; involved in controlling the segregation of natural chromosomes in yeast				Edition 11: AMC4 has been renamed chl9	2663183 | 1413997																		
+CLS1		Mutant has elevated intracellular calcium content and is unable to grow on Ca2+ rich medium	CaLcium Sensitive			CLS1 has been used in the literature to refer to both CRD1/YDL142C which encodes a cardiolipin synthase, and the genetic locus CLS1.	3531397 | 9169866																		
+CLY2		Mutant cells autolyse with prolonged exposure to 36 degree C	Cell LYsis at 36 degree C	chrII	-39		6341816 | 17248609 | 2678811 | 1413997 | 2995780 | 2196995																		
+CLY3		Mutant cells autolyse with prolonged exposure to 36 degree C	Cell LYsis at 36 degree C	chrVI	6		17248609 | 8056323 | 2678811 | 2995780 | 6757051 | 6366520 | 7010111 | 8917543																		
+CLY8		Mutant cells autolyse with prolonged exposure to 36 degree C	Cell LYsis at 36 degree C	chrVII	76		3029564 | 3547080 | 3886479 | 8483459 | 2407607 | 9008166 | 2668116 | 6096695 | 7010111 | 2678811 | 3896925																		
+CLY9		Mutant cells autolyse with prolonged exposure to 36 degree C	Cell LYsis			The 1980 edition of the S. cerevisiae genetic map states: The cly9 marker can no longer be scored reliably and has been removed from the map.	17248609 | 7010111																		
+CRL1		Mutant is resistant to low level cycloheximide exposure; results in cell cycle arrest at 36 degree C	Cycloheximide Resistant temperature sensitive (ts) lethal	chrVI	5	Edition 10: crl1 exact order of crl1 with respect to SUP11 and SUF20 has not been established	3294103 | 3294104 | 2678811																		
+CRL10		May be involved in the fidelity of protein translation		chrVII	92	May represent an allele of PRE9 (YGR135W), based on genetic map position.	3294103 | 3294104 | 9398670																		
+CRL11		Mutant resistant to low level cycloheximide exposure; results in cell cycle arrest at 36 degree C	Cycloheximide Resistant temperature sensitive (ts) lethal	chrXV	-41	Edition 10: crl11 maps centromere proximal to arg1 | May represent an allele of PRE6 (YOL038W), based on genetic map position.	9398670 | 2678811																		
+CRL12		May be involved in the fidelity of protein translation		chrVII	186	May represent an allele of PUP2 (YGR253C), based on genetic map position.	3294103 | 3294104 | 9398670																		
+CRL15		Mutant resistant to low level cycloheximide exposure; results in cell cycle arrest at 36 degree C	Cycloheximide Resistant temperature sensitive (ts) lethal	chrVIII	30		3294103																		
+CRL16		Mutant resistant to low level cycloheximide exposure; results in cell cycle arrest at 36 degree C	Cycloheximide Resistant temperature sensitive (ts) lethal	chrIV	236	May represent an allele of RPT3 (YDR394W), based on genetic map position.	9398670																		
+CRL17		Mutant resistant to low level cycloheximide exposure; results in cell cycle arrest at 36 degree C	Cycloheximide Resistant temperature sensitive (ts) lethal	chrXV	45	May represent an allele of RPT5 (YOR117W), based on genetic map position.	3294103 | 9398670																		
+CRL18		Mutant resistant to low level cycloheximide exposure; results in cell cycle arrest at 36 degree C	Cycloheximide Resistant temperature sensitive (ts) lethal	chrIV	-1	CRL18 is likely to represent an allele of PTC1 (TPD1, YDL006W), based on shared mutant phenotype and genetic map position. | May represent an allele of RPT2 (YDL007W), based on genetic map position.	3294103 | 8196609 | 9398670																		
+CRL22		Mutant resistant to low level cycloheximide exposure; results in cell cycle arrest at 36 degree C	Cycloheximide Resistant temperature sensitive (ts) lethal			Edition 10: crl22 - ade4 order has not been determined | May represent an allele of PRE5 (YMR314W), based on genetic map position.	3294103 | 9398670 | 2678811																		
+CRL4		Mutant resistant to low level cycloheximide exposure; results in cell cycle arrest at 36 degree C	Cycloheximide Resistant temperature sensitive (ts) lethal	chrV	18	May represent an allele of RPN3 (YER021W), based on genetic map position.	3294103 | 9398670																		
+CRL7		Mutant resistant to low level cycloheximide exposure; results in cell cycle arrest at 36 degree C	Cycloheximide Resistant temperature sensitive (ts) lethal	chrXV	71	May represent an allele of PUP1 (YOR157C), based on genetic map position.	3294103 | 9398670																		
+CRL9		Mutant resistant to low level cycloheximide exposure; results in cell cycle arrest at 36 degree C	Cycloheximide Resistant temperature sensitive (ts) lethal	chrII	97		3294103																		
+CRT2		Mutant constitutively activates transcription of RNR3, that encodes a ribonucleotide reductase large subunit isoform 	Constitutive RNR3 Transcription				1516817 | 23788651																		
+CUP14		Copper homeostasis		chrIV	286	Edition 10: cup14 data in 1985 mapping review; new reference	2653812 | 8628314 | 2678811																		
+CUP3		Mutant displays a modest reduction in copper resistance (Cu2+) relative to wild type	CUPrum	chrXII	323	Edition 10: cup3 data in 1985 mapping review; new reference	2653812 | 2678811																		
+CVT14		Transport of proaminopeptidase I (AP1) to the vacuole is altered and mutant accumulates precursor AP1	Cytoplasm to Vacuole Targeting				8663607 | 10735854																		
+CYH1		Mutant resistant to low level cycloheximide exposure	CYcloHeximide resistant	chrII		Edition 11: AMY2, cyh1 and cyh10 are probably alleles of pdr3 or pdr7 (pdr4) and have been removed from the map	2009277 | 5900603 | 1413997																		
+CYH10		Mutant resistant to low level cycloheximide exposure	CYcloHeximide resistant			Edition 11: AMY2, cyh1 and cyh10 are probably alleles of pdr3 or pdr7 (pdr4) and have been removed from the map	4371644 | 2009277 | 1413997																		
+CYH4		Mutant resistant to low level cycloheximide exposure	CYcloHeximide resistant	chrXV	34		8929391 | 4582950 | 2188106 | 1413997																		
+CYH5		Mutant resistant to low level cycloheximide exposure	CYcloHeximide resistant	chrXI			1913874																		
+CYS1		Mutant is auxotrophic for cysteine, and deficient in L-serine O-acetyltransferase activity	CYSteine deficient	chrI	-10		1561836 | 6373742 | 8335636 | 19593469 | 12586406																		
+CYS2		Mutant auxotrophic for cysteine, deficient in L-serine O-acetyltransferase activity	CYSteine deficient	chrVII	87.14		1441747 | 1525856 | 1789005 | 1789006 | 3056921 | 12234471 | 12586406																		
+DBF1		Protein required for DNA replication; expression is constant across the cell cycle	DumbBell Former				3299263 | 6750322																		
+DBL1		Dominant mutant fails to bind alcian blue dye	alcian blue Dye Binding Locus	chrXI	-84		1097420 | 4194860																		
+DDS2		Depressed DNA synthesis					353510 | 6750322																		
+DIE3		De-repression of ITR1 Expression																							
+DIS1		Required for mitotic segregation; meiosis I segregation, and spore viability				DIS1 has been used in the literature to refer to both ULS1/RIS1/YOR191W, which encodes a member of the SWI-SNF family of DNA-dependent ATPases, and the genetic locus DIS1, which is required for mitotic segregation, meiosis I segregation, and spore viability.	3294101 | 9169866																		
+DLP1		Delayed loss of proliferation activity					10580697																		
+DNA1	MAK1-3	Mutant allele dna1-1 has a G1 phase cell cycle arrest (dna1-1) at 36°C that is dependent on a functional RAD9 gene	DNA synthesis defective	chrXVI	3	DNA1 has been used to refer to both CDC22 and DNA1/MAK1-3.	2652918 | 7828811 | 8649984 | 6761543																		
+DPD1							8816439																		
+DRS3		Cold sensitive mutant displays a deficiency in the 40S ribosomal subunit	Deficient in Ribosomal Subunit				8247005 | 8720068 | 10465789																		
+DSM1		Temperature sensitive mutant, blocked in initiation of DNA meiotic synthesis at 36 degree C	Premeiotic DNA Synthesis deficient	chrVII	14		392227																		
+DUR4			Urea degradation deficient	chrVIII	-12		2995780 | 1413997																		
+EAM1		Endogenous ethanolamine biosynthesis		chrX	-108		3896927 | 17246236 | 3297920 | 1413997																		
+EAM2		Endogenous ethanolamine biosynthesis					3896927 | 2678811 | 3297920 | 1413997 | 2183021																		
+EAM6		Mutant counteracts the cho1 defect in phosphatidylserine synthesis with a novel endogenous supply of ethanolamine	Endogenous ethanolamine biosynthesis				1413997 | 2678811 | 8641269																		
+EIP1																									
+ERG201			Ergosterol biosynthesis defective				1413997																		
+ESC3		Escape of sugars control				ESC3 was identified and named in Rodriguez C, et al. (2003) FEMS Yeast Res 3(1):77-84	12702249																		
+ETH3		Affects methionine biosynthesis					1096967 | 4580557 | 1394507																		
+EXA2		Extragenic suppressor of hsp70 subfamily A				Edition 12: exa1 and exa2 are both centromere linked; the data are consistent with placing these two genes 8 cM and 21 cM from their respective centromeres. Neither gene is on chromosome III	1644272																		
+FET1		Mutants defective in FE(II) iron transport	FErrous Transport				10565676																		
+FIM1			FIMbrin				1413997																		
+FKR1		FK506 resistant					1715022																		
+FKR2		FK506 resistant					1715022																		
+FKR3		FK506 resistant					1715022																		
+FLS1		Temperature sensitive mutants display increased fluphezanine sensitivity	FLuphenazine Sensitive				3536873																		
+FRO1		Dominant allele responsible for foam generation	FROthing	chrVII	143		10861899 | 22069150																		
+FRO2		Dominant allele responsible for foam generation	FROthing	chrVII	127		10861899 | 22069150																		
+FSR1		Fluphenazine resistant mutant generated from fls1. Temperature sensitive cell cycle arrest occurs after nuclear duplication, and before cell division	Fluphenazine Sensitive to Resistant	chrII	150	Edition 10: fsr1 has been placed arbitrarily distal to his7	3536873 | 2678811																		
+GCD13		Negative regulator of GCN4 expression	General Control Derepressed				3540603 | 3554249 | 9539420 | 6095062																		
+GCD3		Negative regulator gene in general amino acid biosynthetic pathway; possibly upstream of GCN4	General Control Derepressed				3289762 | 3329041 | 3537730 | 18756096 | 20463023																		
+GCD4		Negative regulatory gene in general amino acid biosynthetic pathway; locus on Chromosome III; proposed negative regulator of GCN4	General Control Derepressed				3327608 | 3329041																		
+GCE1		cAMP-binding protein; localized to plasma membrane via glycosyl-phosphatidylinositol (GPI)-anchor	GPI-anchored Cylic-AMP-binding Ectoprotein				1334092 | 1657142 | 1722148 | 8109981 | 8320256 | 8524327 | 8554322 | 9231801 | 10684630																		
+GCN6		Positive regulator of GCN4 transcription	General Control Nonderepressible				3537709 | 6095062																		
+GCN7		Positive regulator of GCN4 transcription	General Control Nonderepressible				3537709 | 6095062																		
+GCN8		Recessive mutations confer sensitivity to multiple amino acid analogs, and result in decreased mRNA levels for amino biosynthetic genes under general control	General Control Nonderepressible				3537709 | 6095062																		
+GCN9		Recessive mutations confer sensitivity to multiple amino acid analogs, and result in decreased mRNA levels for amino biosynthetic genes under general control	General Control Nonderepressible				3537709 | 6095062																		
+GDR1		Involved in nutritional control of germination, mutants sporulate in a wider range of conditions	Germination DeRepressed				1804755																		
+GDR2		Involved in nutritional control of germination, mutants sporulate in a wider range of conditions	Germination DeRepressed				1804755																		
+GLU3		Mutant is auxotrophic for glutamic acid and demonstrates a lack of significant citrate synthase activity	GLUtamate auxotroph				10066 | 1102943																		
+GPI4		Gene of unknown function; involved in the attachment of glycosylphosphatidylinositol (GPI) anchors to proteins					7559756 | 9218792 | 10329735																		
+GPI5		Gene of unknown function; involved in the attachment of glycosylphosphatidylinositol (GPI) anchors to proteins					7559756																		
+GPI6		Gene of unknown function; involved in the attachment of glycosylphosphatidylinositol (GPI) anchors to proteins					7559756 | 21734149																		
+GPI9		Gene of unknown function; involved in the attachment of glycosylphosphatidylinositol (GPI) anchors to proteins					7559756																		
+GRD10		Mutants mislocalize fusion product of dipeptidyl aminopeptidase A and alkaline phosphatase (ALP) to the vacuole	Golgi Retention Defective				8649377																		
+GRD14		Mutants mislocalize a fusion protein containing dipeptidyl aminopeptidase A and alkaline phosphatase (ALP) to the vacuole	Golgi Retention Defective				8649377																		
+GRD15		Mutants mislocalize a fusion protein containing dipeptidyl aminopeptidase A and alkaline phosphatase (ALP) to the vacuole	Golgi Retention Defective				8649377																		
+GRD16		Mutants mislocalize a fusion protein containing dipeptidyl aminopeptidase A and alkaline phosphatase (ALP) to the vacuole	Golgi Retention Defective				8649377																		
+GRD17		Mutants mislocalize a fusion protein containing dipeptidyl aminopeptidase A and alkaline phosphatase (ALP) to the vacuole	Golgi Retention Defective				8649377																		
+GRD18		Mutants mislocalize a fusion protein containing dipeptidyl aminopeptidase A and alkaline phosphatase (ALP) to the vacuole	Golgi Retention Defective				8649377																		
+GRD3		Mutants mislocalize a fusion protein containing dipeptidyl aminopeptidase A and alkaline phosphatase (ALP) to the vacuole	Golgi Retention Defective				8649377																		
+GRD4		Mutants mislocalize a fusion protein containing dipeptidyl aminopeptidase A and alkaline phosphatase (ALP) to the vacuole	Golgi Retention Defective				8649377																		
+GRD5		Mutants mislocalize a fusion protein containing dipeptidyl aminopeptidase A and alkaline phosphatase (ALP) to the vacuole	Golgi Retention Defective				8649377																		
+GSD3		Mutants display reduced glycine decarboxylase multienzyme complex (GDC) activity and glycine intake	Defects in conversion of Glycine to Serine				7498764																		
+GSD4		Mutants display reduced glycine decarboxylase multienzyme complex (GDC) activity and glycine intake	Defects in conversion of Glycine to Serine				7498764																		
+GSD5		Mutants display reduced glycine decarboxylase multienzyme complex (GDC) activity and glycine intake	Defects in conversion of Glycine to Serine				7498764																		
+GSD6		Mutants display reduced glycine decarboxylase multienzyme complex (GDC) activity and glycine intake	Defects in conversion of Glycine to Serine				7498764																		
+GSF1		Glucose Signaling Factor					9335593 | 10628974 | 11514465 | 9618445 | 12618390 | 10712503																		
+GSF3		Involved in Snf1p-mediated glucose transcriptional repression	Glucose Signaling Factor				9335593																		
+HBO10																									
+HEM10		Involved in porphobilinogen (PBG) precursor generation for heme biosynthesis; mutants are defective in PBG synthase activity	HEMe synthesis deficient	chrVII	-35		7035824 | 2678811 | 1413997																		
+HEM11		Involved in heme biosynthesis					7035824																		
+HEM5		Involved in ferrochelatase activity of heme biosynthesis; mutants accumulate protoporphyrin IX 	HEMe synthesis deficient				323256 | 2445751																		
+HIR4		Involved in cell-cycle regulation of histone transcription					3125420 | 8224824																		
+HIT4		Disruption by transposon insertion confers growth at 37 degrees Celsius	HIgh Temperature growth	chrXIII	159.5		1325386																		
+HPC3		Mutants derepress histone gene transcription, such as HTA1, upon DNA synthesis inhibition	Histone Promoter Control				1406694 | 8224824 | 19952074 | 9504914																		
+HPC4		Mutants derepress histone gene transcription, such as HTA1, upon DNA synthesis inhibition	Histone Promoter Control				1406694																		
+HPC5		Mutants derepress histone gene transcription, such as HTA1, upon DNA synthesis inhibition	Histone Promoter Control				1406694 | 16264190 | 9504914																		
+HPR2		Involved in mitotic intrachromosomal recombination					2828154 | 3044923																		
+HPR4		Involved in mitotic intrachromosomal recombination					2828154 | 3044923																		
+HPR7		Involved in mitotic intrachromosomal recombination					2828154 | 3044923																		
+HPR8		Involved in mitotic intrachromosomal recombination					2828154 | 3044923																		
+HRS3		Mutations abrogate the hyper-deletion phenotype of hpr1; potential DNA repair function	Hyper-Recombination Suppression				7705651																		
+HRS4		Mutations abrogate the hyper-deletion phenotype of hpr1; potential DNA repair function	Hyper-Recombination Suppression				7705651																		
+HRS5		Mutations abrogate the hyper-deletion phenotype of hpr1; potential DNA repair function	Hyper-Recombination Suppression				7705651																		
+HYG4		Dominant mutant alleles confer increased hygromycyin B resistance	HYGromycin resitance	chrIV	201		2678811 | 1413997 | 2963211 | 3056938																		
+IAR1		Gene of unknown function; involved in regulating invertase (SUC5) activity and may be in part responsible for low levels of invertase activity observed in diploids				Edition 14: This gene was first called RPS5 but has been renamed to avoid confusion with the ribosomal gene by that name	3312477 | 9169866																		
+ICK1		Found as an extragenic suppressor of ctf13-30					9799255 | https://circle.ubc.ca/bitstream/handle/2429/14169/ubc_2003-0260.pdf?sequence=1																		
+IKI2		Recessive mutation confers resistance to the yeast killer toxin complex encoded by plasmid pGKL1	Insensitive to KIller	chrXIII			8704309																		
+IKI4		Recessive mutation confers resistance to the yeast killer toxin complex encoded by plasmid pGKL1	Insensitive to KIller				8704309																		
+IKI5		Recessive mutation confers resistance to the yeast killer toxin complex encoded by plasmid pGKL1	Insensitive to KIller				8704309																		
+ILP1																									
+IPA1		Mutants show increased porphyrin accumulation in conjunction with udt1, a disruption to the HEM12 gene encoding uroporphyrinogen decarboxylase	Increased accumulation of porphyrins				7770055																		
+IPA2		Mutants show increased porphyrin accumulation in conjunction with udt1, a disruption to the HEM12 gene encoding uroporphyrinogen decarboxylase	Increased accumulation of porphyrins				7770055																		
+IPA3		Mutants show increased porphyrin accumulation in conjunction with udt1, a disruption to the HEM12 gene encoding uroporphyrinogen decarboxylase	Increased accumulation of porphyrins				7770055 | 12073310																		
+KEM2		Mutants display an enhanced nuclear fusion defect during conjugation compared to a kar1-1 single mutant	Kar Enhancing Mutation				2076815																		
+KEM3		Mutants display an enhanced nuclear fusion defect during conjugation compared to a kar1-1 single mutant	Kar Enhancing Mutation	chrVII	-83	Edition 11: kem1 and kem3 data are not internally consistent nor are they consistent with other data for the lys5-met13 interval. The positions chosen for these genes are tentative.	2076815 | 1413997																		
+KIT12																									
+KRE10		Involved in beta-glucan synthesis; mutants are resistant to the S. cerevisiae K1 killer toxin	Killer toxin REsistant				8462845 | 348280																		
+KSL1							10652251																		
+LAI1		L-A Independant																							
+LAI2		L-A Independant																							
+LCP1		Synthetic lethal with pap1-7				Edition 15: The LCP1 locus has been genetically defined by Wiederkehr, T., et al. (1998). LCP1 has not been assigned to a standard ORF.	9814757																		
+LCP2		Synthetic lethal with pap1-7				Edition 15: The LCP2 locus has been genetically defined by Wiederkehr, T., et al. (1998). LCP2 has not been assigned to a standard ORF.	9814757																		
+LCP3		Synthetic lethal with pap1-7				Edition 15: The LCP3 locus has been genetically defined by Wiederkehr, T., et al. (1998). LCP3 has not been assigned to a standard ORF.	9814757																		
+LCP4		Synthetic lethal with pap1-7				Edition 15: The LCP4 locus has been genetically defined by Wiederkehr, T., et al. (1998). LCP4 has not been assigned to a standard ORF.	9814757																		
+LDR1		Gene of unknown function; identified in a screen for mutants that fail to localize the soluble Mnn1p lumenal domain to the Golgi				Identified in Reynolds et al. 1998.	9817752																		
+LET1		Involved in S1/S2 permease mediated L-leucine transport 	LEThal	chrI	2		8891352 | 17248609 | 1413997																		
+LET1M				chrXIII	79																				
+LET2		Involved in S1/S2 permease mediated L-leucine transport 	LEThal				8891352 | 1413997																		
+LET3			LEThal	chrX	-6		1413997																		
+LET5			LEThal	chrX	-17		1413997																		
+LET6			LEThal	chrVI	-7		1413997																		
+LEU6		Mutant displays a combinatorial reduction in alpha-isopropylmalate (alpha-IPM) synthase activity in concert with LEU4 disruption	LEUcine requiring			Edition 14: This gene is unmapped	3294097 | 9169866																		
+LEU7		Mutant displays a combinatorial reduction in alpha-isopropylmalate (alpha-IPM) synthase activity in concert with LEU4 disruption	LEUcine requiring			Edition 14: This gene is unmapped	3294097 | 9169866																		
+LEU8		Mutant displays a combinatorial reduction in alpha-isopropylmalate (alpha-IPM) synthase activity in concert with LEU4 disruption	LEUcine requiring			Edition 14: This gene is unmapped	3294097 | 9169866																		
+LGN1		Mutant unable to significantly derepress high-affinity (low-Km) glucose uptake	Low Glucose concentration				3049551																		
+LGN2		Mutant has elevated repressed levels of high-affinity uptake that either derepress to normal or near normal levels of high-affinity uptake with loss of low-affinity transport	Low Glucose concentration				3049551																		
+LGN3		Mutant has elevated repressed levels of high-affinity uptake that either derepress to normal or near normal levels of high-affinity uptake with loss of low-affinity transport	Low Glucose concentration				3049551																		
+LGN5		Mutant unable to significantly derepress high-affinity (low-Km) glucose uptake	Low Glucose concentration				3049551																		
+LGN6		Mutant has an intermediate yet constitutive level of high-affinity glucose transport	Low Glucose concentration				3049551																		
+LGN7		Mutant unable to significantly derepress high-affinity (low-Km) glucose uptake	Low Glucose concentration				3049551																		
+LGN8		Mutant unable to significantly derepress high-affinity (low-Km) glucose uptake	Low Glucose concentration				3049551																		
+LGN9		Mutant has an intermediate yet constitutive level of high-affinity glucose transport	Low Glucose concentration				3049551																		
+LTS1		Mutant unable to grow at 4 deg C; may also contribute to cycloheximide resistance and/or ribosomal defects	Low Temperature Sensistive				4371644																		
+LTS10		Mutant unable to grow at 4 deg C; may also contribute to cycloheximide resistance and/or ribosomal defects	Low Temperature Sensistive				4371644																		
+LTS3		Mutant unable to grow at 4 deg C; may also contribute to cycloheximide resistance and/or ribosomal defects	Low Temperature Sensistive				4371644																		
+LTS4		Mutant unable to grow at 4 deg C; may also contribute to cycloheximide resistance and/or ribosomal defects	Low Temperature Sensistive	chrIV	2.5		4371644																		
+LUP1		Possible regulatory component of an amino acid uptake system; amino acid uptake system is ammonium regulated and hydrophobic					8162183 | 8891352																		
+LYS15		Involved in the first half of the AA pathway (formation and the conversion of homocitrate to alpha-aminoadipate), part of lysine biosynthesis	LYSine requiring				2188943 | 2507177 | 3131025																		
+MAB1		Maintenance of bromovirus functions					9391109 | 10759565 | 11160714																		
+MAB2		Maintenance of bromovirus functions					9391109																		
+MAK12		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA, and decreased levels of free 60S ribosomal subunits	MAintainence of Killer deficient	chrXII	-31		7739558																		
+MAK13		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA, and also slowed growth at any temperature and decreased levels of free 60S ribosomal subunits	MAintainence of Killer deficient	chrIX	40		387719 | 7739558																		
+MAK14		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA	MAintainence of Killer deficient	chrIII	61		7739558																		
+MAK15		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA, and also slowed growth at any temperature	MAintainence of Killer deficient	chrXI	69		387719 | 7739558																		
+MAK19		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA	MAintainence of Killer deficient	chrVIII	130		7739558																		
+MAK20		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA, and also slowed growth at any temperature and decreased free 60S ribosomal subunits	MAintainence of Killer deficient			Edition 10: mak20 has been removed from the left arm of this chromosome because of uncertainties in the original assignment of this gene	387719 | 7739558 | 2678811																		
+MAK22		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA, and also slowed growth at any temperature and decreased free 60S ribosomal subunits	MAintainence of Killer deficient			Edition 10: mak22 has been removed from the left arm of this chromosome because of uncertainties in the original assignment of this gene (see Discussion)	387719 | 7739558 | 2678811																		
+MAK24		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA, and decreased free 60S ribosomal subunits	MAintainence of Killer deficient	chrVII	-56		17246214 | 7739558																		
+MAK26		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA	MAintainence of Killer deficient	chrXIV	-114		7739558																		
+MAK27		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA, and also slowed growth at any temperature and decreased levels of free 60S ribosomal subunits	MAintainence of Killer deficient	chrXIII	156		387719 | 1985195 | 3889549 | 6996833 | 7040337 | 7739558																		
+MAK4		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA, and also poor association of 40S and 60S ribosomal subunits	MAintainence of Killer deficient	chrII	60		787537 | 6996833 | 7040337 | 17246214 | 17248773 | 7739558																		
+MAK6	LTS5	Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA, and decreased levels of free 60S ribosomal subunit	MAintainence of Killer deficient	chrXVI	8		2865193 | 6371496 | 6996833 | 7040337 | 17248773 | 6750608 | 4371644 | 6757051 | 787537 | 206486 | 1413997 | 2678811 | 2995780 | 6987655 | 3280972 | 372549 | 7010111 | 7739558 | 8852903																		
+MAK9		Mutants of killer strains lose M dsRNA, encoding for virus-like particles and secreting protein toxin, but not L dsRNA, and decreased free 60S ribosomal subunits	MAintainence of Killer deficient	chrXI	-110.8		387719 | 7739558																		
+MCS2							8108573																		
+MCS3																									
+MCS4																									
+MDC1		Modifier of DCP1					19547915																		
+MGL2			a-MethylGLucoside fermentation	chrII	148	Edition 10: MAL3-SUC3-MGL2 order has been determined by three-point cross analyses	2678811 | 1413997																		
+MGM104		Nuclear mutation mgm104-1 leads to slow growth on glucose medium and temperature-sensitive (ts) loss of mitochondrial DNA (mtDNA); complementing allele encodes for tyrosyl-tRNA synthetase	Mitochondrial Genome Maintenance			Edition 14: It was previously believed that TYS1 and MGM104 were identical genes. However, Guan, M.X. (1997) Mol Gen Genet 255:525-532, find that the two loci are unlinked and that TYS1 is an unlinked suppressor of mgm104 mutants	9294037 | 9169866																		
+MIF1		Involved in chromosome transmission fidelity	MItotic Fidelity of chromosome transmission	chrXII		MIF1 has been used to refer to both MAS1/YLR163C, which encodes a subunit of mitochondrial processing peptidase, and the genetic locus MIF1 involved in chromosome segregation.	3510080 | 9169866																		
+MIN1		Mutant inhibited by relatively low concentrations of methionine and histidine	Methioine INhibited	chrV	-37		206899 | 6757051																		
+MIS11			MItochondrial c-tetrahydrofolate Synthetase			Edition 11: mis11 is distal and adjacent to tec1; both genes are proximal to pho3,5 and distal to gal7, 10, 1	1413997																		
+MMS3		Mutants confer methylmethanesulfonate and UV radiation sensitivity; may be implicated in the excision repair pathway	Methyl Methane Sulfonate sensitive				195865 | 7012135 | 23277058																		
+MOF1		Mutants increase -1 frameshift frequency of L-A dsRNA virus open reading frame resulting in gag-pol fusion protein	Maintenance Of Frame				8138178																		
+MOF3		Mutants increase -1 frameshift frequency of L-A dsRNA virus open reading frame resulting in gag-pol fusion protein	Maintenance Of Frame				8138178																		
+MOF5		Maintenance Of Frame	Maintenance Of Frame				8138178 | 10376878 | 16246174 | 10882134 | 11674994 | 12762034																		
+MOF7		Mutants increase -1 frameshift frequency of L-A dsRNA virus open reading frame resulting in gag-pol fusion protein	Maintenance Of Frame				8138178 | 10376878 | 8852903																		
+MOF8		Mutants increase -1 frameshift frequency of L-A dsRNA virus open reading frame resulting in gag-pol fusion protein, decrease activity of nonsense-mediated mRNA decay pathway	Maintenance Of Frame				8138178 | 10376878 | 16246174 | 10882134 | 11674994 | 12762034																		
+MRT3		Involved in mRNA Turnover					8757122 | 8816497 | 10913177																		
+MTH3																									
+MTP1		involved in transport of melezitose; alpha-methylglucoside and maltose		chrVII	225	Edition 10: MTP1 is 2 cM from MAL1 by random spore analysis | The MTP1 genetic locus may represent an allele of MAL11/YGR289C (also known as AGT1).	3042166 | 8594329 | 2678811																		
+MUM4		Required for viable spore production, mutants deficient for meiosis but not ectopic recombination	MUddled Meiosis				9504908																		
+MUP2	MET-P1	Putative methionine permease; met-p1 mutants recover full sensitivity to ethionine as well as normal permeability to methionine (same Km and V as the wild type) when NH4+ is removed from the medium	Methionine UPtake			The MUP2 genetic locus is likely to represent an allele of AGP1.	6048820 | 8893857 | 18951365 | 19711068 | 9891035																		
+MUT1		Required for fidelity in DNA repair; mutant enhances mutation rate and confers resistance to EMS, MMS, UV, and gamma mutagenesis	MUTator				383242 | 786780 | 7021317																		
+NCE1		Negative regulator of CTS1 expression				NCE1 has been used in the literature to refer to both NCE101/YJL205C, which encodes a protein of unknown function involved in non-classical protein export, and NCE1, a genetically defined unmapped locus involved in the regulation of CTS1 expression.	9169866 | 8657150 | 8655575																		
+NCE2		Negative regulator of CTS1 expression				NCE2 has been used in the literature to refer to both NCE102/YPR149W, which encodes a protein of unknown function involved in non-classical protein export, and NCE2, a genetically defined unmapped locus involved in the regulation of CTS1 expression.	8657150 | 21825281| 9169866 | 8657150 | 8655575																		
+NCE3		Negative regulator of CTS1 expression				NCE3 has been used in the literature to refer to both NCE103/YNL036W, which encodes a substrate for the non-classical protein export pathway, and NCE3, a genetically defined unmapped locus involved in the regulation of CTS1 expression.	8657150 | 9169866 | 8657150 | 8655575																		
+NGM2		Confers sensitivity to nitrosoguanidine and UV mutagenesis; mutants are defective for induced mutagenesis	NitrosoGuanidine Mutagenesis				3528759 | 16783012 | 8031302 | 10915878 | 11018586 | 11205328 | 11459630 | 2492497 | 2676986 | 3897795 | 10713149																		
+NHS1		Inhibitor of hydrogen sulfide production		chrV	47																				
+NOV1			NOVobiocin resistance				1413997																		
+NUP63		Nuclear pore complex protein	NUclear pore				8195299 | 8227139																		
+OSR10		Involved in osmotic stress response				Edition 15: The OSR10 locus has been genetically defined by Bruning et al. (1998). OSR10 has not been assigned to a standard ORF.	9683646																		
+OSR2		Involved in osmotic stress response				Edition 15: The OSR2 locus has been genetically defined by Bruning et al. (1998). OSR2 has not been assigned to a standard ORF.	9683646																		
+OSR3		Involved in osmotic stress response				Edition 15: The OSR3 locus has been genetically defined by Bruning et al. (1998). OSR3 has not been assigned to a standard ORF.	9683646																		
+OSR4		Involved in osmotic stress response				Edition 15: The OSR4 locus has been genetically defined by Bruning et al. (1998). OSR4 has not been assigned to a standard ORF.	9683646																		
+OSR6		Involved in osmotic stress response				Edition 15: The OSR6 locus has been genetically defined by Bruning et al. (1998). OSR6 has not been assigned to a standard ORF.	9683646																		
+OSR7		Involved in osmotic stress response				Edition 15: The OSR7 locus has been genetically defined by Bruning et al. (1998). OSR7 has not been assigned to a standard ORF.	9683646																		
+OSR8		Involved in osmotic stress response				Edition 15: The OSR8 locus has been genetically defined by Bruning et al. (1998). OSR8 has not been assigned to a standard ORF.	9683646																		
+OSR9		Involved in osmotic stress response				Edition 15: The OSR9 locus has been genetically defined by Bruning et al. (1998). OSR9 has not been assigned to a standard ORF.	9683646																		
+OSS1		Mitochondrial gene; mutant confers ossamycin resistance; important for the transcriptional repression of SWE1 a regulator of the G2/M phase transition	OSSamycin resistance			Edition 13: mitochondrial gene linked to OLI2 and OLI4 | OSS1 has been used in the literature to refer to both ZDS1/YMR273C, which encodes a protein involved in transcriptional silencing and polarity establishment, and OSS1, a genetically defined locus on the mitochondrial chromosome that confers ossamycin resistance when mutated.	160974 | 7003310 | 8647431																		
+OXT1		Mutant resistant to oxythiamine, a competitive inhibitor of thiamine phosphorylation that converts thiamine into thiamine diphosphate 	Resistance to OXyThiamin	chrIV	5	Edition 11: OXT1 is probably distal to trp1	2199352 | 1413997																		
+PBD1		Involved in glucose repression of vacuolar precursor PRB1; mutants display derepressed expression of PRB1;  Mutant dependent on functional mitochondrial membrane protein prohibitin, encoded by PHB2	PRB1 Derepressed; ProhiBitin Dependent				9045801 | 16710639																		
+PBD2		Involved in glucose repression of vacuolar precursor PRB1; mutants display derepressed expression of PRB1;  Mutant dependent on functional mitochondrial membrane protein prohibitin, encoded by PHB2	PRB1 Derepressed; ProhiBitin Dependent				9045801 | 16710639																		
+PBD3		Involved in glucose repression of vacuolar precursor PRB1; mutants display derepressed expression	PRB1 Derepressed				9045801																		
+PBS1		Mutations confer resistance to high levels of membrane toxin polymyxin B	Polymyxin B reSistance	chrXV	58	Edition 10: pbs1 has been mapped centromere proximal to ade2 by random spore analysis | Edition 14: The gene name PBS1 has also been used to refer to FKS1/YLR342W on Chromosome XII, which encodes a 1,3-beta-D-glucan synthase.	2993791 | 3039511 | 18625027 | 2678811																		
+PDC3		May be involved in pyruvate decarboxylase activity; originally identified as pdc1-30, but not allelic to other pdc1 alleles	Pyruvate DeCarboxylase				2670281 | 7050079																		
+PDE5		Putative high affinity cAMP phosphodiesterase					11032796																		
+PDG1																									
+PDR7		Required for normal PDR5 (multi-drug resistance pump) mRNA levels		chrII	-2		7629054 | 8150279																		
+PDR9		Regulates expression of PDR5					7629054 | 8150279																		
+PDX2			Pyridoxin requiring			Based on its genetic map position, PDX2 is likely to represent an allele of SNO1.	2678811 | 1413997																		
+PEP16			Proteinase deficient	chrXII	44		1413997																		
+PET1		Gene required for respiratory growth	PETite	chrVIII	7	Edition 11: cen8-pet1-arg4 distances in Edition 10 are incorrect; new data resulted in the repositioning of these genes as well as put2 and crl15	2215540 | 5900603 | 13977171 | 14802990 | 17247984 | 1413997																		
+PET11		Gene required for respiratory growth		chrII	101	Edition 11: pet11 was mistakenly identified as pet111 in Edition 10	5732415 | 5900603 | 6105114 | 1413997																		
+PET114		Mutant unable to grow on non-fermentable carbon sources	PETite				1413997																		
+PET14		Gene required for respiratory growth		chrIV	112		387719 | 1901944 | 17248609 | 6757051 | 8088511 | 1413997 | 17246112 | 2678811 | 3916808 | 8106383 | 171412																		
+PET17		Gene required for respiratory growth		chrXV	23		787537 | 5732415 | 6254831 | 6750608 | 17248609																		
+PET2		Gene required for respiratory growth	PETite	chrXIV	-171		6323924 | 6761582 | 13977171 | 14201165 | 16534748 | 17248609																		
+PET3		Gene required for respiratory growth	PETite	chrVIII	83		3551912 | 7009319 | 7668043 | 8897427 | 13977171 | 14201165																		
+PET4		Gene required for respiratory growth	PETite				13977171 | 14201165																		
+PET5		Gene required for respiratory growth	PETite				13977171 | 14201165 | 4561398 | 773743																		
+PET6		Gene required for respiratory growth	PETite				13977171 | 14201165 | 23012262																		
+PET7		Gene required for respiratory growth	PETite				13977171 | 14201165 | 1001877 | 773743																		
+PETX		Gene required for respiratory growth		chrXIV	-138		773743 | 1990286 | 6341816																		
+PFK4		Involved in glycolysis; mutant lacks particulate phosphofructokinase activity.	Phosphofructokinase				6241288 | 1387501 | 6236997																		
+PFK5		Involved in glycolysis; mutant lacks particulate phosphofructokinase activity.	Phosphofructokinase				6241288 | 1387501																		
+PHD3		Potential transcriptional regulator of pseudohyphal growth in response to nitrogen starvation	PseudoHyphal Determinant			Edition 15: The PHD3 locus has been genetically defined by Gimeno and Fink (1994).	8114741																		
+PHD4		Potential transcriptional regulator of pseudohyphal growth in response to nitrogen starvation	PseudoHyphal Determinant			Edition 15: The PHD4 locus has been genetically defined by Gimeno and Fink (1994).	8114741																		
+PHD6		Potential transcriptional regulator of pseudohyphal growth in response to nitrogen starvation	PseudoHyphal Determinant			Edition 15: The PHD6 locus has been genetically defined by Gimeno and Fink (1994).	8114741																		
+PHD7		Potential transcriptional regulator of pseudohyphal growth in response to nitrogen starvation	PseudoHyphal Determinant			Edition 15: The PHD7 locus has been genetically defined by Gimeno and Fink (1994).	8114741																		
+PHO82		Involved in repressible acid phosphatase synthesis; mutants confer constitutive expression	PHOsphotase Deficient	chrVI	47	Edition 13: PHO82 may be allelic to PHO4.	1879680 | 6090271 | 7007314 | 17249024 | 2183025 | 6314088																		
+PHO83		Involved in repressible acid phosphatase synthesis; mutants confer constitutive expression	PHOsphotase Deficient			Edition 13: The PHO83 mutation may be caused by insertion of a Ty element in the 5'-noncoding region of the PHO5 gene. 6314088	6314088																		
+PHR2		Functions in photoreactivation of UV DNA damage; inhibited photolyase activity in the mutant	PHotoreactivation repair deficient	chrXV	224		7031712 | 12773185																		
+PND1		Involved in glucose repression of vacuolar precursor PRB1; mutants partially derepress expression of PRB1	PRB1 NonDerepressible				9045801																		
+PND2		Involved in glucose repression of vacuolar precursor PRB1; mutants partially derepress expression of PRB1	PRB1 NonDerepressible				9045801																		
+POS1		Involved in oxidative stress				Edition 15: The POS1 locus has been genetically defined by Krems et al. (1995).	7586028 | 23896974																		
+POS11		Involved in oxidative stress				Edition 15: The POS11 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS12		Involved in oxidative stress				Edition 15: The POS12 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS13		Involved in oxidative stress				Edition 15: The POS13 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS14		Involved in oxidative stress				Edition 15: The POS14 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS15		Involved in oxidative stress				Edition 15: The POS15 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS16		Involved in oxidative stress				Edition 15: The POS16 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS2		Involved in oxidative stress				Edition 15: The POS2 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS3		Involved in oxidative stress				Edition 15: The POS3 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS4		Involved in oxidative stress				Edition 15: The POS4 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS6		Involved in oxidative stress				Edition 15: The POS6 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS7		Involved in oxidative stress				Edition 15: The POS7 locus has been genetically defined by Krems et al. (1995).	7586028																		
+POS8		Involved in oxidative stress				Edition 15: The POS8 locus has been genetically defined by Krems et al. (1995).	7586028																		
+PRT2		Temperature sensitive mutant with depressed protein synthesis 	Protein synthesis defective at 36 degree C	chrXIV	-171	Edition 13: The name PRT2 has also been used to refer to ECM15	6761582 | 17248609																		
+PRT3		Temperature sensitive mutant with depressed protein synthesis 	Protein synthesis defective at 36 degree C			Edition 10: prt3 has been removed from the left arm; previous map position incorrect	6188333 | 17248609 | 2678811																		
+PUT5		Putative trans regulator of PUT2 (delta 1-pyrroline-5-carboxylate dehydrogenase) in proline utilization; mutant constitutively expresses PUT2 at low levels	Proline nonutilizer				2689861																		
+QSR2		Mutant is synthetic lethal with QCR6 encoded subunit of mitochondrial cytochrome bc1 complex	Quinol-cytochrome c reductase Subunit-Requiring				7730379 | 9148960 | 9426207																		
+RAA4		Mutants are resistant to several amino-acid analogs and have a severe reduction in the uptake of leucine, lysine and ornithine	Resistant to amino acid analogs				2188104 | 9065387																		
+RAD29		Likely involved in base excision repair; mutants confer increased sensitivity to ionizing radiation	Radiation (ultraviolet or ionizing) sensitive	chrII			9153760 | 10915878 | 10923258 | 11033772																		
+RAH1		Gene of unknown function; identified in a screen for suppressors of the osmosensitivity (but not temperature sensitivity) phenotype of act1-1					1639843 | 9153752																		
+RAH2		Gene of unknown function; identified in a screen for suppressors of the osmosensitivity (but not temperature sensitivity) phenotype of act1-1					1639843 | 9153752																		
+RAH3		Gene of unknown function; identified in a screen for suppressors of the osmosensitivity (but not temperature sensitivity) phenotype of act1-1					1639843 | 7565410 | 8576696 | 8167016 | 9153752																		
+RAT6		Involved in nucleocytoplasmic transfer of mRNA; mutants accumulate mRNA at the nuclear periphery	Ribonucleic Acid Trafficking			RAT6 is probably allelic to IPL1.	10465789																		
+REC1		Gene of unknown function; required for mitotic intragenic and intergenic recombination and for sporulation		chrVII	-108	Edition 10: rec1 is located close to rad54 on the basis of data presented in this Table and in our 1985 review. However, this is not consistent with the rec1-rad54 data also included in the above Table. Because of this uncertainty, rec3 has not been placed on the genetic map	2178786 | 2678811																		
+REC4		Gene of unknown function; required for mitotic intragenic and intergenic recombination and for sporulation					4580568 | 6750384																		
+RES1		Involved in sporulation; activated transcriptionally by IME1	REgulation of Sporulation				1545790 | 2076816																		
+RGS1		Involved in secretory vesicle fusion to the plasma membrane; mutant is synthetic lethal with secretory G-protein encoding SEC4 	Regulation of Glycoprotein Secretion				8087888																		
+ROC2		Modulator of ROAM (Regulated Overproducing Allele responding to Mating signals) family activation of structural genes	ROAM mutation Control				6145588																		
+ROS2		Involved in STE4 related alpha-factor receptor propagation and pheromone response	Relaxation of sterility				3037311																		
+ROS3		Gene whose mutation suppresses the sterility of a ste4-3 sst2-1 mutant	Relaxation Of Sterility	chrV	-11		3037311																		
+RRM14		Rdna recombination mutation		chrXIII	159	Edition 11: rrm14 has been physically mapped adjacent and proximal to rna1	1413997																		
+RSP1		Mutant reverses suppression of Ty element insertion by SPT mutants; may encode suppressive glycine tRNA	Reverses Spt- Phenotype	chrVII	147.34		1330824																		
+RYE4		Regulation of YGP1 Expression					11139488 | 11560888																		
+RYE6		Regulation of YGP1 Expression					11139488																		
+RYE7		Regulation of YGP1 Expression					11139488																		
+RYE8		Regulation of YGP1 Expression					11139488																		
+SCD1		Enables survival of clathrin deficient CHC1 mutants; involved clathrin mediated vesicular transport	Suppressor of clathrin deficiency			Edition 14: The name, scd1, has also been used to refer to certain alleles of the SOD1 gene on chromosome X | SCD1 has been used to refer to both SOD1/YJR104C, which encodes copper, zinc superoxide dismutase, and SCD1, a genetic locus that can mutate to suppress clathrin mutations.	2072897 | 3116672 | 8380227 | 8688556 | 9133677 | 9169866																		
+SCH1		Locus that can mutate to suppress the lethality of chs2 null mutant	Suppressor of CHitin synthase disruption				8431950																		
+SCW1		Cell wall protein dissolved in reducing conditons; potential role in cell wall biosynthesis/maintanence	Soluble Cell Wall protein				9301021 | 15302828																		
+SCW5		Cell wall protein dissolved in reducing conditons; potential role in cell wall biosynthesis/maintanence	Soluble Cell Wall protein				9301021																		
+SCW7		Cell wall protein dissolved in reducing conditons; potential role in cell wall biosynthesis/maintanence	Soluble Cell Wall protein				9301021																		
+SEC55		Affects synthesis of secretory, glycosylated form of invertase; mutant accumulates nonglycosylated invertase specifically in the cytoplasm	Secretion deficient	chrIII	59		6368571 | 2995780 | 2678811																		
+SFS1		Serendipitously found suppressor																							
+SHE6		mRNA that causes growth arrest when overexpressed; identified by a library screen	Sensitivity to High Expression			Edition 14: SHE6 is antisense to YPL212C/PUS1	7762298 | 9169866																		
+SHE7		mRNA that causes growth arrest when overexpressed; identified by a library screen	Sensitivity to High Expression			Edition 13: may be on cosmid 8179 | Edition 14: SHE7 is antisense to YHR046C, although there is no ORF on the Watson strand	7762298 | 9169866																		
+SIN5		May be a negative regulator of ACE2					3545494 | 8005433 | 8657150 | 11713667 | 10517323 | 2072912																		
+SLC44			SphingoLipid Compensation																						
+SLT3		tRNA gene for glutamine using the CAA codon; mutant recognizes stop UAA codon	Suppression at Low Temperature				8637906 | 1868573																		
+SLU1		Essential for the first step of splicing; mutant synergistically lethal with mutation in U5 snRNA	Synergistic Lethal with U5 snRNA			Edition 12: HEM2/YGL040C [delta-aminolevulinate dehydratase] has also been called SLU1, but it should not be confused with the gene by that name that is synergistically lethal with U5 snRNA.	1406691																		
+SLU2		Essential for the first step of splicing; mutant synergistically lethal with mutation in U5 snRNA	Synergistic Lethal with U5 snRNA			SLU2 has been used in the literature to refer to both HEM4/YOR278W, which encodes a porphobilinogen synthase, and SLU2, which is essential for splicing.	1406691 | 9169866																		
+SMD4		Extragenic suppressor of nmt1 myristoylation defect					7937855																		
+SMD5		Extragenic suppressor of nmt1 myristoylation defect					7937855																		
+SME2		Start of meiosis																							
+SME3		Start of meiosis																							
+SMR3		Mutation confers resistance to cycloheximide, oligomycin and sulfometuron methyl	Sulfometuron Methyl Resistance	chrXV	96		2160400 | 3881312																		
+SMT2		Suppressor of Mif Two				Edition 12: Maps to chr XIV, immediately upstream of TOP2, clone association was not determined by hybridization-rather by sequencing																			
+SNF10		Involved in secreted SUC2 (invertase) derepression in response to glucose limitation; mutants are deficient in invertase expression	Sucrose NonFermenting	chrIII	-1.61		1752413 | 9618445																		
+SNS1		Involved in STA10 dependent UAS repression of STA1, which encodes the extracellular glucoamylase isozyme in S. cerevisiae var. diastaticus	STA1 not repressed by STA10				7700227																		
+SOH3		Mutant displays RAD-mediated suppression of tandem repeat hyperrecombination and suppresses the temperature sensitivity of the hpr1 mutant	Suppressor Of Hpr1				7982575																		
+SOH5		Mutant displays RAD-mediated suppression of tandem repeat hyperrecombination and suppresses the temperature sensitivity of the hpr1 mutant	Suppressor Of Hpr1				7982575																		
+SOH6		Mutant displays RAD-mediated suppression of tandem repeat hyperrecombination and suppresses the temperature sensitivity of the hpr1 mutant	Suppressor Of Hpr1				7982575																		
+SOH7		Mutant displays RAD-mediated suppression of tandem repeat hyperrecombination and suppresses the temperature sensitivity of the hpr1 mutant	Suppressor Of Hpr1				7982575 | 9032243																		
+SOH8		Mutant displays RAD-mediated suppression of tandem repeat hyperrecombination and suppresses the temperature sensitivity of the hpr1 mutant	Suppressor Of Hpr1				7982575 | 9618449																		
+SOI2		Suppressor of the rapid Onset of Impotence				Edition 13: Comments provided by J. Brickner: Suppressor of the rapid Onset of Impotence observed after shutting off the Kex2p localization-defective mutant Tyr713Ala. Mutations in the cytosolic tail of Kex2p, either deletion of the tail or substitution of Alanine for Tyr713, result in loss of TGN localization. Loss of Golgi retention results in a more rapid loss of mating competence of Mat alpha cells after shutting off expression of a GAL1 promoter-driven form of KEX2-Y713A. SOI2 mutants suppress the localization defect in Kex2p-Y713A and, unlike the parent strain, can mate well after 7h on glucose.	8887651 | 15090613																		
+SON2		Extragenic suppressor of mutations in the C terminus of SEC63					8514125																		
+SON3		Extragenic suppressor of mutations in the C terminus of SEC63					8514125																		
+SON4		Extragenic suppressor of mutations in the C terminus of SEC63					8514125																		
+SON5		Extragenic suppressor of mutations in the C terminus of SEC63					8514125																		
+SOT1		Mutant suppresses deoxythymidine 5'- monophosphate (dTMP) uptake conferred by recessive dTMP uptake (tup) mutants	Suppression of deOxyThymidine monophosphate uptake	chrXVI	-13		374400 | 6752656																		
+SPA1		Involved in chromosome segregation and other mitotic functions	Spindle Pole Antigen				3044610 | 10361272																		
+SPD1		Mediates nitrogen repression of sporulation in rich media		chrXV	-12		1094303 | 3540206 | 3886382 | 6374028 | 6374029 | 19682552 | 25086216																		
+SPD3		Derepressed for meiosis and spore formation					6374028 | 6374029 | 3528755																		
+SPD4		Derepressed for meiosis and spore formation					6374028 | 6374029 | 3528755 | 3299047																		
+SPO10		Gene of unknown function; dispensable for mitosis and premeiotic DNA synthesis; required for spindle pole body duplication, meiosis I, meiosis II, and spores	SPOrulation				3886327 | 3913414 | 4552504 | 4613605																		
+SPO17		Dispensable for mitosis; required for premeiotic DNA synthesis and subsequent meiotic landmarks, and sporulation-specific amyloglucosidase activity	SPOrulation			Edition 10: spo17 is 7.4 cM from trp5	3147221 | 2678811 | 5473889																		
+SPO2		Dispensable for mitosis; premeiotic DNA synthesis, recombination, meiosis I, meiosis II. Required for nuclear membrane integrity at meiosis I and meiosis II, and localized prospore wall growth at the nuclear envelope.	SPOrulation				4591340 | 4606582 | 5473889 | 4613605																		
+SPO4		Dispensable for mitosis; premeiotic DNA synthesis, recomb., meiosis I, meiosis II & prospore wall initiation. Required for spore wall elongation, coordination of spore wall closure with meiosis II segregation, & spore wall maturation	SPOrulation				4552504 | 4613605																		
+SPO5		Dispensable for mitosis; premeiotic DNA synthesis, recomb., meiosis I, meiosis II & prospore wall initiation. Required for spore wall elongation, coordination of spore wall closure with meiosis II segregation, & spore wall maturation	SPOrulation				4552504 | 4613605																		
+SPO50		Dispensable for mitosis; required for premeiotic DNA synthesis and recombination, and spores	SPOrulation				1678004 | 6374029																		
+SPO51		Required for sporulation	SPOrulation				6374029																		
+SPO53		Required for sporulation	SPOrulation				6374029																		
+SPO9		Dispensable for mitosis; required for premeiotic DNA synthesis, spindle pole body duplication, meiosis I, meiosis II, and spores	SPOrulation				3147221 | 4552504 | 4613605																		
+SPOT1		Essential for sporulation; required for premeiotic DNA synthesis	SPOrulation (T prefix locus)	chrXIII	0		6350825																		
+SPOT11		Essential for sporulation; required for premeiotic DNA synthesis	SPOrulation (T prefix locus)	chrXV	-3		6350825																		
+SPOT15		Essential for sporulation; required for meiosis I	SPOrulation (T prefix locus)	chrXV	57		6350825																		
+SPOT16		Essential for sporulation; required for meiosis II	SPOrulation (T prefix locus)	chrXVI	-140		6350825																		
+SPOT2		Essential for sporulation; required for premeiotic DNA synthesis	SPOrulation (T prefix locus)	chrVII	-142		1545790																		
+SPOT20		Essential for sporulation; required for spore maturation	SPOrulation (T prefix locus)	chrXVI	41.7		6350825																		
+SPOT23		Essential for sporulation; required for spore maturation	SPOrulation (T prefix locus)	chrXI	19		6350825																		
+SPOT4		Essential for sporulation; required for premeiotic DNA synthesis	SPOrulation (T prefix locus)	chrIV	-36		6350825																		
+SPOT7		Essential for sporulation; required for premeiotic DNA synthesis	SPOrulation (T prefix locus)	chrXIII	161	Edition 10: spoT7 data in 1985 mapping review; new reference	3889549 | 6350825 | 2678811																		
+SRA6		Required for repression of RAS1 transcription on nonfermentable carbon sources; involved in adenate cyclase activation	Suppressors of the RAs mutation	chrVII	45		1848378 | 3013722 | 3520568 | 2678811 | 2198534 | 1413997 | 2547147 | 2827010 | 3049076																		
+SRA7		Required for repression of RAS2 disaccumulation of glycogen; involved in adenate cyclase activation	Suppressors of the RAs mutation	chrX	-100		3013722 | 8150276 | 2823100 | 2678811																		
+SRN11		Extragenic suppressor of the temperature-sensitive phenotype of rna1-1					9790597																		
+SRP5		Involved in cytoplasmic accumulation of the largest subunit of RNA polymerase I (A190) 	Suppressor of Rna Polymerase I or A	chrXV	108		1846671 | 8041713																		
+SRS1		Involved in the self regulation of heat shock protein SSA1, and HSP70 family member	Self Regulating Sequence				383698 | 2181281																		
+SSB20			Stress-Seventy subfamily B				2678811 | 1413997																		
+SSB38			Stress-Seventy subfamily B				2678811 | 1413997																		
+SSF9		Involved in Swi4p-mediated start-dependent activation of HO and high level-expression of G1 cyclin genes; mutants restore HO transcription in the absence of SWI4	Suppressor of Swi Four				7748491 | 7935460																		
+SSU3		Sensitive to sulfite					8082198 | 9294463 | 10870099 | 10234785 | 8889516																		
+SSU4		Sensitive to sulfite					8889516 | 2123190 | 8082198 | 10234785 | 9294463 | 9409150																		
+SSX6		Involved in Swi4p-mediated start-dependent activation of HO and high level-expression of G1 cyclin genes; mutants restore HO transcription in the absence of SWI4	Suppressors of SWI6				15998722 | 7896087																		
+SSY4		Mutant bears resistance to metsulfuron-methyl and reduced phenylalanine uptake but is unable to grow on sulfonylurea containing YPD	Sulfonylurea Sensitive on YPD				9483800																		
+STB8			Sin Three Binding protein																						
+SUA2		Suppressor of upstream AUG	Suppressor of Upstream AUG			Edition 15: The SUA2 locus has been genetically defined by Hampsey, M., et al. (1991). SUA2 has not been assigned to a standard ORF.	1327957 | 1666843																		
+SUA3		Suppressor of upstream AUG	Suppressor of Upstream AUG			Edition 15: The SUA3 locus has been genetically defined by Hampsey, M., et al. (1991). SUA3 has not been assigned to a standard ORF.	1327957 | 1666843																		
+SUA4		Suppressor of upstream AUG	Suppressor of Upstream AUG			Edition 15: The SUA4 locus has been genetically defined by Hampsey, M., et al. (1991). SUA4 has not been assigned to a standard ORF.	1327957 | 1666843																		
+SUF15		Involved in suppression of frameshift mutations by mutant his4 tRNA that recognizes 4 base mRNA codon sequences	SUppression of Frameshift mutation	chrVII	171		2548921 | 6757051 | 17246112																		
+SUF18		Involved in suppression of frameshift mutations by mutant his4 tRNA that recognizes 4 base mRNA codon sequences	SUppression of Frameshift mutation	chrVI	16		2995780 | 2678811 | 6757051 | 17246112 | 6366520																		
+SUF19		Involved in suppression of frameshift mutations by mutant his4 tRNA that recognizes 4 base mRNA codon sequences	SUppression of Frameshift mutation	chrV	-38		1413997 | 2678811 | 2995780																		
+SUF21		Involved in suppression of frameshift mutations by mutant his4 tRNA that recognizes 4 base mRNA codon sequences	SUppression of Frameshift mutation	chrXVI	3		6757051 | 1413997 | 17246112 | 2678811 | 2995780 | 2537149 | 6366520																		
+SUF22		Involved in suppression of frameshift mutations by mutant his4 tRNA that recognizes 4 base mRNA codon sequences	SUppression of Frameshift mutation	chrXIII	-31		6757051 | 8440738 | 3894935 | 17246112 | 2995780 | 1413997 | 2678811 | 6366520																		
+SUF24		Involved in suppression of frameshift mutations by mutant his4 tRNA that recognizes 4 base mRNA codon sequences	SUppression of Frameshift mutation	chrIV	160		6757051 | 6757053 | 1394509 | 1413997 | 17246112 | 2995780 | 2678811																		
+SUF25		Involved in suppression of frameshift mutations by mutant his4 tRNA that recognizes 4 base mRNA codon sequences	SUppression of Frameshift mutation	chrIV	-115		6757051 | 17246112 | 2406560 | 2995780 | 1413997 | 11238400 | 2678811 | 6366520 | 6757053																		
+SUF76		Involved in suppression of frameshift mutations by mutant his4 tRNA that recognizes 4 base mRNA codon sequences	SUppression of Frameshift mutation																						
+SUH1		Mutant is involved in restoring histidinol phosphatase activity by suppressing the his2-1 histidine biosynthesis deficient allele	SUppression of his2-1				4329443																		
+SUH2		Mutant is involved in restoring histidinol phosphatase activity by suppressing the his2-1 histidine biosynthesis deficient allele	SUppression of his2-1	chrXII	24		4329443 | 7010111 | 1413997 | 2678811 | 2995780 | 6366520																		
+SUL3		Sulfate uptake					9055073 | 16102596 | 9409150 | 11921096 | 17151249																		
+SUP139		Mutant is an ominopotent (codon nonspecific) suppressor of nonsense mutations in [PSI]+ factor environment	SUPpression of nonsense mutations	chrV	52		1868573 | 2692850 | 1413997 | 2179051 | 16832048																		
+SUP15		Mutant is a suppressor of UAA-codon nonsense mutations in [PSI]+ factor environment	SUPpression of nonsense mutations	chrXVI	48	It is very likely that SUP15 and SUP16 are allelic, but this has not been proven definitively.	372549																		
+SUP154		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrVII	-42		8608930 | 2678811 | 1413997																		
+SUP155		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations				8608930 | 1413997 | 2678811 | 1525856																		
+SUP160		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrXV	3		8608930 | 1413997 | 2678811 | 1525856																		
+SUP165		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations			Edition 11: SUP165 has been removed from the map because of an improbable (17:3:20)) tetrad ratio (see Edition 10) and inconsistencies with the physical map of Riles and Olson	8608930 | 2678811 | 1413997 | 16832048																		
+SUP22		Mutant is a suppressor of UAA-codon nonsense mutations	SUPpression of nonsense mutations	chrIX	-95		6795356 | 2995780 | 7010111 | 1413997																		
+SUP25		Mutant is a suppressor of nonsense mutations by stop codon readthrough	SUPpression of nonsense mutations	chrXI	63		2995780 | 7010111 | 1413997 | 17246112 | 17248609 | 2678811 | 4590685 | 6366520																		
+SUP26		Mutant is a suppressor of UAA-codon nonsense mutations via leucine insertion in [PSI]+ factor environment	SUPpression of nonsense mutations	chrXII	306																				
+SUP27		Mutant is a suppressor of UAA-codon nonsense mutations via leucine insertion in [PSI]+ factor environment	SUPpression of nonsense mutations	chrIV	9		17248970																		
+SUP28		Putative leucine tRNA gene that can mutate to suppress UAA mutations; genetic mapping data suggest that SUP28 could correspond to tL(UAA)N		chrXIV	39	Edition 10: SUP28 data in 1985 mapping review; new reference	1475183 | 8608930 | 24173554 | 1413997 | 2678811																		
+SUP29	SUP30	Mutant is a suppressor of UAA-codon nonsense mutations via leucine insertion in [PSI]+ factor environment	SUPpression of nonsense mutations	chrX	0		392110 | 1868573 | 6821248 | 17248609 | 3533713 | 1413997 | 2678811 | 7010111 | 8082183																		
+SUP33		Leucine-inserting UAA suppressor; located between FAS1 and TRP3 on left arm of Chromosome XI		chrXI	-122.2	Edition 10: SUP33 data in 1985 mapping review; new reference	8608930 | 24173554 | 392110 | 1413997 | 2678811 | 2995780 | 3059716																		
+SUP37		Mutant is a suppressor of nonsense mutations by stop codon readthrough	SUPpression of nonsense mutations	chrXII	86		2995780 | 1413997 | 2678811																		
+SUP40		Mutant is a suppressor of nonsense mutations by stop codon readthrough	SUPpression of nonsense mutations				2678811 | 1413997 | 7698667																		
+SUP42		Mutant is an ominopotent (codon nonspecific) suppressor of nonsense mutations in [PSI]+ factor environment	SUPpression of nonsense mutations	chrIV	20		2179051 | 1413997 | 10580473																		
+SUP43		Mutant is an ominopotent (codon nonspecific) suppressor of nonsense mutations in [PSI]+ factor environment	SUPpression of nonsense mutations	chrXV	-14		2179051 | 3522920 | 2311916 | 2692850 | 1413997 | 10580473 | 3059716																		
+SUP50		Mutant is a suppressor of nonsense mutations by stop codon readthrough	SUPpression of nonsense mutations				1413997 | 7010111 | 17248609 | 2678811 | 2995780 | 7698667																		
+SUP57		Mutant is a suppressor of UAA-codon nonsense mutations via leucine insertion	SUPpression of nonsense mutations	chrVI	41		177333 | 6387150 | 1413997 | 2678811 | 2995780																		
+SUP58		Mutant is a suppressor of UAA-codon nonsense mutations via leucine insertion	SUPpression of nonsense mutations	chrXI	-58		177333 | 6387150 | 2995780 | 1413997 | 2678811 | 7828812																		
+SUP71	SUP150	Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrV	2	The genetic loci SUP71 and SUP150 were merged because PMID: 8608930 states that they are allelic.	8608930 | 17248609																		
+SUP72		Mutant is a suppressor of UGA-codon nonsense mutations, may correspond to tRNA genes	SUPpression of nonsense mutations	chrII	41		1413997 | 2678811 | 2995780 | 7813418 | 8608930																		
+SUP73		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrX	-21		1413997 | 2678811 | 2995780 | 6366520 | 8608930																		
+SUP74		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrX	-32		1413997 | 2678811 | 2995780 | 6366520 | 8608930 | 8641269																		
+SUP75		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrXI	-59		7828812 | 1413997 | 2678811 | 2995780 | 6366520 | 8408221 | 8608930																		
+SUP76		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrVII	134		2995780 | 2678811 | 1413997 | 6366520 | 8608930																		
+SUP77	SUP166	Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrVII	114		1525856																		
+SUP78		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrXIII	154		1413997 | 2678811 | 2995780 | 3896924 | 6366520 | 8608930																		
+SUP79		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrXIII	-48		2828155 | 2675489 | 2678811 | 2995780 | 3896924 | 1413997 | 6366520 | 8608930																		
+SUP80		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrIV	55		2995780 | 1413997 | 2678811 | 8608930																		
+SUP85		Mutant is a suppressor of UGA-codon nonsense mutations 	SUPpression of nonsense mutations	chrV	51		2995780 | 8608930 | 1413997 | 2678811																		
+SUP86		Mutant is a suppressor of nonsense mutations by stop codon readthrough	SUPpression of nonsense mutations	chrXII	304		1413997 | 2678811 | 2995780 | 6366520																		
+SUP87		Mutant is a suppressor of nonsense mutations by stop codon readthrough	SUPpression of nonsense mutations	chrII	26		1413997 | 2678811 | 2995780 | 7813418																		
+SUP88		Mutant is a suppressor of UGA-codon nonsense mutations via leucine insertion	SUPpression of nonsense mutations	chrIV	17		2675489 | 1413997 | 2678811 | 2995780																		
+SUPX		Mutant is a suppressor of UAA-codon nonsense mutations 	SUPpression of nonsense mutations	chrV	30.83		1441747																		
+SUPY		Mutant is a suppressor of UAG-codon nonsense mutations 	SUPpression of nonsense mutations	chrVI	48.64		1441747																		
+SUR3		Suppressor of rvs161 and rvs167 mutations					8488727 | 9098885 | 10366774 | 16524918																		
+SVL10		Styryl dye vacuolar localization					9751732																		
+SVL11		Styryl dye vacuolar localization					9751732																		
+SVL12		Styryl dye vacuolar localization					9751732																		
+SVL4		Styryl dye vacuolar localization					9751732																		
+SVL5		Styryl dye vacuolar localization					9751732																		
+SVL8		Styryl dye vacuolar localization					9751732																		
+SVL9		Styryl dye vacuolar localization					9751732																		
+TMR7		Revertant of tom1 ts mutant					10660055																		
+TS225																									
+TSF1		Recessive mutants impair GAL operator silencing; potentially implicated in RNA polymerase II machinery	Transcriptional Silencing Factor				8349104 | 8423805																		
+TSM0039		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrV	4		2678811 | 1413997																		
+TSM0070		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrVI	-30		2678811 | 1413997																		
+TSM0080		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrIV	7		2678811 | 1413997 | 2526682																		
+TSM0111		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrXIII	1		24173148																		
+TSM0119		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations																						
+TSM0120		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrXVI	32		2678811 | 1413997 | 9730282																		
+TSM0139		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrIX	-47		1413997 | 2653960 | 2678811																		
+TSM0151		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrVIII	23		1413997 | 2678811																		
+TSM0186		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrVIII	19		1413997																		
+TSM0225		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrIV	-49		1413997 | 2678811																		
+TSM0800		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrXIII	12		1413997 | 2678811																		
+TSM134		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrII	38		340892 | 348562 | 17248609																		
+TSM5		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrIII	60																				
+TSM5162		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrIV	23		1413997 | 2678811 | 2995780																		
+TSM8740		Restricted growth for mutants at 36 deg. C	Temperature sensitive lethal mutations	chrXV	55		2841184 | 24186473																		
+TTR2		Mutant characterized by increased levels of cytochrome-c, respiration rate, and sensitivity to carbon deprivation	TrieThyltin resistance				2202522 | 2167772																		
+TTR3		Mutant characterized by increased levels of cytochrome-c, respiration rate, and sensitivity to carbon deprivation	TrieThyltin resistance				2202522 | 2167772																		
+TUP4		Mutant incorporates exogenous deoxythymidine monophosphate (dTMP) into DNA and has elevated levels of inorganic phosphate transport	DeoxyThymidine monophosphate UPtake positive	chrXV	-10		8893 | 374400 | 787537 | 4281200 | 4587606 | 6293915																		
+TYE1		Required for Ty mediated expression of ADH2	TY-mediated constitutive Expression				1664298 | 6267430																		
+TYE5		Required for Ty mediated expression of ADH2					1664298																		
+UDT1		Involved in transcription of HEM12					7770055																		
+URR3		Required for GAL1 repression by URS element; mutant suppresses URS derepression by snf1 mutation	URS Repression				1541392 | 8262068 | 8467796 | 9618445																		
+URR4		Required for GAL1 repression by URS element; mutant suppresses URS derepression by snf1 mutation	URS Repression				1541392 | 8262068 | 8467796 | 9618445																		
+VMA42		Required for V-ATPase activity					9488470																		
+VMA43		Required for V-ATPase activity					9488470																		
+VMA44		Required for V-ATPase activity					9488470																		
+XCM2		Mutant suppresses mitotic spindle pole and nuclear intergrity defects of calmodulin mutant cmd1-101	eXtragenic suppressor of CMd1				8247006																		
+XCM3		Mutant suppresses mitotic spindle pole and nuclear intergrity defects of calmodulin mutant cmd1-101	eXtragenic suppressor of CMd1				8247006																		
+XSP18		Extragenic suppressor of pdc2					9055069																		
+XSP37		Extragenic suppressor of pdc2					9055069	
