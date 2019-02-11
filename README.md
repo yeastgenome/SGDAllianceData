@@ -7,26 +7,26 @@
 - Makefile has all the commands you need to run the scripts to produce the data files.
 
 - To install required packages run the this command:
-    ` Make setup `
+    ``` Make setup ```
 
 - To build file dependencies for phenotype data run the command:
-    ` Make build-panther `
+    ``` Make build-panther ```
 
 ## Disease Association file
 
-    ` Make build-disease `
+``` Make build-disease ```
 
 ## Phenotype File
 
-    ` Make run-phenotype `
+``` Make run-phenotype ```
 
 ## Expression File
 
-    ` Make run-expression `
+``` Make run-expression ```
 
 ## Basic Gene Information File
 
-    ` Make rub-bgi `
+``` Make rub-bgi ```
 
 ## File structure
 
