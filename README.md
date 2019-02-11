@@ -10,7 +10,7 @@
     ` Make setup `
 
 - To build file dependencies for phenotype data run the command:
-    ` Make build-panther
+    ` Make build-panther `
 
 ## Disease Association file
 
