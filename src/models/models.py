@@ -16,6 +16,8 @@ import os,sys
 
 
 DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
+
+
 ALLIANCE_API_BASE_URL = "https://www.alliancegenome.org/api/gene/"
 QUERY_LIMIT = 25000
 SGD_SOURCE_ID = 834

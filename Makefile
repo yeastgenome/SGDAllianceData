@@ -1,5 +1,6 @@
 setup:
 		pip install -r requirements.txt
+		npm install
 clean-packages:
 		pip unistall -r requirements.txt
 
@@ -12,5 +13,18 @@ build-disease:
 		npm run disease-json
 build-panther:
 		npm run panther-json
-run:
-		. env.sh && python src/sgd_alliance_data.py
+
+run-expression:
+		. env.sh && python ./run_expression.py
+run-phenotype:
+		. env.sh && python ./run_phenotype.py
+run-bgi:
+		. env.sh && python ./run_bgi.py 
+
+build-all:
+		. env.sh && pip install -r requirements.txt
+		npm run disease-json
+		npm run panther-json
+		python ./run_expression.py
+		python ./run_phenotype.py
+		python ./run_bgi.py

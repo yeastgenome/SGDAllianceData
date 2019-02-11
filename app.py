@@ -19,5 +19,4 @@ def hello():
 
 
 if __name__ == '__main__':
-    print(os.getenv('SQLALCHEMY_PROD_DB_URI'))
     app.run()

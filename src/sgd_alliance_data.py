@@ -517,4 +517,6 @@ def run_script_with_logs():
 # entry point
 if __name__ == '__main__':
     #run_script_without_logs()
-    run_script_with_logs()
+    get_expression_data()
+    get_phenotype_data()
+    #run_script_with_logs()
