@@ -32,8 +32,8 @@
 
 - This is where the modules that get necessary data are
 
-.. code::
-.
+```
+
 |-- src
 |   |-- basic_gene_information
 |   |   |-- basic_gene_information.py
@@ -49,5 +49,6 @@
 |   |-- phenotype
 |   |   |-- phenotype.py  
 |   |-- models
-|   |   |-- models.py    
+|   |   |-- models.py
 
+```
