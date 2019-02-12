@@ -69,6 +69,12 @@ $ nvm ls
 $ nvm use 10.12.0
 ```
 
+- To set default node version in case you don't wanna be picking node version each time you're working on node related tasks. Do this outside your virtual environment
+
+```
+$ nvm alias default 10.12.0
+```
+
 ## Disease Association file
 
 ```

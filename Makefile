@@ -19,6 +19,7 @@ run-expression:
 run-phenotype:
 		. env.sh && python ./run_phenotype.py
 run-bgi:
+		npm run panther-json
 		. env.sh && python ./run_bgi.py 
 
 build-all:

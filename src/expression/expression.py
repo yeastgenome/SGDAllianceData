@@ -70,7 +70,6 @@ def get_expression_data(root_path):
         writes expression data to json file
     """
     desired_eco_ids = get_eco_ids(ECO_FORMAT_NAME_LIST)
-    import pdb ; pdb.set_trace()
     genes = Locusdbentity.get_s288c_genes()
     result = []
     print("computing " + str(len(genes)) + " expression data points")
