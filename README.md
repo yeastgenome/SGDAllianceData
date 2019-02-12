@@ -8,13 +8,14 @@
 - Makefile has all the commands you need to run the scripts to produce the data files.
 
 - To install required packages run the this command:
+- $ is no part of the command(s), just visual cue since terminal looks like that.
 ``` 
-Make setup
+$ Make setup
 ```
 
 - To build file dependencies for phenotype data run the command:
 ```
-Make build-panther
+$ Make build-panther
 ```
 ## Node Version Management installation (optional)
 
@@ -29,7 +30,7 @@ $ brew install nvm
 $ mkdir ~/.nvm
 $ vim ~/.bash_profile
 ```
-* $ is no part of the command(s), just visual cue since terminal looks like that.
+
 
 #### bash_profile nvm setup
 - Add the following lines to your bash_profile
