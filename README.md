@@ -8,10 +8,14 @@
 - Makefile has all the commands you need to run the scripts to produce the data files.
 
 - To install required packages run the this command:
-    ``` Make setup ```
+``` 
+Make setup
+```
 
 - To build file dependencies for phenotype data run the command:
-    ` Make build-panther
+```
+Make build-panther
+```
 ## Node Version Management installation (optional)
 
 - If you do not have nvm installed, please follow the following to setup node environment on your machine. This is for Mac OS.
@@ -31,8 +35,8 @@ $ vim ~/.bash_profile
 - Add the following lines to your bash_profile
 
 ```
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+$ export NVM_DIR=~/.nvm
+$ source $(brew --prefix nvm)/nvm.sh
 ```
 
 - Go back to your terminal after adding above lines to your bash_profile
@@ -66,19 +70,27 @@ $ nvm use 10.12.0
 
 ## Disease Association file
 
-    ` $ Make build-disease `
+```
+$ Make build-disease
+```
 
 ## Phenotype File
 
-    ` $ Make run-phenotype `
+```
+$ Make run-phenotype 
+```
 
 ## Expression File
 
-    ` $ Make run-expression `
+```
+$ Make run-expression 
+```
 
 ## Basic Gene Information File
 
-    ` $ Make rub-bgi `
+```
+$ Make rub-bgi
+```
 
 ## File structure
 
