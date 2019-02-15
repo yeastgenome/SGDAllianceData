@@ -201,7 +201,7 @@ def get_output(result_data):
                 "dateProduced":
                     datetime.utcnow().strftime("%Y-%m-%dT%H:%m:%S-00:00"),
                 "release":
-                    "SGD " + SUBMISSION_VERSION + " " +
+                    "SGD " + SUBMISSION_VERSION.replace("_","").strip() + " " +
                     datetime.utcnow().strftime("%Y-%m-%d")
             }
         }
