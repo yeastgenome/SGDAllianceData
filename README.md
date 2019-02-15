@@ -9,14 +9,7 @@
 
 - To install required packages run the this command:
 - $ is no part of the command(s), just visual cue since terminal looks like that.
-``` 
-$ Make setup
-```
 
-- To build file dependencies for phenotype data run the command:
-```
-$ Make build-panther
-```
 ## Node Version Management installation (optional)
 
 - If you do not have nvm installed, please follow the following to setup node environment on your machine. This is for Mac OS.
@@ -76,9 +69,18 @@ $ nvm alias default 10.12.0
 ```
 
 ## Run everything in single command
+
 ```
 $ Make build
 ```
+- No need to run commands below if you run this as it includes all the commands
+
+## Running Commands one by one
+
+``` 
+$ Make setup
+```
+
 ## File dependencies (Required if running Makefile commands one by one)
 
 - Some of the scripts depend on pather_search_results.txt and disease_association.txt files to produce output json files
