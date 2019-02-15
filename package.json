@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-tsv-json": "node ./src/js_scripts/index.js --i=./src/test/input.txt --o=./src/test/output.json --h --tf",
-    "disease-json": "node ./src/js_scripts/index.js --i=./src/data_assets/disease_association.txt --o=./src/data_dump/disease_association.json --h --tf",
+    "disease-json": "node ./src/js_scripts/index.js --i=./src/data_assets/disease_association.txt --o=./src/data_assets/disease_association.json --h --tf",
     "panther-json": "node ./src/js_scripts/index.js --i=./src/data_assets/panther_search_results.txt --o=./src/data_assets/panther_search_results.json --h --tf"
   },
   "dependencies": {

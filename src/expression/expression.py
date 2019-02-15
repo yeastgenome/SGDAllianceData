@@ -3,7 +3,7 @@
 The script extracts data from 5 tables into a dictionary that is written to a json file.
 The json file is submitted to Alliance for futher processing
 
-This file rewuires packages listed in requirements.txt file and env.sh file.
+This file requires packages listed in requirements.txt file and env.sh file.
 The env.sh file contains environment variables
 
 This file can be imported as a modules and contains the following functions:

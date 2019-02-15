@@ -75,10 +75,24 @@ $ nvm use 10.12.0
 $ nvm alias default 10.12.0
 ```
 
-## Disease Association file
+## Run everything in single command
+```
+$ Make build
+```
+## File dependencies (Required if running Makefile commands one by one)
+
+- Some of the scripts depend on pather_search_results.txt and disease_association.txt files to produce output json files
+- Run the following to build the depencies before running the scripts
 
 ```
 $ Make build-disease
+$ Make build-panther
+```
+
+## Disease Association file
+
+```
+$ Make run-disease
 ```
 
 ## Phenotype File
