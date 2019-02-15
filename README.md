@@ -24,7 +24,6 @@ $ mkdir ~/.nvm
 $ vim ~/.bash_profile
 ```
 
-
 #### bash_profile nvm setup
 - Add the following lines to your bash_profile
 
