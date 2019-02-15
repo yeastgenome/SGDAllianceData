@@ -128,7 +128,9 @@ $ Make rub-bgi
 |   |-- data_dump
 |   |   |-- json data files are deposited here
 |   |-- data_helpers
-|   |   |-- data_helpers.py   
+|   |   |-- data_helpers.py
+|   |-- disease
+|   |   |-- disease.py 
 |   |-- expression
 |   |   |-- expression.py
 |   |-- phenotype
