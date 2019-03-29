@@ -45,29 +45,37 @@ def get_phenotypephenotype_data(root_path):
             if item.phenotype.qualifier:
                 pString = item.phenotype.qualifier.display_name
                 obj["phenotypeTermIdentifiers"].append({
-                    "termId": str(item.phenotype.qualifier.apoid),
-                    "termOrder": 1
+                    "termId":
+                    str(item.phenotype.qualifier.apoid),
+                    "termOrder":
+                    1
                 })
                 if item.phenotype.observable:
                     pString = pString + " " + item.phenotype.observable.display_name
                     obj["phenotypeTermIdentifiers"].append({
-                        "termId": str(item.phenotype.observable.apoid),
-                        "termOrder": 2
+                        "termId":
+                        str(item.phenotype.observable.apoid),
+                        "termOrder":
+                        2
                     })
 
             else:
                 if item.phenotype.observable:
                     pString = item.phenotype.observable.display_name
                     obj["phenotypeTermIdentifiers"].append({
-                        "termId": str(item.phenotype.observable.apoid),
-                        "termOrder": 1
+                        "termId":
+                        str(item.phenotype.observable.apoid),
+                        "termOrder":
+                        1
                     })
             obj["objectId"] = "SGD:" + str(item.dbentity.sgdid)
             obj["phenotypeStatement"] = pString
-            obj["evidence"] = {
-                "modPublicationId": "SGD:" + str(item.reference.sgdid),
-                "pubMedId": "PMID:" + str(item.reference.pmid)
-            }
+
+            if item.reference.pmid:
+                pubId = "PMID:" + str(item.reference.pmid)
+            else:
+                pubId = "SGD:" + str(item.reference.sgdid)
+            obj["evidence"] = {"publicationId": pubId}
             obj["dateAssigned"] = item.date_created.strftime(
                 "%Y-%m-%dT%H:%m:%S-00:00")
             result.append(obj)

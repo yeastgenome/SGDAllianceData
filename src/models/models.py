@@ -5398,6 +5398,7 @@ class Diseaseannotation(Base):
     date_assigned = Column(DateTime, nullable=False)
     date_created = Column(DateTime, nullable=False, server_default=text("('now'::text)::timestamp without time zone"))
     created_by = Column(String(12), nullable=False)
+    association_type = Column(ForeignKey(u'nex.ro.ro_id'), nullable=False)
 
     dbentity = relationship(u'Dbentity')
     disease = relationship(u'Disease')
@@ -5405,7 +5406,8 @@ class Diseaseannotation(Base):
     reference = relationship(u'Referencedbentity', foreign_keys=[reference_id])
     source = relationship(u'Source')
     taxonomy = relationship(u'Taxonomy')
-
+    ro = relationship(u'Ro')
+    
     def to_dict_lsp(self):
         obj = {
             "annotation_type": self.annotation_type,
@@ -5418,6 +5420,7 @@ class Diseaseannotation(Base):
         }
 
         alias = DBSession.query(EcoAlias).filter_by(eco_id=self.eco_id).all()
+        association_type = DBSession.query(Ro).filter_by(ro_id=self.association_type).all()
 
         experiment_name = alias[0].display_name
         for alia in alias:
@@ -5451,6 +5454,8 @@ class Diseaseannotation(Base):
             reference = self.reference
 
         alias = DBSession.query(EcoAlias).filter_by(eco_id=self.eco_id).all()
+        association_type = DBSession.query(Ro).filter_by(ro_id=self.association_type).all()
+
         experiment_name = alias[0].display_name
 
         for alia in alias:
@@ -5470,19 +5475,24 @@ class Diseaseannotation(Base):
         disease_obj = {
             "id": self.annotation_id,
             "annotation_type": self.annotation_type,
+            "association_type": {
+                "display_name": self.ro.display_name,
+                "id": self.ro.roid,
+            },
             "date_created": self.date_created.strftime("%Y-%m-%d"),
             "qualifier": self.disease_qualifier,
             "locus": {
                 "display_name": self.dbentity.display_name,
                 "link": self.dbentity.obj_url,
                 "id": self.dbentity.dbentity_id,
-                "format_name": self.dbentity.format_name
+                "format_name": self.dbentity.format_name,
+                "sgdid": self.dbentity.sgdid
             },
             "disease": {
                 "display_name": disease.display_name.replace("_", " "),
                 "link": disease.obj_url,
-                "disease_id": disease.doid,
-                "id": disease.disease_id
+                "doid": disease.doid,
+                "disease_id": disease.disease_id
             },
             "reference": {
                 "display_name": self.reference.display_name,
@@ -6248,7 +6258,7 @@ class Go(Base):
         obj["locus_count"] = DBSession.query(Goannotation.dbentity_id, func.count(Goannotation.dbentity_id)).filter_by(go_id=self.go_id).group_by(Goannotation.dbentity_id).count()
 
         return obj
-
+    
     def ontology_graph(self):
         annotations = DBSession.query(Goannotation.dbentity_id, func.count(Goannotation.dbentity_id)).filter_by(go_id=self.go_id).group_by(Goannotation.dbentity_id).count()
 
@@ -6267,6 +6277,7 @@ class Go(Base):
         children_relation = DBSession.query(GoRelation).filter(and_(GoRelation.parent_id == self.go_id, GoRelation.ro_id.in_(Go.allowed_relationships))).all()
 
         for child_relation in children_relation[:6]:
+         #   import pdb; pdb.set_trace()
             child_node = child_relation.to_graph(nodes, edges, add_child=True)
             all_children.append({
                 "display_name": child_node.display_name,

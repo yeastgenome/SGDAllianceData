@@ -12,33 +12,78 @@ This file can be imported as a modules and contains the following functions:
 import os
 import sys
 import json
+import re
 import concurrent.futures
 from datetime import datetime
-from ..models.models import Phenotypeannotation, DBSession
-from ..data_helpers.data_helpers import get_output, SUBMISSION_VERSION
+from ..models.models import DBSession, Diseaseannotation, Diseasesupportingevidence
+from ..data_helpers.data_helpers import get_eco_ids, get_output, SUBMISSION_VERSION
+from sqlalchemy import create_engine, and_
+
+engine = create_engine(os.getenv('SQLALCHEMY_PROD_DB_URI'), pool_recycle=3600)
+DBSession.configure(bind=engine)
+
+eco_code_dict = {"236289": "IGI", "236296": "IMP", "236356": "ISS"}
+""" EX: { 
+            "DOid": "DOID:10629", # diseaseannotation.
+            "objectId": "SGD:S000000037",
+            "evidence": {
+                "evidenceCodes": [
+                    "IMP",
+                    "ISS"
+                ],
+                "publication": {
+                    "pubMedId": "PMID:11827457"
+                }
+            },
+            "objectRelation": {
+                "associationType": "is_implicated_in",  # diseaseannotation.association_type - ro.display_name
+                "objectType": "gene" 
+            },
+            "dateAssigned": "2017-04-12T00:04:00-00:00",
+            "dataProvider": [
+                {
+                    "crossReference": {
+                        "id": "SGD",
+                        "pages": [
+                            "homepage"
+                        ]
+                    },
+                    "type": "curated"
+                }
+            ],
+            "with": [
+                "HGNC:4837" ## diseasesupportingevidence.dbxref_id
+            ]
+        },
+ """
 
 
 def get_disease_association_data(root_path):
-    result = []
-    file_name = 'src/data_assets/disease_association.json'
-    json_file_str = os.path.join(root_path, file_name)
-    with open(json_file_str) as data_file:
-        content = json.load(data_file)
-    if (content):
-        for item in content:
+    result = {}  #[]
+    #    file_name = 'src/data_assets/disease_association.json'
+    #    json_file_str = os.path.join(root_path, file_name)
+    #    with open(json_file_str) as data_file:
+    #        content = json.load(data_file)
+    #    if (content):
+    disease_data = DBSession.query(Diseaseannotation).all()
+    #result = []
+    print("computing " + str(len(disease_data)) + " diseases")
+    with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
+        for item in disease_data:
+            #toLsp = item.to_dict_lsp()
+            #todoDict = item.to_dict()
+            ## If object (DOID, objectid, pmid and HGNC have to all match) already exists, add to evidence --
             obj = {
                 "DOid":
-                    "",
-                # "taxonId":
-                #     "",
+                "",
                 "objectRelation": {
                     "associationType": "",
                     "objectType": ""
                 },
                 "objectId":
-                    "",
+                "",
                 "dateAssigned":
-                    "",
+                "",
                 "dataProvider": [{
                     "crossReference": {
                         "id": "SGD",
@@ -50,33 +95,77 @@ def get_disease_association_data(root_path):
                 "evidence": {
                     "evidenceCodes": [],
                     "publication": {
-                        "pubMedId": {}
+                        "publicationId": {}
+                        #     "pubMedId": {} ## changed to publicationID in 1.0.0.8
                     }
                 }
             }
-            if (len(item) > 1):
-                #import pdb ; pdb.set_trace()
-                obj["DOid"] = item.get("DOID")
-                obj["objectRelation"]["associationType"] = item.get(
-                    "Association type")
-                obj["objectRelation"]["objectType"] = item.get("DB Object type")
-                obj["objectId"] = item.get("DB Object ID")
-                obj["dateAssigned"] = str(
-                    datetime.strptime(str(item.get("Date")), "%Y%m%d").strftime("%Y-%m-%dT%H:%m:%S-00:00"))
-                obj["with"].append(item.get("with - Ortholog"))
-                obj["evidence"]["evidenceCodes"] = item.get(
-                    "Evidence Code").split(',')
-                obj["evidence"]["publication"]["pubMedId"] = item.get(
-                    "DB:Reference")
-                result.append(obj)
+            #get supporting evidence (HGNC ID)
+            evidence_list = []
 
-    if len(result) > 0:
-        output_obj = get_output(result)
+            supporting_evidences = DBSession.query(
+                Diseasesupportingevidence).filter_by(
+                    annotation_id=item.annotation_id).all()
+
+            for evidence in supporting_evidences:
+                evidence_list.append(evidence.dbxref_id)
+
+        #  keyList = []
+        # keylist = [str(item.disease.disease_id), str(item.dbentity.sgdid), str(item.reference.pmid)] #+ evidence_list
+        # print "list key:" + str(item.disease.disease_id) + "|" +str(item.dbentity.sgdid) +"|"+str(item.reference.pmid)
+
+        # eco_code = eco_code_dict[str(item.eco.eco_id)]
+        # if eco_code = 'IMP':
+        #     uniqkey = str(item.disease.disease_id) + "_" + str(item.dbentity.sgdid) + "_" + str(item.reference.pmid)
+        # else:
+            uniqkey = str(item.disease.disease_id) + "_" + str(
+                item.dbentity.sgdid) + "_" + str(
+                    item.reference.pmid) + "_" + "_".join(evidence_list)
+
+            #  if re.match("S000005269", uniqkey):
+            #     print "******** KEY:" + uniqkey
+
+            # print "diseaseannotation_id: " + str(item.annotation_id)
+            # print 'item ECO CODE:' + eco_code_dict[str(item.eco.eco_id)]
+            ## if exists in results arleady, append ECO code:
+
+            if uniqkey in result.keys():
+                #               print 'original eco code:' + '|'.join(result[uniqkey]["evidence"]["evidenceCodes"])
+
+                result[uniqkey]["evidence"]["evidenceCodes"].append(
+                    item.eco.ecoid)
+
+            else:
+                ## if not, make new obj for key
+                ## publication ID ## PMID or SGDID
+                ## reference SGDID
+                ref_dbentity = DBSession.query(DBentity).filter(dbentity_id == item.reference.pmid).all()
+                if exists item.reference.pmid:
+                    pubidref = "PMID:" + str(item.reference.pmid)
+
+                    sgdref = "SGD:" + str(ref_dbentity.sgdid)
+                else:
+                    pubidref = "SGD:" + str(ref_dbentity.sgdid)
+
+                obj["DOid"] = str(item.disease.doid)
+                obj["objectRelation"]["associationType"] = item.ro.display_name
+                obj["objectRelation"]["objectType"] = "gene"
+                obj["objectId"] = "SGD:" + str(item.dbentity.sgdid)
+                obj["dateAssigned"] = item.date_created.strftime(
+                    "%Y-%m-%dT%H:%m:%S-00:00")
+                obj["evidence"]["evidenceCodes"].append(item.eco.ecoid)
+                obj["evidence"]["publication"]["publicationId"] = pubidref
+                obj["with"] = evidence_list
+                if exists sgdref:
+                    obj["evidence"]["crossReference"] = sgdref
+
+                result[uniqkey] = obj
+
+    if len(result.keys()) > 0:
+        print "# objs:" + str(len(result.keys()))
+        output_obj = get_output(result.values())
         file_name = 'src/data_dump/SGD' + SUBMISSION_VERSION + 'disease_association.json'
         json_file_str = os.path.join(root_path, file_name)
         if (output_obj):
             with open(json_file_str, 'w+') as res_file:
                 res_file.write(json.dumps(output_obj))
-
-
-
