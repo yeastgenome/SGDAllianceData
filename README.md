@@ -111,7 +111,7 @@ $ Make run-expression
 ## Basic Gene Information File
 
 ```
-$ Make rub-bgi
+$ Make run-bgi
 ```
 
 ## File structure

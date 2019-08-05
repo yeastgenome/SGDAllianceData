@@ -15,7 +15,7 @@ import json
 import re
 import concurrent.futures
 from datetime import datetime
-from ..models.models import DBSession, Diseaseannotation, Diseasesupportingevidence
+from ..models.models import DBSession, Diseaseannotation, Diseasesupportingevidence, Dbentity
 from ..data_helpers.data_helpers import get_eco_ids, get_output, SUBMISSION_VERSION
 from sqlalchemy import create_engine, and_
 
@@ -139,11 +139,14 @@ def get_disease_association_data(root_path):
                 ## if not, make new obj for key
                 ## publication ID ## PMID or SGDID
                 ## reference SGDID
-                ref_dbentity = DBSession.query(DBentity).filter(dbentity_id == item.reference.pmid).all()
-                if exists item.reference.pmid:
-                    pubidref = "PMID:" + str(item.reference.pmid)
+                print item.reference.pmid
 
-                    sgdref = "SGD:" + str(ref_dbentity.sgdid)
+                ref_dbentity = DBSession.query(Dbentity).filter(
+                    Dbentity.dbentity_id == item.reference.pmid).all()
+
+                if item.reference.pmid:
+                    pubidref = "PMID:" + str(item.reference.pmid)
+                    sgdref = "SGD:" + str(ref_dbentity)
                 else:
                     pubidref = "SGD:" + str(ref_dbentity.sgdid)
 
@@ -156,8 +159,9 @@ def get_disease_association_data(root_path):
                 obj["evidence"]["evidenceCodes"].append(item.eco.ecoid)
                 obj["evidence"]["publication"]["publicationId"] = pubidref
                 obj["with"] = evidence_list
-                if exists sgdref:
-                    obj["evidence"]["crossReference"] = sgdref
+
+                #             if sgdref:
+                #                 obj["evidence"]["crossReference"] = sgdref
 
                 result[uniqkey] = obj
 

@@ -16,13 +16,14 @@ build-disease:
 build-panther:
 		npm run panther-json
 
-run-expression:
+run-expression:	
 		. env.sh && python ./run_expression.py
 run-phenotype:
 		. env.sh && python ./run_phenotype.py
 run-bgi:
-		npm run panther-json
-		. env.sh && python ./run_bgi.py 
+#		npm run panther-json
+#		. env.sh && python ./run_bgi.py 
+		. env.sh && python ./run_nongene.py
 
 run-disease:
 		. env.sh && python ./run_disease_association.py
