@@ -229,6 +229,8 @@ def get_basic_gene_information(root_path):
                             "primaryId"] = "SGD:" + item.sgdid
                         #   item = combined_list[item_key]["locus_obj"]
                         obj["geneSynopsis"] = item.description
+                        if (item.name_description is not None):
+                            obj["name"] = item.name_description
                         obj["symbol"] = item.gene_name if item.gene_name is not None else item.systematic_name
                         obj["basicGeneticEntity"]["synonyms"].append(
                             item.systematic_name)
@@ -240,6 +242,8 @@ def get_basic_gene_information(root_path):
                         #   item = combined_list[item_key]["locus_obj"]
                         obj["geneSynopsis"] = item.description
                         obj["symbol"] = item.gene_name if item.gene_name is not None else item.systematic_name
+                        if (item.name_description is not None):
+                            obj["name"] = item.name_description
                         obj["basicGeneticEntity"]["synonyms"].append(
                             item.systematic_name)
                         result.append(obj)

@@ -105,7 +105,10 @@ def get_disease_association_data(root_path):
 
             supporting_evidences = DBSession.query(
                 Diseasesupportingevidence).filter_by(
-                    annotation_id=item.annotation_id).all()
+                    annotation_id=item.annotation_id).with_entities(
+                        Diseasesupportingevidence.dbxref_id).all()
+
+            #  print "|".join(supporting_evidences.dbxref_id)
 
             for evidence in supporting_evidences:
                 evidence_list.append(evidence.dbxref_id)

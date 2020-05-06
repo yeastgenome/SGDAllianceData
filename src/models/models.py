@@ -24,7 +24,7 @@ SGD_SOURCE_ID = 834
 DIRECT_SUBMISSION_SOURCE_ID = 759
 SEPARATOR = ' '
 TAXON_ID = 274901
-cache_urls = os.getenv('CACHE_URLS').split(',')
+cache_urls = 'https://www.dev.yeastgenome.org' #os.getenv('CACHE_URLS').split(',')
 
 
 class CacheBase(object):

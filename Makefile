@@ -22,7 +22,7 @@ run-phenotype:
 		. env.sh && python ./run_phenotype.py
 run-bgi:
 #		npm run panther-json
-#		. env.sh && python ./run_bgi.py 
+		. env.sh && python ./run_bgi.py 
 		. env.sh && python ./run_nongene.py
 
 run-disease:
@@ -30,12 +30,14 @@ run-disease:
 
 build-all:
 		. env.sh && pip install -r requirements.txt
-		npm run disease-json
-		npm run panther-json
+
+run-all:
+		#npm run disease-json
+		#npm run panther-json
 		python ./run_expression.py
 		python ./run_phenotype.py
 		python ./run_bgi.py
 		python ./run_disease_association.py
-
 #upload-all:
 	# run script
+	# uploads all files to AWS for Alliance to ferret out

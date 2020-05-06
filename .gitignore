@@ -67,4 +67,11 @@ settings*
 *vscode
 /docs
 
+# schema files from alliance
+agr_schemas-1.0.1.0/
+agr_schemas-master/
+agr_schemas-release-1.0.0.9
+agr_schemas-release-1.0.1.1
+
+
 
