@@ -26,6 +26,11 @@ eco_code_dict = {"236289": "IGI", "236296": "IMP", "236356": "ISS"}
 """ EX: { 
             "DOid": "DOID:10629", # diseaseannotation.
             "objectId": "SGD:S000000037",
+            "objectName:",
+            "objectRelation":,
+            "negation":,
+            "primaryGeneticEntityIDs": {
+"type": "array",},
             "evidence": {
                 "evidenceCodes": [
                     "IMP",
@@ -74,23 +79,14 @@ def get_disease_association_data(root_path):
             #todoDict = item.to_dict()
             ## If object (DOID, objectid, pmid and HGNC have to all match) already exists, add to evidence --
             obj = {
-                "DOid":
-                "",
+                "DOid": "",
                 "objectRelation": {
                     "associationType": "",
                     "objectType": ""
                 },
-                "objectId":
-                "",
-                "dateAssigned":
-                "",
-                "dataProvider": [{
-                    "crossReference": {
-                        "id": "SGD",
-                        "pages": ["homepage"]
-                    },
-                    "type": "curated"
-                }],
+                "objectId": "",
+                "dateAssigned": "",
+                "dataProvider": [],
                 "with": [],
                 "evidence": {
                     "evidenceCodes": [],
@@ -153,6 +149,12 @@ def get_disease_association_data(root_path):
                 else:
                     pubidref = "SGD:" + str(ref_dbentity.sgdid)
 
+                ## if 'not' qualifier
+                if item.disease_qualifier == 'not':
+                    obj["negation"] = "not"
+            ## for if there is an object name
+            # obj[]
+
                 obj["DOid"] = str(item.disease.doid)
                 obj["objectRelation"]["associationType"] = item.ro.display_name
                 obj["objectRelation"]["objectType"] = "gene"
@@ -162,6 +164,13 @@ def get_disease_association_data(root_path):
                 obj["evidence"]["evidenceCodes"].append(item.eco.ecoid)
                 obj["evidence"]["publication"]["publicationId"] = pubidref
                 obj["with"] = evidence_list
+                obj["dataProvider"].append({
+                    "crossReference": {
+                        "id": "SGD:" + str(item.dbentity.sgdid),
+                        "pages": ["gene/disease"]
+                    },
+                    "type": "curated"
+                })
 
                 #             if sgdref:
                 #                 obj["evidence"]["crossReference"] = sgdref

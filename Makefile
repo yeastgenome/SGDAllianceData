@@ -28,16 +28,29 @@ run-bgi:
 run-disease:
 		. env.sh && python ./run_disease_association.py
 
+run-htpdatasamples:
+#		. env.sh && python ./run_datasets.py
+		. env.sh && python ./run_htp_sample_metadata.py
+
+run-htpdatasets:
+		. env.sh && python ./run_htp_datasets.py
+
+run-agm:
+		. env.sh && python ./run_agm.py
+
 build-all:
 		. env.sh && pip install -r requirements.txt
 
 run-all:
 		#npm run disease-json
 		#npm run panther-json
-		python ./run_expression.py
-		python ./run_phenotype.py
-		python ./run_bgi.py
-		python ./run_disease_association.py
+		. env.sh && python ./run_agm.py
+		. env.sh && python ./run_htp_datasets.py
+		. env.sh && python ./run_disease_association.py
+		. env.sh && python ./run_expression.py
+		. env.sh && python ./run_phenotype.py
+		. env.sh && python ./run_htp_sample_metadata.py
+		. env.sh && python ./run_bgi.py
 #upload-all:
 	# run script
 	# uploads all files to AWS for Alliance to ferret out

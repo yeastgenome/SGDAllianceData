@@ -1507,6 +1507,8 @@ class Dataset(Base):
     assay = relationship(u'Obi')
     parent_dataset = relationship(u'Dataset', remote_side=[dataset_id])
     source = relationship(u'Source')
+    references = relationship(u'DatasetReference', backref="parent")
+    keywords = relationship(u'DatasetKeyword', backref="parent")
 
     def to_dict(self, reference=None, dataset_keywords=None, add_conditions=False, add_resources=False):
         keywords = DBSession.query(DatasetKeyword).filter_by(dataset_id=self.dataset_id).all()

@@ -7,6 +7,7 @@ This file requires packages listed in requirements.txt file and env.sh file.
 The env.sh file contains environment variables
 
 # get panther IDs from database, 07/19/19
+# added phenotype Xref link 08/22/2020
 
 This file can be imported as a modules and contains the following functions:
     get_expression_data
@@ -120,6 +121,8 @@ def get_basic_gene_information(root_path):
                     temp_itm.append("gene/interactions")
                 if (item.has_disease):
                     temp_itm.append("gene/disease")
+                if (item.has_phenotype):
+                    temp_itm.append("gene/phenotypes")
 
                 obj["basicGeneticEntity"]["crossReferences"].append({
                     "id":

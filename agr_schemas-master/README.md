@@ -1,19 +1,12 @@
-[![Build Status](https://travis-ci.org/alliance-genome/agr_schemas.svg?branch=development)](https://travis-ci.org/alliance-genome/agr_schemas)
 
-AGR JSON Schemas
+[![Build Status](https://travis-ci.org/alliance-genome/agr_schemas.svg?branch=development)](https://travis-ci.org/alliance-genome/agr_schemas)
+[![Build Status](https://travis-ci.org/alliance-genome/agr_schemas.svg?branch=master)](https://travis-ci.org/alliance-genome/agr_schemas)
+
+Alliance JSON Ingest Schemas and Data Dictionary
 ================
 
-This directory contains JSON schemas used to define data for integration into AGR.
+This directory contains JSON schemas used to define data for integration into the Alliance of Genome Resources and defines the data dictionary of the Alliance data store.
 
-Most recent release:
-
-|Schema|Description|
-|---------|----------|
-|basicGeneInfoFile|A file of Basic Gene Information objects. This is the base or "root" schema.|
-|basicGeneInformation|An entry with Gene information from a MOD.  Gene set includes: genes, psuedogenes and not-protein coding genes.  It does not include engineered foreign genes, transcripts or other features.|
-|dataProvider|An standard set of information regarding data source and taxon ids for the AGR.|
-|crossReference|An crossReference entity (_e.g._: NCBI_Gene links, UniProtKB links, PANTHER links, and links back to MODs).
-|metaData|An standard set of information regarding when and from whom the load was generated.|
 
 Validation
 ----------
@@ -34,6 +27,19 @@ For validating all schema files in a branch:
 `./agr_validate_schema.sh`
 
 
-Formatting Notes
-----------------
-Please use 2 spaces for indentation.
+GOCD Validation
+---------------
+
+JSON schema files are validated by the Continuous Integration / Deployment System (GOCD) through a JAVA JSON validator made available through the Docker base container. This is because the JAVA implementation is much more strict than the Python implementation. This validation is called by the default command in the Docker files. The way the java works is that the Dockerfile points to a directory full of JSON files. Java opens each file and checks for the "$schema": "http://json-schema.org/draft-04/schema#", property if its found then it validates it, otherwise ignores the file. 
+
+In order to run these validations locally install Docker and then run the command:
+
+```bash
+make run
+```
+
+Data Dictionary
+---------------
+
+The Alliance Data Dictionary is a set of information that describes the content, format and structure of the nodes and relations in the Alliance data store. metaschema.yaml defines the potential content of each sub-schema.  Each file is named according to its corresponding node label.  
+
