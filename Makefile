@@ -38,14 +38,17 @@ run-htpdatasets:
 run-agm:
 		. env.sh && python ./run_agm.py
 
+run-allele:
+		. env.sh && python ./run_alleles.py
+
 build-all:
 		. env.sh && pip install -r requirements.txt
 
 run-all:
 		#npm run disease-json
 		#npm run panther-json
-		. env.sh && python ./run_agm.py
-		. env.sh && python ./run_htp_datasets.py
+		#. env.sh && python ./run_agm.py
+		#. env.sh && python ./run_htp_datasets.py
 		. env.sh && python ./run_disease_association.py
 		. env.sh && python ./run_expression.py
 		. env.sh && python ./run_phenotype.py
