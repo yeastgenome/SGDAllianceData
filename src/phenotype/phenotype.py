@@ -33,7 +33,7 @@ def get_phenotypephenotype_data(root_path):
 
     phenotype_data = DBSession.query(Phenotypeannotation).all()
     result = []
-    print("computing " + str(len(phenotype_data)) + " phenotypes")
+    print(("computing " + str(len(phenotype_data)) + " phenotypes"))
     with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
         for item in phenotype_data:
             obj = {

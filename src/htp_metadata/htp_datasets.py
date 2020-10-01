@@ -175,9 +175,9 @@ def get_htp_datasets(root_path):
     #    dsObjs = DBSession.query(Dataset).filter_by(
     #  assay.obiId._in(OBI_MMO_MAPPING.keys())).all()
     dsObjs = DBSession.query(Dataset).all()
-    print "processing " + str(len(dsObjs)) + " datasets"
+    print("processing " + str(len(dsObjs)) + " datasets")
     for ds in dsObjs:
-        if ds.assay.obiid not in OBI_MMO_MAPPING.keys():
+        if ds.assay.obiid not in list(OBI_MMO_MAPPING.keys()):
             continue
         if ds.dbxref_id:
             datasetObject = {
@@ -224,8 +224,8 @@ def get_htp_datasets(root_path):
 
             if ds.keywords:
                 for kw in ds.keywords:
-                    if kw.keyword.display_name in CATEGORY_TAG_MAPPING.keys(
-                    ):  ##some tags need to be mapped
+                    if kw.keyword.display_name in list(CATEGORY_TAG_MAPPING.keys(
+                    )):  ##some tags need to be mapped
                         keywordList.append(
                             CATEGORY_TAG_MAPPING[kw.keyword.display_name])
                     else:

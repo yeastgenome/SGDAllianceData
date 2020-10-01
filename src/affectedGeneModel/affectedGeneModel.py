@@ -157,7 +157,7 @@ def get_agm_information(root_path):
     #   LocusAlias.alias_type == 'PANTHER ID').one()
     #combined_list = combine_panther_locus_data(
     #pair_pantherid_to_sgdids(root_path), Locusdbentity.get_s288c_genes())
-    print("computing " + str(len(combined_list)) + " strains")
+    print(("computing " + str(len(combined_list)) + " strains"))
     #   sys.exit()
 
     result = []

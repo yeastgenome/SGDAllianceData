@@ -13,6 +13,6 @@ with open(data_file_name) as data_file:
     try: 
         data = yaml.load(data_file)
         #print(yaml.dump(data))
-        print ("successfully validated " + args.data)
+        print(("successfully validated " + args.data))
     except yaml.YAMLError as exc:
         print (exc)

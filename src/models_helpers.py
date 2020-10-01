@@ -1,4 +1,4 @@
-from models import DBSession, Base, Colleague, ColleagueLocus, ColleagueRelation, FilePath, Filedbentity, FileKeyword, Path, ColleagueReference, ColleagueUrl, Colleaguetriage, Dbentity, Locusdbentity, LocusAlias, Dnasequenceannotation, So, Locussummary, Phenotypeannotation, PhenotypeannotationCond, Phenotype, Goannotation, Go, Goslimannotation, Goslim, Apo, Straindbentity, Strainsummary, Reservedname, GoAlias, Goannotation, Referencedbentity, Referencedocument, Referenceauthor, ReferenceAlias, Chebi
+from .models import DBSession, Base, Colleague, ColleagueLocus, ColleagueRelation, FilePath, Filedbentity, FileKeyword, Path, ColleagueReference, ColleagueUrl, Colleaguetriage, Dbentity, Locusdbentity, LocusAlias, Dnasequenceannotation, So, Locussummary, Phenotypeannotation, PhenotypeannotationCond, Phenotype, Goannotation, Go, Goslimannotation, Goslim, Apo, Straindbentity, Strainsummary, Reservedname, GoAlias, Goannotation, Referencedbentity, Referencedocument, Referenceauthor, ReferenceAlias, Chebi
 import os
 import requests
 
@@ -219,13 +219,9 @@ class ModelsHelper(object):
         Get associates data
         """
         if len(relations_list) > 0:
-            temp = filter(lambda item: item.association_type == "Associate",
-                          relations_list)
-            members = filter(
-                lambda item: item.association_type != "Head of Lab", temp)
-            supervisors = filter(
-                lambda item: item.association_type == "Head of Lab",
-                relations_list)
+            temp = [item for item in relations_list if item.association_type == "Associate"]
+            members = [item for item in temp if item.association_type != "Head of Lab"]
+            supervisors = [item for item in relations_list if item.association_type == "Head of Lab"]
             if temp:
                 return {
                     "members": [
@@ -293,7 +289,7 @@ class ModelsHelper(object):
     def get_file_path_obj(self, file_data, path_data):
         obj_container = []
         if file_data and path_data:
-            for item_key, item_value in file_data.items():
+            for item_key, item_value in list(file_data.items()):
                 obj = {"id": item_key, "_file": None, "_path": None}
                 if item_value:
                     obj["_file"] = [x.to_dict() for x in item_value]

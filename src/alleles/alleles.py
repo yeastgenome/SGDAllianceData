@@ -21,6 +21,7 @@ import concurrent.futures
 from ..models.models import Alleledbentity, LocusAlias, Dbentity, DBSession, Straindbentity, Referencedbentity
 from ..data_helpers.data_helpers import get_output, get_locus_alias_data
 
+
 engine = create_engine(os.getenv('SQLALCHEMY_PROD_DB_URI'), pool_recycle=3600)
 SUBMISSION_VERSION = os.getenv('SUBMISSION_VERSION', '_1.0.0.0_')
 DBSession.configure(bind=engine)
@@ -120,50 +121,57 @@ def get_allele_information(root_path):
         Datasetsample.biosample.in_(BIOSAMPLE_OBI_MAPPINGS.keys()),
         Datasetsample.dbxref_id != None).all()
     """
-    print "getting Alleles"
+    print("getting Alleles")
 
     alleleObjList = DBSession.query(Alleledbentity).all()
 
-    print("computing " + str(len(alleleObjList)) + " alleles")
+    print(("computing " + str(len(alleleObjList)) + " alleles"))
     #   sys.exit()
     result = []
 
     if (len(alleleObjList) > 0):
-        #with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
-        for alleleObj in alleleObjList:
-            print "|".join(dir(alleleObj))
-            obj = {}
-            #"primaryID": "SGD:XXXXX",
-            #    "symbol": "STRING"; symbol of the entity
-            #    "symbolText": "STRING", the symbol in text format, replacing all html tags with <>.  There may be more than one set of <> in the symbol."
-            #    "taxonId" ,"The taxonId for the species of the genotype entity."
-            # "synonyms": LIST, strings
-            # "description": free text
-            # "secondaryIds": list of Ids (SGD:, etc)
-            # "alleleObjectRelations": LIST of obj {
-            #   "objectRelation": {"associationType":"allele_of", "gene":"SGD:XXXXX"}
-            # }
-            # "crossReferences": ["id":"Allele SGDID", "pages":["allele"]]
-            obj["primaryID"] = "SGD:" + alleleObj.sgdid
-            obj["symbolText"] = alleleObj.format_name
-            obj["symbol"] = alleleObj.display_name
-            obj["description"] = alleleObj.description
-            obj["taxonId"] = "NCBITaxon:" + DEFAULT_TAXID
-            if alleleObj.aliases:
-                obj["synonyms"] = ",".join(alleleObj.aliases)
+        # with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
+        try:
+            for alleleObj in alleleObjList:
+                simple_allele_obj = alleleObj.to_simple_dict()
+                # print("|".join(dir(alleleObj)))
+                obj = {}
+                # "primaryID": "SGD:XXXXX",
+                #    "symbol": "STRING"; symbol of the entity
+                #    "symbolText": "STRING", the symbol in text format, replacing all html tags with <>.  There may be more than one set of <> in the symbol."
+                #    "taxonId" ,"The taxonId for the species of the genotype entity."
+                # "synonyms": LIST, strings
+                # "description": free text
+                # "secondaryIds": list of Ids (SGD:, etc)
+                # "alleleObjectRelations": LIST of obj {
+                #   "objectRelation": {"associationType":"allele_of", "gene":"SGD:XXXXX"}
+                # }
+                # "crossReferences": ["id":"Allele SGDID", "pages":["allele"]]
+                obj["primaryID"] = "SGD:" + simple_allele_obj["sgdid"]
+                obj["symbolText"] = simple_allele_obj["format_name"]
+                obj["symbol"] = simple_allele_obj["display_name"]
+                obj["description"] = simple_allele_obj["description"]
+                obj["taxonId"] = "NCBITaxon:" + DEFAULT_TAXID
+                if simple_allele_obj["aliases"]:
+                    obj["synonyms"] = ",".join(simple_allele_obj["aliases"])
+                
+                #TODO: alleleObj.affected_gene.sgdid doesn't have field sgdid
+                '''
+                obj["alleleObjectRelations"] = [{
+                    "associationType":
+                    "allele_of",
+                    "gene":
+                    "SGD:" + alleleObj.affected_gene.sgdid
+                }] 
+                '''
+                obj["crossReference"] = {
+                    "id": "SGD:" + simple_allele_obj["sgdid"],
+                    "pages": ["allele"]
+                }
 
-            obj["alleleObjectRelations"] = [{
-                "associationType":
-                "allele_of",
-                "gene":
-                "SGD:" + alleleObj.affected_gene.sgdid
-            }]
-            obj["crossReference"] = {
-                "id": "SGD:" + alleleObj.sgdid,
-                "pages": ["allele"]
-            }
-
-            result.append(obj)
+                result.append(obj)
+        except Exception as e:
+            print(e)
 
     if (len(result) > 0):
         output_obj = get_output(result)

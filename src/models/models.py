@@ -81,15 +81,15 @@ class CacheBase(object):
                 response = requests.request('PURGE', url)
                 if (response.status_code != 200):
                     raise ValueError('Error fetching ')
-            except Exception, e:
-                print('error fetching ' + self.display_name)
+            except Exception as e:
+                print(('error fetching ' + self.display_name))
 
     def ban_from_cache(self):
         try:
             targets = [str(self.sgdid), str(self.dbentity_id)]
-        except Exception, e:
+        except Exception as e:
             traceback.print_exc()
-            print('Error banning cache ' + self.sgdid)
+            print(('Error banning cache ' + self.sgdid))
 
 
 Base = declarative_base(cls=CacheBase)
@@ -2243,7 +2243,7 @@ class CurationReference(Base):
 
     def get_name(self):
         c_name = self.curation_tag
-        for key, value in CurationReference.acceptable_tags.items():
+        for key, value in list(CurationReference.acceptable_tags.items()):
             if value == c_name:
                 return key
         return None
@@ -2286,8 +2286,8 @@ class Dataset(Base):
     assay = relationship('Obi')
     parent_dataset = relationship('Dataset', remote_side=[dataset_id])
     source = relationship('Source')
-    references = relationship(u'DatasetReference', backref="parent")
-    keywords = relationship(u'DatasetKeyword', backref="parent")
+    references = relationship('DatasetReference', backref="parent")
+    keywords = relationship('DatasetKeyword', backref="parent")
 
     def to_dict(self,
                 reference=None,
@@ -5980,7 +5980,7 @@ class Locusdbentity(Dbentity):
         return obj
 
     def interaction_overview_to_dict(self):
-        from .helpers import calc_venn_measurements
+        from ..helpers import calc_venn_measurements
 
         obj = {
             "total_interactions": 0,
@@ -7789,7 +7789,7 @@ class Diseaseannotation(Base):
         nullable=False,
         server_default=text("('now'::text)::timestamp without time zone"))
     created_by = Column(String(12), nullable=False)
-    association_type = Column(ForeignKey(u'nex.ro.ro_id'), nullable=False)
+    association_type = Column(ForeignKey('nex.ro.ro_id'), nullable=False)
 
     dbentity = relationship('Dbentity')
     disease = relationship('Disease')
@@ -7797,7 +7797,7 @@ class Diseaseannotation(Base):
     reference = relationship('Referencedbentity', foreign_keys=[reference_id])
     source = relationship('Source')
     taxonomy = relationship('Taxonomy')
-    ro = relationship(u'Ro')
+    ro = relationship('Ro')
 
     def to_dict_lsp(self):
         obj = {
@@ -10043,7 +10043,7 @@ class Literatureannotation(Base):
 
     def get_name(self):
         c_name = self.topic
-        for key, value in Literatureannotation.acceptable_tags.items():
+        for key, value in list(Literatureannotation.acceptable_tags.items()):
             if value == c_name:
                 return key
         return None
@@ -12509,6 +12509,23 @@ class Alleledbentity(Dbentity):
     description = Column(String(500), nullable=True)
 
     so = relationship('So')
+    def to_simple_dict(self):
+        reference_mapping = {}
+        ref_order = 1
+        obj = {
+            "sgdid": self.sgdid,
+            "allele_type": self.so.display_name,
+            "description": self.description
+        }
+        obj['aliases'] = self.get_aliases(reference_mapping, ref_order)
+        obj['format_name'] = self.format_name
+        obj['display_name'] = self.display_name
+        obj['affected_gene'] = self.get_gene_name_info(reference_mapping,
+                                                       ref_order)
+       
+                                                       
+        return obj
+
 
     def to_dict(self):
 
@@ -12519,7 +12536,7 @@ class Alleledbentity(Dbentity):
         }
         reference_mapping = {}
         ref_order = 1
-        obj["name"] = self.get_name(reference_mapping, ref_order)
+        obj['name'] = self.get_name(reference_mapping, ref_order)
         obj['aliases'] = self.get_aliases(reference_mapping, ref_order)
         obj['affected_gene'] = self.get_gene_name_info(reference_mapping,
                                                        ref_order)
@@ -12530,7 +12547,7 @@ class Alleledbentity(Dbentity):
         obj['phenotype_references'] = self.get_phenotype_references()
         obj['interaction_references'] = self.get_interaction_references()
         obj['urls'] = self.get_resource_urls()
-        obj["reference_mapping"] = reference_mapping
+        obj['reference_mapping'] = reference_mapping
 
         return obj
 
@@ -12666,7 +12683,6 @@ class Alleledbentity(Dbentity):
         return la.locus.display_name
 
     def get_gene_name_info(self, reference_mapping, ref_order):
-
         gene = self.get_gene_name()
         if gene is None:
             return {"display_name": '', "references": []}

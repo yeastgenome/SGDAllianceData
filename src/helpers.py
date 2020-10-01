@@ -11,7 +11,6 @@ from sqlalchemy.exc import IntegrityError, InternalError, StatementError
 import traceback
 import requests
 import csv
-
 from .models import DBSession, Dbuser, Go, Referencedbentity, Keyword, Locusdbentity, FilePath, Edam, Filedbentity, FileKeyword, ReferenceFile, Disease
 
 
@@ -34,7 +33,7 @@ def tsv_file_to_dict(tsv_file):
         csv_obj = csv.DictReader(tsv_file, dialect='excel-tab')
         for item in csv_obj:
             list_dictionary.append(
-                {k: v for k, v in item.items() if k is not None})
+                {k: v for k, v in list(item.items()) if k is not None})
         return list_dictionary
     else:
         return list_dictionary
@@ -79,7 +78,7 @@ def link_gene_names(raw, locus_names_ids):
     for p_original_word in words:
         original_word = p_original_word.translate(None, string.punctuation)
         wupper = original_word.upper()
-        if wupper in locus_names_object.keys() and len(wupper) > 3:
+        if wupper in list(locus_names_object.keys()) and len(wupper) > 3:
             sgdid = locus_names_object[wupper]
             url = '/locus/' + sgdid
             new_str = '<a href="' + url + '">' + wupper + '</a>'

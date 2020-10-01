@@ -93,7 +93,7 @@ def get_non_gene_information(root_path):
     #   LocusAlias.alias_type == 'PANTHER ID').one()
     #combined_list = combine_panther_locus_data(
     #pair_pantherid_to_sgdids(root_path), Locusdbentity.get_s288c_genes())
-    print("computing " + str(len(combined_list)) + " non-gene features")
+    print(("computing " + str(len(combined_list)) + " non-gene features"))
     result = []
     if (len(combined_list) > 0):
 
@@ -144,7 +144,7 @@ def get_non_gene_information(root_path):
                     LocusAlias.alias_type == 'PANTHER ID').first()
 
                 if item_panther is not None:
-                    print 'SGD:' + item.sgdid + "->" + 'PANTHER:' + item_panther.display_name
+                    print('SGD:' + item.sgdid + "->" + 'PANTHER:' + item_panther.display_name)
 
                 locus_alias_data = DBSession.query(LocusAlias).filter(
                     LocusAlias.locus_id == item.dbentity_id).all()

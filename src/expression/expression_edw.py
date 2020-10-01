@@ -107,8 +107,6 @@ def all_children_ids(go_id, parent_to_children, go_id_to_go, goid_list):
     #  print go_id + ' ' + "|".join(parent_to_children.keys()) + ", " + "|".join(
     #     go_id_to_go.keys())  #", " + "*".join(goid_list)
 
-    import pdb
-    pdb.set_trace()
     new_go_list = []
 
     if go_id not in parent_to_children:
@@ -132,8 +130,6 @@ def get_expression_data(root_path):
 
     exclude = DBSession.query(Go).filter_by(goid=PARENT_GOID_TO_EXCLUDE).one()
 
-    import pdb
-    pdb.set_trace()
 
     print 'go_id of parent: ' + str(exclude.go_id) + " = goid: " + str(
         exclude.goid)
@@ -143,8 +139,6 @@ def get_expression_data(root_path):
 
     #print "|".join(str(all_kids)
 
-    import pdb
-    pdb.set_trace()
     """ Get gene expression data
 
     Parameters
