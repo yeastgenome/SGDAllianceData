@@ -134,7 +134,8 @@ def get_allele_information(root_path):
         try:
             for alleleObj in alleleObjList:
                 simple_allele_obj = alleleObj.to_simple_dict()
-                # print("|".join(dir(alleleObj)))
+                #print("|".join(dir(alleleObj)))
+                #print ("|").join(simple_allele_obj.keys())
                 obj = {}
                 # "primaryID": "SGD:XXXXX",
                 #    "symbol": "STRING"; symbol of the entity
@@ -147,31 +148,40 @@ def get_allele_information(root_path):
                 #   "objectRelation": {"associationType":"allele_of", "gene":"SGD:XXXXX"}
                 # }
                 # "crossReferences": ["id":"Allele SGDID", "pages":["allele"]]
+
+                print(simple_allele_obj["sgdid"] + " allele's affected gene:")
+                print (simple_allele_obj["affected_geneObj"].sgdid)
+                
                 obj["primaryID"] = "SGD:" + simple_allele_obj["sgdid"]
                 obj["symbolText"] = simple_allele_obj["format_name"]
                 obj["symbol"] = simple_allele_obj["display_name"]
                 obj["description"] = simple_allele_obj["description"]
                 obj["taxonId"] = "NCBITaxon:" + DEFAULT_TAXID
-                if simple_allele_obj["aliases"]:
-                    obj["synonyms"] = ",".join(simple_allele_obj["aliases"])
-                
-                #TODO: alleleObj.affected_gene.sgdid doesn't have field sgdid
-                '''
-                obj["alleleObjectRelations"] = [{
-                    "associationType":
-                    "allele_of",
-                    "gene":
-                    "SGD:" + alleleObj.affected_gene.sgdid
-                }] 
-                '''
-                obj["crossReference"] = {
-                    "id": "SGD:" + simple_allele_obj["sgdid"],
-                    "pages": ["allele"]
-                }
 
+                if "aliases" in simple_allele_obj.keys():
+                  aliasList = []
+                  for aliasObj in simple_allele_obj["aliases"]:
+                    aliasList.append(aliasObj["display_name"])                    
+                    obj["synonyms"] = ",".join(aliasList) #simple_allele_obj["aliases"])
+                obj["crossReference"] = {
+                      "id": "SGD:" + simple_allele_obj["sgdid"],
+                      "pages": ["allele"]
+                  }
+                #obj["alleleObjectRelations"] = []
+
+                #TODO: alleleObj.affected_gene.sgdid doesn't have field sgdid
+                obj["alleleObjectRelations"]=[{
+                      "associationType":
+                      "allele_of",
+                      "gene":
+                      "SGD:" + simple_allele_obj["affected_geneObj"].sgdid
+                  }]
+                print ("done with " + simple_allele_obj["sgdid"]) 
+                  
                 result.append(obj)
         except Exception as e:
-            print(e)
+          import pdb; pdb.set_trace()
+          print(e)
 
     if (len(result) > 0):
         output_obj = get_output(result)
