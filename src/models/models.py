@@ -12552,12 +12552,14 @@ class Alleledbentity(Dbentity):
         return obj
 
     def get_affected_geneObj(self):
-        display_name = self.get_gene_name()
-        
-        #locus = DBSession.query(Dbentity).filter_by(display_name = display_name).one_or_none()
-        la = DBSession.query(LocusAllele).filter_by(allele_id=self.dbentity_id).one()
-
-        return la.locus
+        try:
+            display_name = self.get_gene_name()
+            #locus = DBSession.query(Dbentity).filter_by(display_name = display_name).one_or_none()
+            la = DBSession.query(LocusAllele).filter_by(allele_id=self.dbentity_id).one()
+            return la.locus
+        except Exception as e:
+            print("Id with error: " + str(self.dbentity_id))
+            print(e)
  
     def get_name(self, reference_mapping, ref_order):
 
