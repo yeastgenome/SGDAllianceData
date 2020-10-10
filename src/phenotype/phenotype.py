@@ -1,7 +1,8 @@
 """ Aggregate phenotype data for Alliance data submission
 
 The script extracts data from 1 table into a dictionary that is written to a json file.
-The json file is submitted to Alliance for futher processing
+The json file is 
+submitted to Alliance for futher processing
 
 This file requires packages listed in requirements.txt file and env.sh file.
 The env.sh file contains environment variables
@@ -36,12 +37,21 @@ def get_phenotypephenotype_data(root_path):
     print(("computing " + str(len(phenotype_data)) + " phenotypes"))
     with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
         for item in phenotype_data:
+            
             obj = {
                 "objectId": "",
                 "phenotypeTermIdentifiers": [],
                 "phenotypeStatement": "",
                 "dateAssigned": ""
-            }
+                }
+            if item.allele:  #make allele object if there is an allele associated with a phenotype #
+                alleleObj = {
+                "objectId": "",
+                "phenotypeTermIdentifiers": [],
+                "phenotypeStatement": "",
+                "dateAssigned": ""
+                }
+
             if item.phenotype.qualifier:
                 pString = item.phenotype.qualifier.display_name
                 obj["phenotypeTermIdentifiers"].append({
@@ -50,9 +60,23 @@ def get_phenotypephenotype_data(root_path):
                     "termOrder":
                     1
                 })
+                if item.allele: #add phenotype to allele obj
+                    alleleObj["phenotypeTermIdentifiers"].append({
+                        "termId":
+                        str(item.phenotype.qualifier.apoid),
+                        "termOrder":
+                        1
+                 })
                 if item.phenotype.observable:
                     pString = pString + " " + item.phenotype.observable.display_name
                     obj["phenotypeTermIdentifiers"].append({
+                        "termId":
+                        str(item.phenotype.observable.apoid),
+                        "termOrder":
+                        2
+                    })
+                    if item.allele: # adding observable to allele pheno obj
+                        alleleObj["phenotypeTermIdentifiers"].append({
                         "termId":
                         str(item.phenotype.observable.apoid),
                         "termOrder":
@@ -68,6 +92,14 @@ def get_phenotypephenotype_data(root_path):
                         "termOrder":
                         1
                     })
+                    if item.allele: # adding only observable to allele pheno obj
+                        alleleObj["phenotypeTermIdentifiers"].append({
+                        "termId":
+                        str(item.phenotype.observable.apoid),
+                        "termOrder":
+                        1
+                    })
+
             obj["objectId"] = "SGD:" + str(item.dbentity.sgdid)
             obj["phenotypeStatement"] = pString
 
@@ -78,8 +110,24 @@ def get_phenotypephenotype_data(root_path):
             obj["evidence"] = {"publicationId": pubId}
             obj["dateAssigned"] = item.date_created.strftime(
                 "%Y-%m-%dT%H:%m:%S-00:00")
+            
+            if item.allele:
+               # add allele SGDID to gene-level phenotype 
+                obj["primaryGeneticEntityIDs"] = ["SGD:" + item.allele.sgdid]
+
+                # adding basic info to allele obj #
+                alleleObj["objectId"] = "SGD:" + item.allele.sgdid
+                alleleObj["phenotypeStatement"] = pString
+                alleleObj["evidence"] = {"publicationId": pubId}
+                alleleObj["dateAssigned"] = item.date_created.strftime(
+                "%Y-%m-%dT%H:%m:%S-00:00") 
+
             result.append(obj)
 
+            if item.allele: # adding allele level phenotype if it exists
+                result.append(alleleObj)
+          #  else:
+          #      print("no allele for " + item.dbentity.display_name + " pheno:" + pString)
         if len(result) > 0:
             output_obj = get_output(result)
             file_name = 'src/data_dump/SGD' + SUBMISSION_VERSION + 'phenotype.json'

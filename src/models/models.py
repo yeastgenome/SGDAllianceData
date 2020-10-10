@@ -12547,17 +12547,15 @@ class Alleledbentity(Dbentity):
         obj['interaction_references'] = self.get_interaction_references()
         obj['urls'] = self.get_resource_urls()
         obj['reference_mapping'] = reference_mapping
-        obj['affected_geneObj'] = self.get_affected_geneObj()
-        
+
         return obj
 
     def get_affected_geneObj(self):
-        display_name = self.get_gene_name()
-        
-        #locus = DBSession.query(Dbentity).filter_by(display_name = display_name).one_or_none()
-        la = DBSession.query(LocusAllele).filter_by(allele_id=self.dbentity_id).one()
-
-        return la.locus
+        try:
+            la = DBSession.query(LocusAllele).filter_by(allele_id=self.dbentity_id).one_or_none()
+            return la.locus
+        except:
+            return None 
  
     def get_name(self, reference_mapping, ref_order):
 
