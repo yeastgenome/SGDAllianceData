@@ -163,7 +163,7 @@ def get_allele_information(root_path):
                     obj["description"] = simple_allele_obj["description"]
                 obj["taxonId"] = "NCBITaxon:" + DEFAULT_TAXID
 
-                if "aliases" in simple_allele_obj.keys():
+                if "aliases" in simple_allele_obj.keys() and simple_allele_obj['aliases'] is not None:
                   obj["synonyms"] =[]
                   for aliasObj in simple_allele_obj["aliases"]:
                     obj["synonyms"].append(aliasObj["display_name"])                    

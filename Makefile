@@ -51,7 +51,7 @@ run-all:
 		. env.sh && python ./run_htp_datasets.py
 		. env.sh && python ./run_disease_association.py
 		. env.sh && python ./run_expression.py
-		. env.sh && python ./run_phenotype.py
+#		. env.sh && python ./run_phenotype.py
 		. env.sh && python ./run_htp_sample_metadata.py
 		. env.sh && python ./run_bgi.py
 #upload-all:

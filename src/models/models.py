@@ -1,7 +1,8 @@
 from sqlalchemy import Column, BigInteger, UniqueConstraint, Float, Boolean, SmallInteger, Integer, DateTime, ForeignKey, Index, Numeric, String, Text, text, FetchedValue, func, or_, and_, distinct, inspect
 from sqlalchemy.orm import scoped_session, sessionmaker, relationship
 from sqlalchemy.ext.declarative import declarative_base
-from zope.sqlalchemy import ZopeTransactionExtension
+#from zope.sqlalchemy import ZopeTransactionExtension
+from zope.sqlalchemy import register
 
 from math import floor, log
 import json
@@ -23,7 +24,8 @@ import hashlib
 
 #from src.aws_helpers import simple_s3_upload, get_checksum, calculate_checksum_s3_file
 
-DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
+DBSession = scoped_session(sessionmaker(autoflush=False))#extension=ZopeTransactionExtension()))
+register(DBSession)
 
 ALLIANCE_API_BASE_URL = "https://www.alliancegenome.org/api/gene/"
 QUERY_LIMIT = 25000
@@ -12712,22 +12714,25 @@ class Alleledbentity(Dbentity):
 
         alleleAliases = DBSession.query(AlleleAlias).filter_by(
             allele_id=self.dbentity_id).all()
-        objs = []
-        for x in alleleAliases:
-            allelealiasRefs = DBSession.query(AllelealiasReference).filter_by(
-                allele_alias_id=x.allele_alias_id).all()
-            references = []
-            for x in allelealiasRefs:
-                reference = x.reference.to_dict_citation()
-                references.append(reference)
-                if reference["id"] not in reference_mapping:
-                    reference_mapping[reference["id"]] = ref_order
-                    ref_order += 1
-            objs.append({
-                "display_name": x.alias.display_name,
-                "references": references
-            })
-        return objs
+        if len(alleleAliases) > 0:
+            objs = []
+            for x in alleleAliases:
+                allelealiasRefs = DBSession.query(AllelealiasReference).filter_by(
+                    allele_alias_id=x.allele_alias_id).all()
+                references = []
+                for x in allelealiasRefs:
+                    reference = x.reference.to_dict_citation()
+                    references.append(reference)
+                    if reference["id"] not in reference_mapping:
+                        reference_mapping[reference["id"]] = ref_order
+                        ref_order += 1
+                objs.append({
+                    "display_name": x.alias.display_name,
+                    "references": references
+                })
+            return objs
+        else:
+            return None
 
     def allele_network(self):
 
