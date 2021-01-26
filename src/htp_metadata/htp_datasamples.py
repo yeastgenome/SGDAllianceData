@@ -129,6 +129,7 @@ def get_htp_sample_metadata(root_path):
 
     sampleResult = []
     datasetResult = []
+# with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
 
     for sampleObj in datasetSamples:
         #print str(sample_num) + ". sample ID: " + sampleObj.display_name
@@ -166,13 +167,15 @@ def get_htp_sample_metadata(root_path):
             if sampleObj.strain_name is not None:
                 strains = sampleObj.strain_name.split("|")
                 #   print "strain:" + ("*").join(strains)
-
-                obj["genomicInformation"] = {
-                    "biosampleId":
-                    "SGD:" + strain_name_to_sgdid[str(strains[0])],
-                    "idType": "strain",
-                    "bioSampleText": str(strains[0])
-                }
+                if str(strains[0]) in strain_name_to_sgdid:
+                    obj["genomicInformation"] = {
+                        "biosampleId":
+                        "SGD:" + strain_name_to_sgdid[str(strains[0])],
+                        "idType": "strain",
+                        "bioSampleText": str(strains[0])
+                        }
+                else:
+                    print (str(strains[0]) + " not a DB object")
             ## taxon ID
             # if sampleObj.taxonomy:
             #   obj["taxonId"] = "NCBITaxon:" + sampleObj.taxonomy.taxid.replace(

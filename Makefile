@@ -6,6 +6,7 @@ clean-packages:
 
 pretty-json:
 		python -m json.tool ./src/data_dump/output.json
+#cat src/data_dump/SGD_1.0.1.4_phenotype.json | python -m json.tool > src/data_dump/SGD_1.0.1.4_phenotype-pretty.json
 
 disease-json:
 		npm run disease-json
@@ -41,6 +42,12 @@ run-agm:
 run-allele:
 		. env.sh && python ./run_alleles.py
 
+run-refs:
+		. env.sh && python ./run_references.py
+
+run-resources:
+		. env.sh && python ./run_resources.py
+
 build-all:
 		. env.sh && pip install -r requirements.txt
 
@@ -51,7 +58,7 @@ run-all:
 		. env.sh && python ./run_htp_datasets.py
 		. env.sh && python ./run_disease_association.py
 		. env.sh && python ./run_expression.py
-#		. env.sh && python ./run_phenotype.py
+		. env.sh && python ./run_phenotype.py
 		. env.sh && python ./run_htp_sample_metadata.py
 		. env.sh && python ./run_bgi.py
 #upload-all:

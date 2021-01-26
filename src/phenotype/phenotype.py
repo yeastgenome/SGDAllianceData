@@ -82,13 +82,26 @@ def get_phenotypephenotype_data(root_path):
                         cObj["conditionQuantity"] = cond.condition_value + " " + cond.condition_unit
 
                     if cond.condition_class == 'chemical':  # get ChEBI ID
-                       # print(cond.condition_name)
-                        chebiObj = DBSession.query(Chebi).filter_by(display_name = cond.condition_name, is_obsolete='false').one_or_none()
+                        print(str(item.annotation_id) + ":" + cond.condition_name)
+                        chebiObj = DBSession.query(Chebi).filter_by(display_name = cond.condition_name).all()
                         #print(chebiObj)
-                        cObj["ChemicalOntologyId"] = chebiObj.format_name
+                        if len(chebiObj) > 1: ## more than one ChEBI ID, then take ONLY the is_obsolete='false'
+                            print(str(item.annotation_id) + ":" + cond.condition_name + " has multiple ChEBI IDs")
+                            for eachObj in chebiObj:
+                                if eachObj.is_obsolete == 'true':
+                                    chebiObj.remove(eachObj)
+                        elif len(chebiObj) == 0:
+                            print(str(item.annotation_id) + ":" + cond.condition_name + " has no ChEBI ID")
+                            next
 
-                    conditionList.append(cObj)   
-                #print('has ' + "*".join(conditions.keys()) + " " + "|".join(conditions.values()))
+                        if len(chebiObj) == 1:   
+                            if chebiObj[0].format_name:
+                                cObj["ChemicalOntologyId"] = chebiObj[0].format_name
+                            else:
+                                print(str(item.annotation_id) + ":" + cond.condition_name)
+                                print ("NO or OBSOLETE CHEBI term")
+                            
+                    conditionList.append({'conditionRelationType':'has_condition', 'conditions': cObj}) 
                 obj["conditionRelations"] = conditionList 
                 
             if item.phenotype.qualifier:
