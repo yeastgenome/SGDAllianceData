@@ -109,7 +109,7 @@ def get_htp_sample_metadata(root_path):
     #desired_eco_ids = get_eco_ids(ECO_FORMAT_NAME_LIST)
     #.limit(500)
     datasetSamples = DBSession.query(Datasetsample).filter(
-        Datasetsample.biosample.in_(BIOSAMPLE_OBI_MAPPINGS.keys()),
+        Datasetsample.biosample.in_(list(BIOSAMPLE_OBI_MAPPINGS.keys())),
         Datasetsample.dbxref_id != None).all()
     dataset_result = []
     datasample_result = []
@@ -119,7 +119,7 @@ def get_htp_sample_metadata(root_path):
         for x in DBSession.query(Dbentity).filter_by(subclass='STRAIN').all()
     ])
 
-    print("computing " + str(len(datasetSamples)) + " datasamples")
+    print(("computing " + str(len(datasetSamples)) + " datasamples"))
 
     dbentity_id_to_mmo = {}
     datasetobjs = []
@@ -129,6 +129,7 @@ def get_htp_sample_metadata(root_path):
 
     sampleResult = []
     datasetResult = []
+# with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
 
     for sampleObj in datasetSamples:
         #print str(sample_num) + ". sample ID: " + sampleObj.display_name
@@ -166,13 +167,15 @@ def get_htp_sample_metadata(root_path):
             if sampleObj.strain_name is not None:
                 strains = sampleObj.strain_name.split("|")
                 #   print "strain:" + ("*").join(strains)
-
-                obj["genomicInformation"] = {
-                    "biosampleId":
-                    "SGD:" + strain_name_to_sgdid[str(strains[0])],
-                    "idType": "strain",
-                    "bioSampleText": str(strains[0])
-                }
+                if str(strains[0]) in strain_name_to_sgdid:
+                    obj["genomicInformation"] = {
+                        "biosampleId":
+                        "SGD:" + strain_name_to_sgdid[str(strains[0])],
+                        "idType": "strain",
+                        "bioSampleText": str(strains[0])
+                        }
+                else:
+                    print (str(strains[0]) + " not a DB object")
             ## taxon ID
             # if sampleObj.taxonomy:
             #   obj["taxonId"] = "NCBITaxon:" + sampleObj.taxonomy.taxid.replace(
@@ -205,11 +208,11 @@ def get_htp_sample_metadata(root_path):
             # break
             ## make dataset list
             obj["datasetIds"] = dsList
-            print dsSample.display_name + " in " + str(
-                len(dsList)) + " datasets " + str(len(dsassayList)) + " assays"
+            print(dsSample.display_name + " in " + str(
+                len(dsList)) + " datasets " + str(len(dsassayList)) + " assays")
 
             for dsAssay in dsassayList:
-                if dsAssay in OBI_MMO_MAPPING.keys():
+                if dsAssay in list(OBI_MMO_MAPPING.keys()):
                     obj["assayType"] = OBI_MMO_MAPPING[dsAssay]
                 else:
                     obj["assayType"] = DEFAULT_MMO

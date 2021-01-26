@@ -95,7 +95,7 @@ def get_file_from_path_collection(key, name):
         'zip': get_zip_files(),
         'sra': get_sra_files()
     }
-    for k, val in obj.items():
+    for k, val in list(obj.items()):
         if k.lower() == key.lower():
             # loop through the array
             f_path = get_file_path_helper(val, name)
@@ -189,7 +189,7 @@ def upload_cb(complete, total):
     #new_s3_file = bucket.get_key(s3_key_name)
     #new_s3_file.set_acl("public-read")
     #return new_s3_file
-    print("uploaded:" + str(total))
+    print(("uploaded:" + str(total)))
 
 
 def standard_s3_file_transfer(bucket, s3_key_name, transfer_file, file_size_MB, use_rr):
@@ -227,7 +227,7 @@ def multipart_s3_file_transfer(bucket, s3_key_name, tarball, mb_size, use_rr=Tru
 
         multi_part_file.complete_upload()
     except Exception as e:
-        print(traceback.format_exc())
+        print((traceback.format_exc()))
 
 
 def map_wrap(f):
@@ -255,7 +255,7 @@ def transfer_part(mp_id, mp_keyname, mp_bucketname, i, part):
     """Transfer a part of a multipart upload. Designed to be run in parallel.
     """
     mp = mp_from_ids(mp_id, mp_keyname, mp_bucketname)
-    print(" Transferring", i, part)
+    print((" Transferring", i, part))
     with open(part) as t_handle:
         mp.upload_part_from_file(t_handle, i+1)
     os.remove(part)

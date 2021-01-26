@@ -72,7 +72,7 @@ def get_disease_association_data(root_path):
     #    if (content):
     disease_data = DBSession.query(Diseaseannotation).all()
     #result = []
-    print("computing " + str(len(disease_data)) + " diseases")
+    print(("computing " + str(len(disease_data)) + " diseases"))
     with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
         for item in disease_data:
             #toLsp = item.to_dict_lsp()
@@ -128,7 +128,7 @@ def get_disease_association_data(root_path):
             # print 'item ECO CODE:' + eco_code_dict[str(item.eco.eco_id)]
             ## if exists in results arleady, append ECO code:
 
-            if uniqkey in result.keys():
+            if uniqkey in list(result.keys()):
                 #               print 'original eco code:' + '|'.join(result[uniqkey]["evidence"]["evidenceCodes"])
 
                 result[uniqkey]["evidence"]["evidenceCodes"].append(
@@ -138,7 +138,7 @@ def get_disease_association_data(root_path):
                 ## if not, make new obj for key
                 ## publication ID ## PMID or SGDID
                 ## reference SGDID
-                print item.reference.pmid
+                print(item.reference.pmid)
 
                 ref_dbentity = DBSession.query(Dbentity).filter(
                     Dbentity.dbentity_id == item.reference.pmid).all()
@@ -177,9 +177,9 @@ def get_disease_association_data(root_path):
 
                 result[uniqkey] = obj
 
-    if len(result.keys()) > 0:
-        print "# objs:" + str(len(result.keys()))
-        output_obj = get_output(result.values())
+    if len(list(result.keys())) > 0:
+        print("# objs:" + str(len(list(result.keys()))))
+        output_obj = get_output(list(result.values()))
         file_name = 'src/data_dump/SGD' + SUBMISSION_VERSION + 'disease_association.json'
         json_file_str = os.path.join(root_path, file_name)
         if (output_obj):

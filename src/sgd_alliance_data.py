@@ -1,4 +1,4 @@
-from models import DBSession, Base, Colleague, ColleagueLocus, Dbentity, Eco, Locusdbentity, LocusUrl, LocusAlias, Dnasequenceannotation, So, Locussummary, Phenotypeannotation, PhenotypeannotationCond, Phenotype, Goannotation, Go, Goslimannotation, Goslim, Apo, Straindbentity, Strainsummary, Reservedname, GoAlias, Goannotation, Referencedbentity, Referencedocument, Referenceauthor, ReferenceAlias, Chebi
+from .models import DBSession, Base, Colleague, ColleagueLocus, Dbentity, Eco, Locusdbentity, LocusUrl, LocusAlias, Dnasequenceannotation, So, Locussummary, Phenotypeannotation, PhenotypeannotationCond, Phenotype, Goannotation, Go, Goslimannotation, Goslim, Apo, Straindbentity, Strainsummary, Reservedname, GoAlias, Goannotation, Referencedbentity, Referencedocument, Referenceauthor, ReferenceAlias, Chebi
 from sqlalchemy import create_engine, and_, inspect
 import os
 import json
@@ -67,7 +67,7 @@ def get_panther_sgdids():
 def get_bgi_data(soFlag=False):
     combined_list = combine_panther_locus_list(get_panther_sgdids(),
                                                Locusdbentity.get_s288c_genes())
-    print("computing " + str(len(combined_list)) + " genes")
+    print(("computing " + str(len(combined_list)) + " genes"))
     result = []
     if (len(combined_list) > 0):
 
@@ -281,7 +281,7 @@ def get_locus_alias_data(locus_alias_list, id, item_obj):
 def get_phenotype_data():
     _data = DBSession.query(Phenotypeannotation).all()
     result = []
-    print("computing " + str(len(_data)) + " phenotypes")
+    print(("computing " + str(len(_data)) + " phenotypes"))
     with concurrent.futures.ProcessPoolExecutor(max_workers=128) as executor:
         for item in _data:
             obj = {
@@ -384,7 +384,7 @@ def get_expression_data():
     }
     genes = Locusdbentity.get_s288c_genes()
     result = []
-    print("computing " + str(len(genes)) + " expression data points")
+    print(("computing " + str(len(genes)) + " expression data points"))
     dbentity_id_to_mmo = {}
     for gene in genes:
         go_annotations = DBSession.query(Goannotation, Go).outerjoin(Go).filter(and_(\
@@ -404,10 +404,10 @@ def get_expression_data():
             pmid = ref[0]
             sgdid = ref[1]
             mmo = None
-            if ref_id in dbentity_id_to_mmo.keys():
+            if ref_id in list(dbentity_id_to_mmo.keys()):
                 mmo = dbentity_id_to_mmo[ref_id]
             else:
-                if pmid not in pmid_to_mmo.keys():
+                if pmid not in list(pmid_to_mmo.keys()):
                     mmo = DEFAULT_MMO
                 else:
                     mmo = pmid_to_mmo[pmid]
@@ -481,7 +481,7 @@ def run_script_with_logs():
     get_bgi_data()
     time_taken = "time taken: " + ("--- %s seconds ---" %
                                    (time.time() - start_time))
-    print("------------------ bgi time taken: " + time_taken + " --------------------")
+    print(("------------------ bgi time taken: " + time_taken + " --------------------"))
     with open(
             os.path.join(THIS_FOLDER,
                          'logs/SGD' + SUBMISSION_VERSION + 'log_time_bgi.txt'),
@@ -493,7 +493,7 @@ def run_script_with_logs():
     get_phenotype_data()
     second_time_taken = "time taken: " + ("--- %s seconds ---" %
                                           (time.time() - second_start_time))
-    print("------------------ phenotype time taken: " + second_time_taken + " --------------------")
+    print(("------------------ phenotype time taken: " + second_time_taken + " --------------------"))
     with open(os.path.join(THIS_FOLDER,
                          'logs/SGD' + SUBMISSION_VERSION + 'log_phenotype.txt'),
               'w+') as res_file_2:
@@ -505,7 +505,7 @@ def run_script_with_logs():
     get_expression_data()
     third_time_taken = "time taken: " + ("--- %s seconds ---" %
                                          (time.time() - third_start_time))
-    print ("------------------ phenotype time taken: " + third_time_taken + " --------------------")
+    print(("------------------ phenotype time taken: " + third_time_taken + " --------------------"))
     with open(
             os.path.join(THIS_FOLDER,
                          'logs/SGD' + SUBMISSION_VERSION + 'log_expression.txt'),

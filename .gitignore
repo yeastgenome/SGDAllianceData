@@ -77,3 +77,26 @@ agr_schemas*
 src/data_dump
 
 
+*.bak
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+*.py[cod]
+*$py.class
+.coverage
+.coverage.*
+.cache
+
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

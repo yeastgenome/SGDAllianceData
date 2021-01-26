@@ -68,7 +68,7 @@ def get_expression_data(root_path):
     desired_eco_ids = get_eco_ids(ECO_FORMAT_NAME_LIST)
     genes = Locusdbentity.get_s288c_genes()
     result = []
-    print("computing " + str(len(genes)) + " expression data points")
+    print(("computing " + str(len(genes)) + " expression data points"))
     dbentity_id_to_mmo = {}
     for gene in genes:
         go_annotations = DBSession.query(Goannotation, Go).outerjoin(Go).filter(and_(\
@@ -88,10 +88,10 @@ def get_expression_data(root_path):
             pmid = ref[0]
             sgdid = ref[1]
             mmo = None
-            if ref_id in dbentity_id_to_mmo.keys():
+            if ref_id in list(dbentity_id_to_mmo.keys()):
                 mmo = dbentity_id_to_mmo[ref_id]
             else:
-                if pmid not in PMID_TO_MMO.keys():
+                if pmid not in list(PMID_TO_MMO.keys()):
                     mmo = DEFAULT_MMO
                 else:
                     mmo = PMID_TO_MMO[pmid]
