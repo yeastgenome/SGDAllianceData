@@ -308,7 +308,9 @@ def get_refs_information(root_path):
                     "pubMedId": "PMID:" + str(extRefObj['pubmed_id']),
                     "modId": "SGD:" + dbObj.sgdid
                 }
-                refExObj["dateLastModified"] = dbObj.date_revised.strftime("%Y-%m-%dT%H:%m:%S-00:00")
+                if dbObj.date_revised:
+                    refExObj["dateLastModified"] = dbObj.date_revised.strftime("%Y-%m-%dT%H:%m:%S-00:00")
+                
                 refExObj['tags'] = [{'referenceId':"PMID:" + str(extRefObj['pubmed_id']), 'tagName':'inCorpus', 'tagSource': 'SGD'}]
                 
                 if 'reftypes' in extRefObj:
