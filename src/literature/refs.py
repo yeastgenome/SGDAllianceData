@@ -125,9 +125,10 @@ def get_refs_information(root_path):
 
     print("getting References")
 ## change limit when ready ##
-    referencesObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid != None).all()
+    referencesObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid != None).limit(10).all()
 
     print("computing " + str(len(referencesObjList)) + " references")
+    print("start time:" + str(datetime.now()))
     
     #sys.exit()
     
@@ -288,4 +289,5 @@ def get_refs_information(root_path):
 
         with open(refEx_str, 'w+') as res_file:
             res_file.write(json.dumps(refExch_obj))
-
+    
+ 

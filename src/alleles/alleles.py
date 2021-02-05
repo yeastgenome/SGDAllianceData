@@ -165,7 +165,7 @@ def get_allele_information(root_path):
 
                 if "aliases" in simple_allele_obj.keys() and simple_allele_obj['aliases'] is not None:
                   obj["synonyms"] =[]
-                  for aliasObj in simple_allele_obj["aliases"]:
+                  for aliasObj in simple_allele_obj["aliases"][0]:
                     obj["synonyms"].append(aliasObj["display_name"])                    
                     #obj["synonyms"] #= aliasList #simple_allele_obj["aliases"])
                 obj["crossReferences"] = [{
