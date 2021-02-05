@@ -2847,7 +2847,7 @@ class Referencedbentity(Dbentity):
             "downloadable_files": []
         }
 
-        if self.pmid != None:
+        if self.pmid != None and self.journal != None:
             obj["journal"] = {"med_abbr": self.journal.med_abbr}
 
         datasets = DBSession.query(DatasetReference).filter_by(

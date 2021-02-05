@@ -18,49 +18,51 @@ build-panther:
 		npm run panther-json
 
 run-expression:	
-		. env.sh && python ./run_expression.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_expression.py
 run-phenotype:
-		. env.sh && python ./run_phenotype.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_phenotype.py
 run-bgi:
 #		npm run panther-json
-		. env.sh && python ./run_bgi.py 
-		. env.sh && python ./run_nongene.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_bgi.py 
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_nongene.py
 
 run-disease:
-		. env.sh && python ./run_disease_association.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_disease_association.py
 
 run-htpdatasamples:
 #		. env.sh && python ./run_datasets.py
-		. env.sh && python ./run_htp_sample_metadata.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_htp_sample_metadata.py
 
 run-htpdatasets:
-		. env.sh && python ./run_htp_datasets.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_htp_datasets.py
 
 run-agm:
-		. env.sh && python ./run_agm.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_agm.py
 
 run-allele:
-		. env.sh && python ./run_alleles.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_alleles.py
 
 run-refs:
-		. env.sh && python ./run_references.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_references.py
 
 run-resources:
-		. env.sh && python ./run_resources.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_resources.py
 
 build-all:
-		. env.sh && pip install -r requirements.txt
+		source /data/envs/sgd3/bin/activate && . env.sh && pip install -r requirements.txt
 
 run-all:
 		#npm run disease-json
 		#npm run panther-json
-		. env.sh && python ./run_agm.py
-		. env.sh && python ./run_htp_datasets.py
-		. env.sh && python ./run_disease_association.py
-		. env.sh && python ./run_expression.py
-		. env.sh && python ./run_phenotype.py
-		. env.sh && python ./run_htp_sample_metadata.py
-		. env.sh && python ./run_bgi.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_agm.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_htp_datasets.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_disease_association.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_expression.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_phenotype.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_htp_sample_metadata.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_bgi.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_references.py
+		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_resources.py
 #upload-all:
 	# run script
 	# uploads all files to AWS for Alliance to ferret out

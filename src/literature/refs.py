@@ -128,6 +128,7 @@ def get_refs_information(root_path):
     referencesObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid != None).all()
 
     print("computing " + str(len(referencesObjList)) + " references")
+    print("start time:" + str(datetime.now()))
     
     #sys.exit()
     
@@ -139,7 +140,7 @@ def get_refs_information(root_path):
         with concurrent.futures.ProcessPoolExecutor(max_workers=8) as executor:
       #  try:
             for refObj in referencesObjList:
-                print(str(referencesObjList.index(refObj)) + ': reference:' + refObj.sgdid)
+               # print(str(referencesObjList.index(refObj)) + ': reference:' + refObj.sgdid)
 
                 newRefObj = refObj.to_dict()
  
@@ -150,23 +151,39 @@ def get_refs_information(root_path):
                     "pubMedId": "PMID:" + str(newRefObj['pubmed_id']),
                     "modId": "SGD:" + refObj.sgdid
                 }
+                if refObj.title is None:
+                    print('check title for PMID:' + refObj.pmid)
 
                 obj = { #reference obj
                     "primaryId": "SGD:" + refObj.sgdid,
                     "title": refObj.title,
                     "datePublished": str(refObj.year),
                     "citation": refObj.citation,
-                    "volume": str(refObj.volume),
-                    "pages": refObj.page,
-                    "authors":[],
+    #                "volume": str(refObj.volume),
+                    #"pages": refObj.page,
+                    #"authors":[],
                     "crossReferences":[{'id':'SGD:'+refObj.sgdid,'pages':['reference']}]
                 }
-                if refObj.issue is not None:
+
+                if refObj.volume is not None and refObj.volume != "":
+                    obj["volume"] = str(refObj.volume)
+                #    print(str(refObj.volume))
+                #else:
+                #    print("no volume")
+                if refObj.page is not None and refObj.page != "":
+                    obj["pages"] = refObj.page
+                #    print('pages:' + refObj.page)	
+                #else:
+                #    print("no pages")
+                if refObj.issue is not None and refObj.issue != "":
                     obj["issueName"] = refObj.issue
+                #else:
+                #   print('no issue')
 
                 if newRefObj["abstract"] is not None:
                     obj['abstract'] = newRefObj['abstract']['text']
-            
+                #else:
+                #    print("no abstract")
 
                 if refObj.date_revised: # dateLastModified for refexchange & refs (opt)
                     obj['dateLastModified'] = refExObj["dateLastModified"] = refObj.date_revised.strftime("%Y-%m-%dT%H:%m:%S-00:00")
@@ -183,7 +200,8 @@ def get_refs_information(root_path):
                     
                 #print("|".join(refTypesList))
                     refExObj["MODReferenceTypes"] = modRefTypeList
-                    obj["MODReferenceTypes"] = modRefTypeList
+                    if len(modRefTypeList) > 0:
+                        obj["MODReferenceTypes"] = modRefTypeList
 
 ## default category - research article
                     refTypes = "|".join(refTypesList)
@@ -196,7 +214,7 @@ def get_refs_information(root_path):
                             refExObj['allianceCategory'] = obj['allianceCategory'] = "Review Article"
                        # continue
                         if re.search('Retracted Publication', refTypes): #Retracted Publication' in refTypesList:
-                            refExObj['allianceCategory'] = obj['allianceCategory'] = "Retracted"
+                            refExObj['allianceCategory'] = obj['allianceCategory'] = "Retraction"
                        # continue
                         if re.search("Personal Communication in Publication", refTypes): # in refTypesList:
                             refExObj['allianceCategory'] = obj['allianceCategory'] = "Personal Communication"
@@ -230,34 +248,40 @@ def get_refs_information(root_path):
 ## Authors for references##
                 authorOrder = 1
                 authorList = []
-                for name in newRefObj['authors']:
+                if newRefObj['authors'] is not None:
+                    obj['authors'] = []
+                    for name in newRefObj['authors']:
                # nameList = name['display_name'].split(' ')
-                    authObj = {
-                        'name': name['display_name'],
-                        'referenceId': 'SGD:' + refObj.sgdid,
-                        'authorRank': newRefObj['authors'].index(name) + 1
-                    }
+                        authObj = {
+                            'name': name['display_name'],
+                            'referenceId': 'SGD:' + refObj.sgdid,
+                            'authorRank': newRefObj['authors'].index(name) + 1
+                        }
  
-                    obj['authors'].append(authObj)
+                        obj['authors'].append(authObj)
 ## crossref for author? id: SGD:last_first, pages"["/author"] 
               #  authorOrder += 1
 
 ## journal or book publication ##
-                if refObj.book:
-                    obj['publisher'] = refObj.book.publisher
-                    obj['resourceAbbreviation'] = refObj.book.title
-                elif refObj.journal:
-                    obj['publisher'] = refObj.journal.title
-                    obj['resourceAbbreviation'] = refObj.journal.med_abbr    
+                if refObj.book is not None:
+                    if refObj.book.publisher is not None:
+                        obj['publisher'] = refObj.book.publisher
+                    if refObj.book.title is not None:
+                        obj['resourceAbbreviation'] = refObj.book.title
+                elif refObj.journal is not None:
+                    if refObj.journal.title is not None:
+                        obj['publisher'] = refObj.journal.title
+                    if refObj.journal.med_abbr is not None:
+                        obj['resourceAbbreviation'] = refObj.journal.med_abbr    
 
 ## crossReferences for reference.json file #
               # refObj.pmid, refObj.pmcid refObj.doi
-                if refObj.pmcid:
-                    obj['crossReferences'].append({'id': 'PMCID:' + refObj.pmcid, 'pages': []})
+                if refObj.pmcid is not None:
+                    obj['crossReferences'].append({'id': 'PMCID:' + refObj.pmcid})
 
-                if refObj.doi:
+                if refObj.doi is not None:
                     obj['crossReferences'].append({'id': 'DOI:' + refObj.doi, 'pages': ['DOI']})
-                if refObj.pmid:
+                if refObj.pmid is not None:
                     obj['crossReferences'].append({'id': 'PMID:' + str(refObj.pmid), 'pages': ['PubMed']})
             
 #            print("obj:" + "*".join(obj.keys()))
@@ -288,4 +312,6 @@ def get_refs_information(root_path):
 
         with open(refEx_str, 'w+') as res_file:
             res_file.write(json.dumps(refExch_obj))
+
+    print("end time:" + str(datetime.now()))
 

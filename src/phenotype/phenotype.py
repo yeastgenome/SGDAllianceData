@@ -68,41 +68,41 @@ def get_phenotypephenotype_data(root_path):
                 "dateAssigned": ""
                 }
             ## Check for conditions ##
-            conditionObjs = DBSession.query(PhenotypeannotationCond).filter(PhenotypeannotationCond.annotation_id==item.annotation_id).all()
+            #conditionObjs = DBSession.query(PhenotypeannotationCond).filter(PhenotypeannotationCond.annotation_id==item.annotation_id).all()
             
-            if conditionObjs:
-                conditionList = []
-                for cond in conditionObjs:
-                    cObj = {"conditionClassId": COND_TO_ZECO[cond.condition_class]}
-                    
-                    cObj["conditionStatement"] = cond.condition_class + ":" + cond.condition_name
-                   # print(cond.condition_class + ":" + cond.condition_name)
+            #if conditionObjs:
+            #    conditionList = []
+            #    for cond in conditionObjs:
+            #        cObj = {"conditionClassId": COND_TO_ZECO[cond.condition_class]}
+            #        
+            #        cObj["conditionStatement"] = cond.condition_class + ":" + cond.condition_name
+            #       # print(cond.condition_class + ":" + cond.condition_name)
 
-                    if cond.condition_value and cond.condition_unit:
-                        cObj["conditionQuantity"] = cond.condition_value + " " + cond.condition_unit
+             #       if cond.condition_value and cond.condition_unit:
+             #           cObj["conditionQuantity"] = cond.condition_value + " " + cond.condition_unit
 
-                    if cond.condition_class == 'chemical':  # get ChEBI ID
-                        print(str(item.annotation_id) + ":" + cond.condition_name)
-                        chebiObj = DBSession.query(Chebi).filter_by(display_name = cond.condition_name).all()
-                        #print(chebiObj)
-                        if len(chebiObj) > 1: ## more than one ChEBI ID, then take ONLY the is_obsolete='false'
-                            print(str(item.annotation_id) + ":" + cond.condition_name + " has multiple ChEBI IDs")
-                            for eachObj in chebiObj:
-                                if eachObj.is_obsolete == 'true':
-                                    chebiObj.remove(eachObj)
-                        elif len(chebiObj) == 0:
-                            print(str(item.annotation_id) + ":" + cond.condition_name + " has no ChEBI ID")
-                            next
+              #      if cond.condition_class == 'chemical':  # get ChEBI ID
+              #          print(str(item.annotation_id) + ":" + cond.condition_name)
+              #          chebiObj = DBSession.query(Chebi).filter_by(display_name = cond.condition_name).all()
+              #          #print(chebiObj)
+             #           if len(chebiObj) > 1: ## more than one ChEBI ID, then take ONLY the is_obsolete='false'
+             #               print(str(item.annotation_id) + ":" + cond.condition_name + " has multiple ChEBI IDs")
+             #               for eachObj in chebiObj:
+             #                   if eachObj.is_obsolete == 'true':
+            #                        chebiObj.remove(eachObj)
+             #           elif len(chebiObj) == 0:
+             #               print(str(item.annotation_id) + ":" + cond.condition_name + " has no ChEBI ID")
+             #               next
 
-                        if len(chebiObj) == 1:   
-                            if chebiObj[0].format_name:
-                                cObj["ChemicalOntologyId"] = chebiObj[0].format_name
-                            else:
-                                print(str(item.annotation_id) + ":" + cond.condition_name)
-                                print ("NO or OBSOLETE CHEBI term")
-                            
-                    conditionList.append({'conditionRelationType':'has_condition', 'conditions': cObj}) 
-                obj["conditionRelations"] = conditionList 
+             #           if len(chebiObj) == 1:   
+             #               if chebiObj[0].format_name:
+             #                   cObj["ChemicalOntologyId"] = chebiObj[0].format_name
+             #               else:
+             #                   print(str(item.annotation_id) + ":" + cond.condition_name)
+             #                   print ("NO or OBSOLETE CHEBI term")
+             #               
+             #       conditionList.append({'conditionRelationType':'has_condition', 'conditions':[cObj]}) 
+             #   obj["conditionRelations"] = conditionList 
                 
             if item.phenotype.qualifier:
                 pString = item.phenotype.qualifier.display_name
