@@ -125,7 +125,7 @@ def get_refs_information(root_path):
 
     print("getting References")
 ## change limit when ready ##
-    referencesObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid != None).all()
+    referencesObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid != None).limit(10) #all()
 
     print("computing " + str(len(referencesObjList)) + " references")
     print("start time:" + str(datetime.now()))
@@ -155,7 +155,7 @@ def get_refs_information(root_path):
                     print('check title for PMID:' + refObj.pmid)
 
                 obj = { #reference obj
-                    "primaryId": "SGD:" + refObj.sgdid,
+                    "primaryId": "PMID:" + str(newRefObj['pubmed_id']) #"SGD:" + refObj.sgdid,
                     "title": refObj.title,
                     "datePublished": str(refObj.year),
                     "citation": refObj.citation,
@@ -254,7 +254,7 @@ def get_refs_information(root_path):
                # nameList = name['display_name'].split(' ')
                         authObj = {
                             'name': name['display_name'],
-                            'referenceId': 'SGD:' + refObj.sgdid,
+                            'referenceId': 'PMID:' + str(newRefObj['pubmed']) #'SGD:' + refObj.sgdid,
                             'authorRank': newRefObj['authors'].index(name) + 1
                         }
  
@@ -293,6 +293,51 @@ def get_refs_information(root_path):
 
                 ref_result.append(obj)
                 ref_exchange_result.append(refExObj)
+
+##### Process references with no PMIDs for references.py ####
+
+    resources_result = []
+
+    print ('Processing Resources -- refs without PMIDS')
+    resourceObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid == None).limit(10) #all()
+
+    print ("computing " + str(len(resourceObjList)) + " refs (non-PMID)") 
+
+    if (len(resourceObjList) > 0):
+       # with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
+      #  try:
+        for resource in resourceObjList:
+            print(str(resourceObjList.index(resource)) + ': reference:' + resource.sgdid)
+
+            obj = {'primaryId': 'SGD:' + resource.sgdid,
+            'title': resource.title,
+            'authors': [],
+            'datePublished': str(resource.year),
+            'citation': resource.citation,
+            'crossReferences': [{'id': 'SGD:' + resource.sgdid, 'pages': 'reference'}]
+            }
+
+            moreResObj = resource.to_dict()
+            authList = []
+            
+            for name in moreResObj['authors']:
+               # print ('author:' + name['display_name'])
+               # nameList = name['display_name'].split(' ')
+                authObj = {
+                    'name': name['display_name'],
+                 #   'lastName': nameList[0],
+                    'referenceId': 'SGD:' + resource.sgdid,
+                    'authorRank': moreResObj['authors'].index(name) + 1
+                }
+            #    if len(nameList) > 2:
+            #        authObj['middleName']: nameList[2]
+
+                obj['authors'].append(authObj)
+
+            if moreResObj['abstract'] is not None:
+                obj['abstractOrSummary'] = moreResObj['abstract']['text']        
+
+            ref_result.append(obj)
         
 #        print(str(len(ref_result)))
 #        print(str(len(ref_exchange_result)))
