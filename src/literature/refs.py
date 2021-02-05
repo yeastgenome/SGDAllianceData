@@ -283,7 +283,7 @@ def get_refs_information(root_path):
 
     print("getting References")
 ## change limit when ready ##
-    referencesObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid != None).limit(10).all()
+    referencesObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid != None).all()
 
     print("computing " + str(len(referencesObjList)) + " references")
     print("start time:" + str(datetime.now()))
@@ -333,7 +333,7 @@ def get_refs_information(root_path):
     resources_result = []
 
     print ('Processing Resources -- refs without PMIDS')
-    resourceObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid == None).limit(10).all()
+    resourceObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid == None).all()
 
     print ("computing " + str(len(resourceObjList)) + " refs (non-PMID)") 
 
