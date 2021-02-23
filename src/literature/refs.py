@@ -202,8 +202,8 @@ def make_ref_obj(refObj):
         if refObj.book.title is not None:
            obj['resourceAbbreviation'] = refObj.book.title
     elif refObj.journal is not None:
-        if refObj.journal.title is not None:
-            obj['publisher'] = refObj.journal.title
+      #  if refObj.journal.title is not None:
+      #      obj['publisher'] = refObj.journal.title
         if refObj.journal.med_abbr is not None:
             obj['resourceAbbreviation'] = refObj.journal.med_abbr    
 
