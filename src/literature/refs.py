@@ -210,12 +210,12 @@ def make_ref_obj(refObj):
 ## crossReferences for reference.json file #
               # refObj.pmid, refObj.pmcid refObj.doi
     if refObj.pmcid is not None:
-        obj['crossReferences'].append({'id': 'PMCID:' + refObj.pmcid, 'pages':['PMC']})
+        obj['crossReferences'].append({'id': 'PMCID:' + refObj.pmcid})
 
     if refObj.doi is not None:
-        obj['crossReferences'].append({'id': 'DOI:' + refObj.doi, 'pages': ['DOI']})
+        obj['crossReferences'].append({'id': 'DOI:' + refObj.doi})
     if refObj.pmid is not None:
-       obj['crossReferences'].append({'id': 'PMID:' + str(refObj.pmid), 'pages': ['PubMed']})
+       obj['crossReferences'].append({'id': 'PMID:' + str(refObj.pmid)})
 
     return obj
 
