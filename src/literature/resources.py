@@ -6,9 +6,73 @@ The json file is submitted to Alliance for futher processing
 This file requires packages listed in requirements.txt file and env.sh file.
 The env.sh file contains environment variables
 
-01/05/2021 - initial References objects
-splits into 3 files -- references.json, resources.json, resourceExchange.json
-resources.json -- non-PMID articles/books/personal communications
+just makes the resources.json -- non-PMID journals/books/personal communications
+
+"properties": {
+    "primaryId": {
+      "$ref": "../globalId.json#/properties/globalId",
+      "description": "The globally unique identifier for the resource.  ie: NLMId or ISBN or MOD Id.  Each identifier should be prefixed and of the form prefix:Id "
+    },
+    "title" : {
+      "type": "string",
+      "description": "The title of the resource."
+    },
+    "titleSynonyms":  {
+      "type" : "array",
+        "items": {
+          "type": "string"
+        },
+      "uniqueItems": true
+    },
+    "abbreviationSynonyms":  {
+      "type" : "array",
+        "items": {
+          "type": "string"
+        },
+      "uniqueItems": true
+    },
+    "isoAbbreviation": {
+      "type": "string"
+    },
+    "medlineAbbreviation": {
+      "type": "string"
+    },
+    "copyrightDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publisher": {
+      "type": "string"
+    },
+    "printISSN" : {
+      "type": "string"
+    },
+    "onlineISSN" : {
+      "type": "string"
+    },
+    "editorsOrAuthors": {
+      "type": "array",
+      "items": {
+        "$ref": "authorReference.json"
+      }
+    },
+    "volumes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pages": {
+      "type": "string"
+    },
+    "abstractOrSummary": {
+      "type": "string"
+    },
+    "crossReferences":{
+      "type": "array",
+      "items": {
+         "$ref": "../crossReference.json"
+      }
 
 """
 
@@ -20,6 +84,10 @@ from random import randint
 from datetime import datetime
 from sqlalchemy import create_engine, and_, inspect
 import concurrent.futures
+from sqlalchemy.sql.expression import null
+from sqlalchemy.sql.sqltypes import NullType
+
+from sqlalchemy.sql.type_api import NULLTYPE
 from ..models.models import LocusAlias, Dbentity, DBSession, Straindbentity, Referencedbentity
 from ..data_helpers.data_helpers import get_output, get_locus_alias_data
 
@@ -28,31 +96,7 @@ engine = create_engine(os.getenv('SQLALCHEMY_PROD_DB_URI'), pool_recycle=3600)
 SUBMISSION_VERSION = os.getenv('SUBMISSION_VERSION', '_1.0.0.0_')
 DBSession.configure(bind=engine)
 
-###########
-# Reference file requirements -
-# required: [
-# primaryId - string,
-# title - string,
-# datePublished -string (date-time format),
-# citation - string,
-# allianceCategory - string (ENUM),
-# resourceId - globalId.json
-# ],
-# optional --
-# dateLastModified - string, date-time,
-# authors - list,
-# volume - string
-# pages - string
-# abstract - string
-# keywords - array
-# pubMedType - list of strings (should be directly from PubMed)
-# publisher - string,
-# MODReferenceTypes - list of MODReferenceType objs
-# issueName - string
-# tags - list of referenceTag objs
-# meshTerms - list of meshDetail.json objs
-# crossReferences - list of crossReference.json  
-####################### 
+###################### 
 # Resource file requirements -- 
 # required:
 # primaryId - string
@@ -73,21 +117,7 @@ DBSession.configure(bind=engine)
 # pages - string
 # abstractOrSummary -string
 # crossReferences - list of crossReference objects
-##############
-# referenceExchange file requirements
-# required: 
-# PubMedId: string
-# allianceCategory - "enum": ["Research Article","Review Article","Thesis","Book","Other","Preprint","Conference Publication","Personal Communication","Direct Data Submission","Internal Process Reference", "Unknown","Retraction"],
-# 
-# optional: 
-# MODReferenceTypes
-# modId
-# dataLastModified - string (date-time)
-# tags - list of referenceTag objects
-# ################
-
-
-
+###########
 
 DEFAULT_TAXID = '559292'
 REFTYPE_TO_ALLIANCE_CATEGORIES ={
@@ -118,49 +148,56 @@ def get_resources_information(root_path):
         writes data to json file
 
     """
-
-##### Process references with no PMIDs ####
+    addedResources = []
+##### Process references with no PMIDs for Resources ####
     resources_result = []
 
     print ('Processing Resources -- refs without PMIDS')
-    resourceObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid == None).all()
+    refObjList = DBSession.query(Referencedbentity).filter(Referencedbentity.pmid == None).all()
 
-    print ("computing " + str(len(resourceObjList)) + " resources (non-PMID)") 
+    print ("computing " + str(len(refObjList)) + " non-PMID references") 
 
-    if (len(resourceObjList) > 0):
+    if (len(refObjList) > 0):
        # with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
       #  try:
-        for resource in resourceObjList:
-            print(str(resourceObjList.index(resource)) + ': reference:' + resource.sgdid)
+        for reference in refObjList:
+            print(str(refObjList.index(reference)) + ': reference:' + reference.sgdid)
 
-            obj = {'primaryId': 'SGD:' + resource.sgdid,
-            'title': resource.title,
-            'authors': [],
-            'crossReferences': [{'id': 'SGD:' + resource.sgdid, 'pages': 'reference'}]
+          ## get journal or book obj ##
+            if reference.journal_no:
+                resourceObj = reference.journal
+            elif reference.book_no:
+                resourceObj = reference.book
+            else:
+                continue
+        ## skip if resource already in obj ##
+            if resourceObj.display_name in addedResources:
+                continue
+        ## add if new resource ##
+
+            obj = {
+            'title': resourceObj.title,
             }
-
-            moreResObj = resource.to_dict()
-            authList = []
-            
-            for name in moreResObj['authors']:
-               # print ('author:' + name['display_name'])
-               # nameList = name['display_name'].split(' ')
-                authObj = {
-                    'name': name['display_name'],
-                 #   'lastName': nameList[0],
-                    'referenceId': 'SGD:' + resource.sgdid,
-                    'authorRank': moreResObj['authors'].index(name) + 1
-                }
-            #    if len(nameList) > 2:
-            #        authObj['middleName']: nameList[2]
-
-                obj['authors'].append(authObj)
-
-            if moreResObj['abstract'] is not None:
-                obj['abstractOrSummary'] = moreResObj['abstract']['text']        
-
-            resources_result.append(obj)
-        
+            # resource is a book #
+            if hasattr(resourceObj, 'isbn'):
+                if resourceObj.isbn is not NullType:
+                    obj["primaryId"] = "ISBN:" + resourceObj.isbn
+            if hasattr(resourceObj, 'publisher'):
+                obj["publisher"] = resourceObj.publisher
+            if hasattr(resourceObj,'total_pages'):
+                if resourceObj.total_pages is not NullType:
+                    obj["pages"] = resourceObj.total_pages
+            if hasattr(resourceObj,'medabbr'):
+                if resourceObj.medabbr is not NullType:
+                    obj["medlineAbbreviation"] = resourceObj.medabbr
+            if hasattr(resourceObj,'issn_print'):
+                if resourceObj.issn_print is not NullType:
+                    obj["printISSN] = resourceObj.issn_print
+            if hasattr(resourceObj,'issn_electronic'):
+                if resourceObj.issn_electronic is not NullType:
+                    obj["onlineISSN"] = resourceObj.issn_electronic
+ 
+            resources_result.append(obj) 
 
     if (len(resources_result) > 0):
         resource_output_obj = get_output(resources_result)

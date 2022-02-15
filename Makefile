@@ -43,7 +43,7 @@ run-allele:
 		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_alleles.py
 
 run-refs:
-		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_references.py
+		. env.sh && python ./run_references.py
 
 run-resources:
 		source /data/envs/sgd3/bin/activate && . env.sh && python ./run_resources.py

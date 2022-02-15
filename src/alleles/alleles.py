@@ -21,7 +21,6 @@ import concurrent.futures
 from ..models.models import Alleledbentity, LocusAlias, Dbentity, DBSession, Straindbentity, Referencedbentity
 from ..data_helpers.data_helpers import get_output, get_locus_alias_data
 
-
 engine = create_engine(os.getenv('SQLALCHEMY_PROD_DB_URI'), pool_recycle=3600)
 SUBMISSION_VERSION = os.getenv('SUBMISSION_VERSION', '_1.0.0.0_')
 DBSession.configure(bind=engine)
@@ -134,9 +133,11 @@ def get_allele_information(root_path):
         try:
             for alleleObj in alleleObjList:
                 simple_allele_obj = alleleObj.to_simple_dict()
-                if re.search("\<sub\>", simple_allele_obj["format_name"]) or not simple_allele_obj["affected_geneObj"]:
-                  print("skipping: " + simple_allele_obj["format_name"])
-                  continue 
+                if re.search("\<sub\>", simple_allele_obj["format_name"]
+                             ) or not simple_allele_obj["affected_geneObj"]:
+
+                    print("skipping: " + simple_allele_obj["format_name"])
+                    continue
                 #print("|".join(dir(alleleObj)))
                 #print ("|").join(simple_allele_obj.keys())
                 obj = {}
@@ -153,45 +154,51 @@ def get_allele_information(root_path):
                 # "crossReferences": ["id":"Allele SGDID", "pages":["allele"]]
 
                 #print(simple_allele_obj["sgdid"] + " allele's affected gene:")
-                
+
                 obj["primaryId"] = "SGD:" + simple_allele_obj["sgdid"]
                 obj["symbolText"] = simple_allele_obj["format_name"]
                 obj["symbol"] = simple_allele_obj["display_name"]
                 #print("desc: " + simple_allele_obj["description"])
                 if simple_allele_obj["description"] is not None:
-                  if simple_allele_obj["description"] != "":
-                    obj["description"] = simple_allele_obj["description"]
+                    if simple_allele_obj["description"] != "":
+                        obj["description"] = simple_allele_obj["description"]
                 obj["taxonId"] = "NCBITaxon:" + DEFAULT_TAXID
 
-                if "aliases" in simple_allele_obj.keys() and simple_allele_obj['aliases'] is not None:
-                  obj["synonyms"] =[]
-                  for aliasObj in simple_allele_obj["aliases"]:
-                    obj["synonyms"].append(aliasObj["display_name"])                    
-                    #obj["synonyms"] #= aliasList #simple_allele_obj["aliases"])
+                if "aliases" in simple_allele_obj.keys(
+                ) and simple_allele_obj['aliases'] is not None:
+                    obj["synonyms"] = []
+                    for aliasObj in simple_allele_obj["aliases"]:
+                        obj["synonyms"].append(aliasObj["display_name"])
+                        #obj["synonyms"] #= aliasList #simple_allele_obj["aliases"])
                 obj["crossReferences"] = [{
-                      "id": "SGD:" + simple_allele_obj["sgdid"],
-                      "pages": ["allele"]
+                    "id":
+                    "SGD:" + simple_allele_obj["sgdid"],
+                    "pages": ["allele"]
                 }]
                 #obj["alleleObjectRelations"] = []
 
                 #TODO: alleleObj.affected_gene.sgdid doesn't have field sgdid; #skip for rdn25-C2925A, rdn25-C2942A, rdn25-U2861A, rdn25-A2941C
-                # maybe switch to 'sgdid' for affected gene so it will be faster? 
+                # maybe switch to 'sgdid' for affected gene so it will be faster?
                 #if simple_allele_obj["format_name"] != ("rdn25-C2925A" or "rdn25-C2942A" or "rdn25-U2861A" or "rdn25-A2941C"):
-                if simple_allele_obj["affected_geneObj"]:  # check the affected gene object; skip if None (should be None if no affected Gene or multiple affected Genes) 
-                  #print(simple_allele_obj["affected_geneObj"].sgdid) 
-                  obj["alleleObjectRelations"]=[{"objectRelation":
-                        {"associationType":
-                        "allele_of",
-                        "gene":
-                        "SGD:" + simple_allele_obj["affected_geneObj"].sgdid
-                    }
+                if simple_allele_obj[
+                        "affected_geneObj"]:  # check the affected gene object; skip if None (should be None if no affected Gene or multiple affected Genes)
+                    #print(simple_allele_obj["affected_geneObj"].sgdid)
+                    obj["alleleObjectRelations"] = [{
+                        "objectRelation": {
+                            "associationType":
+                            "allele_of",
+                            "gene":
+                            "SGD:" +
+                            simple_allele_obj["affected_geneObj"].sgdid
+                        }
                     }]
-                #print ("done with " + simple_allele_obj["sgdid"]) 
-                  
+                #print ("done with " + simple_allele_obj["sgdid"])
+
                 result.append(obj)
         except Exception as e:
-          import pdb; pdb.set_trace()
-          print(e)
+            import pdb
+            pdb.set_trace()
+            print(e)
 
     if (len(result) > 0):
         output_obj = get_output(result)

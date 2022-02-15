@@ -87,7 +87,7 @@ def get_disease_association_data(root_path):
                 "objectId": "",
                 "dateAssigned": "",
                 "dataProvider": [],
-                "with": [],
+                #  "with": [],
                 "evidence": {
                     "evidenceCodes": [],
                     "publication": {
@@ -106,8 +106,10 @@ def get_disease_association_data(root_path):
 
             #  print "|".join(supporting_evidences.dbxref_id)
 
-            for evidence in supporting_evidences:
-                evidence_list.append(evidence.dbxref_id)
+            if len(supporting_evidences) > 0:
+                for evidence in supporting_evidences:
+                    evidence_list.append(evidence.dbxref_id)
+                obj["with"] = evidence_list
 
         #  keyList = []
         # keylist = [str(item.disease.disease_id), str(item.dbentity.sgdid), str(item.reference.pmid)] #+ evidence_list
@@ -163,7 +165,7 @@ def get_disease_association_data(root_path):
                     "%Y-%m-%dT%H:%m:%S-00:00")
                 obj["evidence"]["evidenceCodes"].append(item.eco.ecoid)
                 obj["evidence"]["publication"]["publicationId"] = pubidref
-                obj["with"] = evidence_list
+                #            obj["with"] = evidence_list
                 obj["dataProvider"].append({
                     "crossReference": {
                         "id": "SGD:" + str(item.dbentity.sgdid),

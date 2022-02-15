@@ -134,7 +134,7 @@ def get_htp_sample_metadata(root_path):
     for sampleObj in datasetSamples:
         #print str(sample_num) + ". sample ID: " + sampleObj.display_name
         dataset = sampleObj.dataset
-        dsAssayObi = dataset.assay.obiid
+        dsAssayObi = sampleObj.assay.obiid
 
         # check for references #
         dsRef = DBSession.query(DatasetReference).filter_by(
@@ -201,8 +201,8 @@ def get_htp_sample_metadata(root_path):
                 if dsSample.dataset.dbxref_id and dsSample.dataset.dbxref_id not in dsList:
                     dsList.append(dsSample.dataset.dbxref_type + ":" +
                                   dsSample.dataset.dbxref_id)
-                    if dsSample.dataset.assay.obiid not in dsassayList:
-                        dsassayList.append(dsSample.dataset.assay.obiid)
+                    if dsSample.assay.obiid not in dsassayList:
+                        dsassayList.append(dsSample.assay.obiid)
 
                 #  "datasetId": [primaryIds],
             # break
