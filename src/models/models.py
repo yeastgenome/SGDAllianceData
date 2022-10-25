@@ -7760,6 +7760,7 @@ class Diseaseannotation(Base):
     reference = relationship('Referencedbentity', foreign_keys=[reference_id])
     source = relationship('Source')
     taxonomy = relationship('Taxonomy')
+  ##  strain = relationship('Straindbentity',foreign_keys=[taxonomy_id])
     ro = relationship('Ro')
 
     def to_dict_lsp(self):
@@ -12356,6 +12357,12 @@ class Alleledbentity(Dbentity):
     description = Column(String(500), nullable=True)
 
     so = relationship('So')
+    dbent = relationship('Dbentity')
+
+   # def get_dbentity_obj (self):
+   #     obj = DBSession.query(DBEntity).filter_by(
+   #         dbentity_id=self.dbentity_id).one()
+   #     return obj
 
     def to_simple_dict(self):
         reference_mapping = {}
@@ -12371,7 +12378,11 @@ class Alleledbentity(Dbentity):
 
         obj['format_name'] = self.format_name
         obj['display_name'] = self.display_name
-        obj['affected_geneObj'] = self.get_affected_geneObj()
+        obj['affected_geneObjs'] = self.get_affected_geneObjs()
+        obj['references'] = self.get_references()
+        obj['date_created'] = self.dbent.date_created
+    #    obj['phenotype_references'] = self.get_phenotype_references()
+    #    obj['interaction_references'] = self.get_interaction_references()
 
         return obj
 
@@ -12396,14 +12407,20 @@ class Alleledbentity(Dbentity):
         obj['interaction_references'] = self.get_interaction_references()
         obj['urls'] = self.get_resource_urls()
         obj['reference_mapping'] = reference_mapping
+     #   obj['date_created'] =  self.dbentity_id.date_created  
 
         return obj
 
-    def get_affected_geneObj(self):
+    def get_affected_geneObjs(self):
+       # print("allele dbentityId:" + str(self.dbentity_id))
+        geneObjList = []
+
         try:
             la = DBSession.query(LocusAllele).filter_by(
-                allele_id=self.dbentity_id).one_or_none()
-            return la.locus
+                allele_id=self.dbentity_id).all()
+            for each in la:
+                geneObjList.append(each.locus)
+            return geneObjList
         except:
             return None
 

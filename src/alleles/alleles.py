@@ -183,15 +183,15 @@ def get_allele_information(root_path):
                 if simple_allele_obj[
                         "affected_geneObj"]:  # check the affected gene object; skip if None (should be None if no affected Gene or multiple affected Genes)
                     #print(simple_allele_obj["affected_geneObj"].sgdid)
-                    obj["alleleObjectRelations"] = [{
+                    affectedGenesList = []
+                    for each in simple_allele_obj["affected_geneObj"]:
+                        affectedGenesList.append
+                          (
                         "objectRelation": {
-                            "associationType":
-                            "allele_of",
-                            "gene":
-                            "SGD:" +
-                            simple_allele_obj["affected_geneObj"].sgdid
-                        }
-                    }]
+                            "associationType":"allele_of",
+                            "gene":"SGD:" + each.sgdid
+                        })
+                    obj["alleleObjectRelations"] = affectedGenesList
                 #print ("done with " + simple_allele_obj["sgdid"])
 
                 result.append(obj)

@@ -207,3 +207,23 @@ def get_output(result_data):
         return output_obj
     else:
         return None
+
+def get_pers_output(submission_type, result_data):
+    """Get generated data and format it to fit Alliance persistent schema.
+
+    Parameters
+    ----------
+    result_data: list
+
+    Returns
+    -------
+    dictionary
+    """
+
+    if (result_data):
+        output_obj = {
+            submission_type : result_data
+        }
+        return output_obj
+    else:
+        return None

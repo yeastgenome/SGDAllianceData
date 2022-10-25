@@ -93,18 +93,47 @@ DBSession.configure(bind=engine)
 
 DEFAULT_TAXID = '559292'
 REFTYPE_TO_ALLIANCE_CATEGORIES ={
-"Journal Article": "Research Article",#
+"Journal Article": "Research Article",
+"Comparative Study":"Research Article",
+"Evaluation Study":"Research Article",
+"English Abstract":"Conference Publication",
+"Historical Article":"Research Article",
+"Case Reports":"Research Article",
+"Introductory Journal Article":"Research Article",
+"Chapter":"Research or review article",
+"Meta-Analysis":"Research Article",
+"Lecture": "Conference Publication",
+"Technical Report":"Research Article",
+"Corrected and Republished Article":"Research Article",
+"Book":"Book",
+"Randomized Controlled Trial":"Research Article",
+"Clinical Trial":"Research Article",
+"Dataset":"Direct Submission",
+"Personal Communication in Publication":"Personal Communication",
+"Classical Article":"Research Article",
+"Book Chapter":"Research Article",
+"Controlled Clinical Trial":"Research Article",
+"Systematic Review":"Review Article",
+"Duplicate Publication":"Research Article",
+"Consensus Development Conference":"Conference Publication",
+"Overall":"Conference Publication",
+"Corrected And Republished Article":"Research Article",#
 "Review": "Review Article",#
 "Thesis": "Thesis",#
 "Book": "Book",#
 "Other": "Other",#
 "Preprint": "Preprint",#
-"Clinical Conference": "Conference Publication",#
+"Clinical Conference": "Research Publication",#
 "Personal Communication in Publication": "Personal Communication",#
 "Direct Submission to SGD": "Direct Data Submission",#
-#"": "Internal Process Reference",
+"Published Erratum":"Research Article",
+"Congress":"Conference Publication",
 "Unknown": "Unknown",#
-"Retracted Publication": "Retraction"}#
+"Retracted Publication": "Retraction",
+"Clinical Study": "Clinical Trial,
+"Observational Study": "Research Article",
+"Randomized Controlled Trial, Veterinary": "Research Article",
+"Expression of Concern":"Other"}#
 
 def make_ref_obj(refObj):
     

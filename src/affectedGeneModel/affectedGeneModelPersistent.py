@@ -1,4 +1,4 @@
-""" Affected Gene Model information for Alliance data submission
+""" Affected Gene Model information for Alliance data submission for persistent store
 
 The script extracts data into a dictionary that is written to a json file.
 The json file is submitted to Alliance for futher processing
@@ -7,6 +7,7 @@ This file requires packages listed in requirements.txt file and env.sh file.
 The env.sh file contains environment variables
 
 08/09/20 - initially getting Strain background information for 12 common lab strains for AGM
+03/2022 - getting all strain backgrounds in database
 
 """
 
@@ -18,8 +19,10 @@ from random import randint
 from datetime import datetime
 from sqlalchemy import create_engine, and_, inspect
 import concurrent.futures
+
+#from src.disease.disease_persistent import SUBMISSION_TYPE
 from ..models.models import LocusAlias, Dbentity, DBSession, Straindbentity, Referencedbentity
-from ..data_helpers.data_helpers import get_output, get_locus_alias_data
+from ..data_helpers.data_helpers import get_output, get_locus_alias_data, get_pers_output
 
 engine = create_engine(os.getenv('SQLALCHEMY_PROD_DB_URI'), pool_recycle=3600)
 SUBMISSION_VERSION = os.getenv('SUBMISSION_VERSION', '_1.0.0.0_')
@@ -54,66 +57,25 @@ SO:0000286	long terminal repeat (keep for non-gene)
 SO:0000186	LTR retrotransposon (keep for non-gene)
 
 AGM object:
-# requirements -- name, primaryId and taxonId
+# requirements -- name, primaryId and taxon, subtype (strain), internal (false/true)
 
-properties": {
-    "primaryID": {
-      "$ref" : "../globalId.json#/properties/globalId",
-      "description": "The prefixed primary (MOD) ID for an entity. For internal AGR use, e.g. FB:FBgn0003301, MGI:87917."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the entity."
-    },
-    "subtype":{
-      "enum": ["strain", "genotype"],
-      "description": "a typing field that further qualifies an affectedGenomicModel as a strain or genotype.  This field is optional because some submissions will simply be submitting affectedGenomicModels that are more than just strains or genotypes, but fill the same biological model space as strains and genotypes at this time."
-    },
-    "taxonId": {
-      "$ref" : "../globalId.json#/properties/globalId",
-      "description" : "The taxonId for the species of the genotype entity."
-    },
-    "crossReference": {
-      "description":"MOD database cross references for each genotype;the link back to the MOD.",
-      "$ref" : "../crossReference.json#"
-    },
-    "synonyms": {
-      "type": "array",
-      "items": {
-         "type": "string"
-      },
-    "uniqueItems": true
-    },
-    "secondaryIds":{
-      "type": "array",
-      "items": {
-         "type": "string"
-      },
-    "uniqueItems": true
-    },
-    "affectedGenomicModelComponents": {
-      "description": "Collection of genomic components that make up a model, ie: 'allele', each with a zygosity",
-       "type": "array",
-       "items": {
-         "$ref" : "affectedGenomicModelComponent.json#"
-       },
-      "uniqueItems": true
-    },
-    "sequenceTargetingReagentIDs": {
-      "description": "Collection of sequence targeting reagent components that make up a genotype.",
-       "type": "array",
-       "items": {
-         "$ref" : "../globalId.json#/properties/globalId"
-       },
-      "uniqueItems": true
-    },
-    "parentalPopulationIDs": { "description": "Collection of background components that make up a genotype.",
-       "type": "array",
-       "items": {
-         "$ref" : "../globalId.json#/properties/globalId"
-       },
-      "uniqueItems": true
-     }
+{
+    "agm_ingest_set": [
+        {"curie":"SGD:S00000xxxx", 
+        "taxon": "NCBITaxon:xxxx",
+        "created_by": "SGD:CURATOR",
+        "modified_by": "SGD:CURATOR",
+        "internal":"false",
+        "name":"display_name",
+        "synonyms": [{"synonym":"name","internal":"false"}],
+        "secondary_identifiers":{"YYY","ZZZZ"},
+        "references":[],
+        "subtype":"strain",
+        "creation_date":"date",
+        "data_provider":"SGD"
+        }
+    ]
+    
   }
 
 SO_TYPES_TO_EXCLUDE = [
@@ -129,7 +91,7 @@ SO_TYPES_TO_EXCLUDE = [
 #]
 
 DEFAULT_TAXID = '559292'
-
+SUBMISSION_TYPE= 'agm_ingest_set'
 
 def get_agm_information(root_path):
     """ Extract Affected Gene Model (AGM) information.
@@ -166,13 +128,12 @@ def get_agm_information(root_path):
         with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
             for item in combined_list:
                 strainobj = DBSession.query(Straindbentity).filter(Straindbentity.dbentity_id == item.dbentity_id).one()
-                
                 if re.match('NTR', strainobj.taxonomy.taxid):
-                  taxon = DEFAULT_TAXID #strainobj.taxonomy.taxid
+                    taxon = DEFAULT_TAXID   #strainobj.taxonomy.taxid
                 else:
-                  taxon = strainobj.taxonomy.taxid.split(":")[1]
+                    taxon = strainobj.taxonomy.taxid.split(":")[1]
 
-                obj = {
+                obj = {#"internal":False
                     #"primaryID": "",
                     #    "name": "STRING",
                     #    "subtype": "strain",
@@ -181,24 +142,32 @@ def get_agm_information(root_path):
                     #    "synonyms": [],
                     #    "secondaryIds": []
                 }
-                obj["primaryID"] = "SGD:" + item.sgdid
+                obj["curie"] = "SGD:" + item.sgdid
                 obj["name"] = item.display_name
                 obj["subtype"] = "strain"
-                obj["taxonId"] = "NCBITaxon:" + taxon # DEFAULT_TAXID
+                obj["taxon"] = "NCBITaxon:" + taxon #strainobj.taxonomy.taxid
+                obj["internal"] = False
+                obj["data_provider"] = "SGD"
+              #  obj["creation_date"] = item.date
+              #  obj["created_by"] = item.created_by
+              #  obj[""]
 
                 # item = combined_list[item_key]  #["locus_obj"]
 
-                obj["crossReference"] = {
-                    "id": "SGD:" + item.sgdid,
-                    "pages": ["strain"]
-                }
+            #    obj["crossReference"] = {
+            #        "id": "SGD:" + item.sgdid,
+            #        "pages": ["strain"]
+            #    }
 
                 result.append(obj)
 
             if (len(result) > 0):
-                output_obj = get_output(result)
+                output_obj = get_pers_output(SUBMISSION_TYPE, result)
 
-                file_name = 'src/data_dump/SGD' + SUBMISSION_VERSION + 'affectedGeneModel.json'
+                file_name = 'src/data_dump/SGD' + SUBMISSION_VERSION + 'agmPersistent.json'
+
                 json_file_str = os.path.join(root_path, file_name)
+
                 with open(json_file_str, 'w+') as res_file:
                     res_file.write(json.dumps(output_obj))
+ 
